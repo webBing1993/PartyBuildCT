@@ -125,9 +125,12 @@
   background-size: 4vw 4vw;
   padding-left: 4.8vw;
 }
+#refreshContainer {
+  padding-bottom: 13.4vw;
+}
 /*评论*/
 .comment {
-  padding-bottom: 13.4vw;
+  /*padding-bottom: 13.4vw;*/
 }
 .comment .sum {
   height: 8vw;
