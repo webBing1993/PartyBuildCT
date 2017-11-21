@@ -27,6 +27,7 @@ class News extends Base {
         return $this->fetch();
     }
 
+
     /**
      * 新闻内容页
      */
