@@ -1,0 +1,81 @@
+{extend name="public/common"}
+
+{block name="style"}
+<title>云上组织</title>
+<link rel="stylesheet" href="/home/css/structure/structure.css">
+
+{/block}
+
+{block name="body"}
+<div class="banner">
+	<img src="/home/images/banner/2.png" alt="组织架构banner" class="banner-img">
+</div>
+<div class="tabs">
+	<span class="tab active"><span>组织介绍</span></span>
+	<span class="tab"><span>组织架构</span></span>
+</div>
+<div class="listbox">
+	<div class="box summary active">
+		<div class="box_ ">
+			<p>	镇西村位于石淙镇的西面，西邻菱湖镇菱东村，北靠和孚镇横港村,村区域内地势平坦，河港鱼塘密布，属典型的江南水网平原。全村区域面积5.19平方公里,村域内有墙莫公路穿越而过，交通便利，风光秀美，民风淳朴。村下辖24个村民小组，总户数801户，总人口数2858人。镇西村设党总支1个，下辖3个党支部，分别为镇西村第一党支部、镇西村第二党支部和镇西村企业党支部，共有正式党员92名，总支委员会由4人组成。2017年新发展党员1名，列为入党积极分子2名。</p>
+		</div>
+	</div>
+	<div class="town box hidden">
+		<!--小镇党委-->
+		<div class="box_ or">
+			<div class="lists">
+				<!--第一层-->
+				<div class="list clear">
+					<div class="party1">
+						<!--<div class="tri-left structure1"></div>-->
+						<a href="{:Url('Structure/detail')}"><div class="name1">石淙镇</div></a>
+					</div>
+					<div class="party1">
+						<!--<div class="tri-left structure1"></div>-->
+						<a href="{:Url('Structure/detail')}"><div class="name1">石淙镇</div></a>
+					</div>
+					<!--第二层-->
+					<!--<div class="down detail1">
+						<a class="name2 limit" href="{:Url('Structure/detail')}">镇西村党总支部<span class="rt sj"></span></a>
+					</div>-->
+					<!--/第二层-->
+				</div>
+				<!--/第一层-->
+			</div>
+		</div>
+
+		<!--/小镇党委-->
+	</div>
+
+
+</div>
+
+{/block}
+
+{block name="script"}
+<script src="/home/js/reset.js"></script>
+<script src="/home/js/jquery.lazyload.min.js"></script>
+<script>
+
+
+$(function(){
+	/*$('.name2' ).each(function(){
+		var t = $(this ).text();
+		var href = '/home/structure/detail?party='+t+'';
+		$(this ).attr('href', href);
+	})*/
+	$(function(){
+//		//tab值记录
+		tabRecord('.tab' ,'.box');
+//		//tab切换
+		tabSwitch('.tab' ,'.box');
+		//上拉加载
+	});
+	$(function() {
+		$("img.lazy").lazyload({effect: "fadeIn"});
+	});
+});
+
+
+</script>
+{/block}
