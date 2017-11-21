@@ -1,0 +1,198 @@
+.title {
+  font-size: .37rem;
+  color: #333333;
+}
+.note {
+  font-size: .32rem;
+  color: #999999;
+}
+.article p {
+  width: 100%;
+  word-break: break-all;
+  text-indent: 2em;
+  line-height: 1.4;
+}
+.banner {
+  width: 100vw;
+  height: 50vw;
+}
+.banner .banner-img {
+  width: 100%;
+  height: 100%;
+}
+.banner .arc {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2.6666vw;
+  z-index: 2;
+}
+.content {
+  width: 100%;
+  overflow: hidden;
+}
+.content .top {
+  width: 100%;
+  padding-left: 3.4666vw;
+  padding-right: 3.4666vw;
+}
+.content .top .title {
+  font-weight: 600;
+  margin-top: 4vw;
+  margin-bottom: 2.6666vw;
+  text-align: center;
+}
+.content .top .title p {
+  display: inline-block;
+  width: auto;
+  text-align: left;
+  color: #333;
+}
+.content .top .note span {
+  height: 10.6666vw;
+  display: inline-block;
+  margin-right: 2.6666vw;
+  line-height: 10.6666vw;
+}
+.content .top .read {
+  background: url('/home/images/detail/scan_.png') 0 3.2vw no-repeat;
+  background-size: 4vw 4vw;
+  padding-left: 4.8vw;
+}
+.content .top .col {
+  background: url('/home/images/detail/star-border.png') 0 3.2vw no-repeat;
+  background-size: 4vw 4vw;
+  padding-left: 4.8vw;
+}
+.content .message {
+  /*margin-top: 4vw;*/
+  margin-bottom: 4vw;
+  border-top: 0.2666vw solid #eeeeee;
+  /*border-bottom: 0.2666vw solid #eeeeee;*/
+}
+.content .message div {
+  width: 100%;
+  height: 10.6666vw;
+  padding-left: 13.3333vw;
+  line-height: 10.6666vw;
+  border-bottom: 0.2666vw dashed #eeeeee;
+}
+.content .message div span {
+  display: inline-block;
+  width: 100%;
+  padding-right: 4vw;
+}
+.content .message div span:nth-child(5) {
+  border-bottom: none;
+}
+.content .message div:nth-child(3) span {
+  padding-right: 0!important;
+}
+.content .message div:nth-child(1) {
+  background: url("/home/images/detail/time.png") 4vw 2.6666vw no-repeat;
+  background-size: 5.3333vw 5.3333vw;
+}
+.content .message div:nth-child(2) {
+  background: url("/home/images/detail/address.png") 4vw 2.6666vw no-repeat;
+  background-size: 5.3333vw 5.3333vw ;
+}
+.content .message div:nth-child(3) {
+  background: url("/home/images/detail/people.png") 4vw 2.6666vw no-repeat;
+  background-size: 5.3333vw 5.3333vw ;
+}
+.content .article {
+  width: 100%;
+  padding-left: 3.4666vw;
+  padding-right: 3.4666vw;
+  margin-bottom: 6vw;
+}
+.content .article .good {
+  background: url('/home/images/detail/good.png') 0 0.5333vw no-repeat;
+}
+.content .article .good.good_ {
+  background: url('/home/images/detail/good_.png') 0 0.5333vw no-repeat;
+}
+.content .article .isgood {
+  background-size: 4vw 4vw;
+  padding-left: 4.8vw;
+  line-height: 5vw;
+}
+.content .article * {
+  max-width: 100%!important;
+}
+/*评论*/
+.comment {
+  /*padding-bottom: 13.3333vw;*/
+}
+.comment .sum {
+  height: 8vw;
+  padding-left: 2.6666vw;
+  background: #fbfbfb;
+  border-top: 0.2666vw solid #dadada;
+  border-bottom: 0.2666vw solid #dadada;
+  font-size: .32rem;
+  line-height: 8vw;
+}
+.comment .lists .list {
+  width: 100%;
+  padding-left: 3.4666vw;
+  padding-right: 3.4666vw;
+  min-height: 26.6666vw;
+  border-bottom: 0.2666vw solid #dadada;
+}
+.comment .lists .list .fl img {
+  width: 8vw;
+  height: 8vw;
+  margin-top: 3.4666vw;
+  margin-right: 2.6666vw;
+  overflow: hidden;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+.comment .lists .list .mid {
+  width: 73%;
+}
+.comment .lists .list .mid .name {
+  width: 100%;
+  height: 14.9333vw;
+  line-height: 14.9333vw;
+  color: #666666;
+}
+.comment .lists .list .mid .content {
+  width: 100%;
+  word-break: break-all;
+}
+.comment .lists .list .mid .time {
+  font-size: .32rem;
+  line-height: 5.3333vw;
+  color: #666666;
+}
+.comment .lists .list .fr {
+  margin-top: 4vw;
+  color: #666666;
+}
+.comment .lists .list .good {
+  background: url('/home/images/detail/good.png') 0 0.5333vw no-repeat;
+}
+.comment .lists .list .good_ {
+  animation: shake 300ms ease;
+  -webkit-animation: shake 300ms ease;
+  background: url('/home/images/detail/good_.png') 0 0.5333vw no-repeat;
+}
+.comment .lists .list .isgood {
+  background-size: 4vw 4vw;
+  padding-left: 4.8vw;
+  line-height: 5vw;
+}
+.comment .tip {
+  height: 10.6666vw;
+  text-align: center;
+  line-height: 10.6666vw;
+  color: #c1c1c1;
+}
+@media (max-width: 320px) {
+  .myword input {
+    width: 85.3333vw;
+  }
+}

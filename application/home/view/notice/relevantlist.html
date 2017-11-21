@@ -1,0 +1,171 @@
+{extend name="public/common"}
+
+{block name="style"}
+<title>三会一课</title>
+<link rel="stylesheet" href="/home/css/notice/relevantlist.css">
+{/block}
+
+{block name="body"}
+<!--<div class="default">
+	<img src="/home/images/notice/nomessage.png" alt="暂无消息">
+</div>-->
+<div id="refreshContainer" class="mui-content mui-scroll-wrapper">
+	<div class="mui-scroll">
+		<div class="mui-slider-group">
+			<div class="lists">
+				<!--两种状态：ing进行中，over已结束-->
+				<!-- 循环体-->
+				<a href="{:Url('Notice/relevant')}" class="list">
+					<div class="title limit">标题</div>
+					<div class="content limit_">区域内容</div>
+					<div class="note clear">
+						<span class="fl over">已结束</span>
+						<!--<span class="fl ing">进行中</span>-->
+						<span class="time fr">2017-11-21</span>
+					</div>
+				</a>
+				<!-- 循环体-->
+				<a href="{:Url('Notice/relevant')}" class="list">
+					<div class="title limit">标题</div>
+					<div class="content limit_">区域内容</div>
+					<div class="note clear">
+						<span class="fl over">已结束</span>
+						<!--<span class="fl ing">进行中</span>-->
+						<span class="time fr">2017-11-21</span>
+					</div>
+				</a>
+				<!-- 循环体-->
+				<a href="{:Url('Notice/relevant')}" class="list">
+					<div class="title limit">标题</div>
+					<div class="content limit_">区域内容</div>
+					<div class="note clear">
+						<span class="fl over">已结束</span>
+						<!--<span class="fl ing">进行中</span>-->
+						<span class="time fr">2017-11-21</span>
+					</div>
+				</a>
+				<!-- 循环体-->
+				<a href="{:Url('Notice/relevant')}" class="list">
+					<div class="title limit">标题</div>
+					<div class="content limit_">区域内容</div>
+					<div class="note clear">
+						<!--<span class="fl over">已结束</span>-->
+						<span class="fl ing">进行中</span>
+						<span class="time fr">2017-11-21</span>
+					</div>
+				</a>
+				<!-- 循环体-->
+				<a href="{:Url('Notice/relevant')}" class="list">
+					<div class="title limit">标题</div>
+					<div class="content limit_">区域内容</div>
+					<div class="note clear">
+						<!--<span class="fl over">已结束</span>-->
+						<span class="fl ing">进行中</span>
+						<span class="time fr">2017-11-21</span>
+					</div>
+				</a>
+				<!-- 循环体-->
+				<a href="{:Url('Notice/relevant')}" class="list">
+					<div class="title limit">标题</div>
+					<div class="content limit_">区域内容</div>
+					<div class="note clear">
+						<!--<span class="fl over">已结束</span>-->
+						<span class="fl ing">进行中</span>
+						<span class="time fr">2017-11-21</span>
+					</div>
+				</a>
+				<!-- 循环体-->
+				<a href="{:Url('Notice/relevant')}" class="list">
+					<div class="title limit">标题</div>
+					<div class="content limit_">区域内容</div>
+					<div class="note clear">
+						<!--<span class="fl over">已结束</span>-->
+						<span class="fl ing">进行中</span>
+						<span class="time fr">2017-11-21</span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+
+{block name="script"}
+<script>
+window.onload = function () {
+	if ($(".lists .list").length < 6) {
+		mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
+	} else {
+		mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
+	}
+};
+mui.init({
+	pullRefresh : {
+		container: "#refreshContainer",
+		up : {
+			callback : loadScroll
+		}
+	}
+});
+function loadScroll() {
+	var len = $(".lists .list").length;
+	$.ajax({
+		type: "post",
+		url: "",
+		data: {
+			length: len
+		},
+		beforeSend: function(XMLHttpRequest){
+		},
+		success:function(data){
+			addCourse(data);
+			if(data.code == 1){
+				var dataLen =data.data.length;
+				if(data.data.length == 6){
+					mui('#refreshContainer').pullRefresh().endPullupToRefresh(false);
+				}else{
+					mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
+				}
+			}else{
+				mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
+			}
+		}
+	})
+}
+
+function addCourse(data) {
+	var html = '';
+	var lists = data.data;
+	var len = lists.length;
+	console.log(len);
+	for(var i = 0; i< len;i++){
+		var list = lists[i];
+		html +=
+				'<a href="/home/notice/relevant/id/'+ list.id+'.html" class="list">'+
+				'<div class="title limit">'+list.title+'</div>'+
+				'<div class="content limit_">'+list.description+'</div>'+
+				'<div class="note clear">';
+		if(list.state == 0){
+			html +=	'<span class="fl ing">进行中</span>'
+		}else{
+			html +=	'<span class="fl over">已结束</span>'
+		}
+		html +=
+				'<span class="time fr">'+list.time+'</span>'+
+				'</div>'+
+				'</a>'
+	}
+	$(".lists" ).append(html);
+}
+mui("#refreshContainer").on("touchstart","a",function(){
+	$(this).css("backgroundColor","rgba(0,0,0,.1)");
+}).on("touchend","a", function () {
+	$(this).css("backgroundColor","#fff");
+});
+mui("#refreshContainer").on("tap","a",function(){
+	var url = this.getAttribute("href");
+	window.location.href = url;
+})
+
+</script>
+{/block}
