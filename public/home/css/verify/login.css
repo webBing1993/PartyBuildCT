@@ -46,13 +46,13 @@
     right:5vw;
 }
 .login-box:before,.login-box:after{
-    border-radius: 10px;
+    border-radius: 2.7vw;
     width: 70%;
     height: 50vw;
     content: ' ';
-    -webkit-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 4vw 5.4vw rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 4vw 5.4vw rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4vw 5.4vw rgba(0, 0, 0, 0.3);
     position: absolute;
     top: 38vw;
     z-index: -99;
@@ -61,7 +61,7 @@
     line-height: 24vw;
     text-align: center;
     font-weight: 100;
-    font-size: 2.4rem;
+    font-size: .64rem;
     color: #828282;
     font-family: "幼圆";
 }
@@ -116,7 +116,7 @@
     background-size: 100% 100%;
     margin:0 auto;
     line-height: 10.67vw;
-    font-size: 2rem;
+    font-size: .53rem;
     text-align: center;
     color: #ffffff;
     margin-top:20vw;
