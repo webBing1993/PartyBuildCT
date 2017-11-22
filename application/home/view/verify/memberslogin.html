@@ -1,0 +1,120 @@
+{extend name="public/pure"}
+{block name="style"}
+<link rel="stylesheet" href="/home/css/verify/memberslogin.css">
+{/block}
+{block name="body"}
+<div class="banner">
+    <img src="/home/images/verify/loginbanner.png">
+    <p>测试党建名称</p>
+</div>
+<!-- 旋转-->
+<div class="cl">
+    <div>
+        <div class="cl1"></div>
+        <div class="cl2"></div>
+        <div class="cl3"></div>
+    </div>
+</div>
+
+<div class="box">
+<div class="login-box">
+    <div class="form">
+        <div class="uid">
+            <span></span><input type="text" maxlength="11" placeholder="请输入手机号" id="phone">
+        </div>
+    </div>
+</div>
+<div class="btn">登&emsp;录</div>
+    <a class="login" href="{:Url('Verify/tourist')}">游客模式入口<img src="/home/images/verify/loginentrance.png"></a>
+    <!--<a class="login" href="tel:400-900-9710">红色热线 400-900-9710</a>-->
+</div>
+<footer>
+    <img src="/home/images/verify/footer.png">
+</footer>
+
+{/block}
+{block name="script"}
+<script src="/admin/js/plugins/sweetalert/sweetalert.min.js"></script>
+<script>
+    $(function(){
+        $('.btn').on("click",function(){
+            login()
+        });
+        //绝对定位bug
+        var vh =$(window).height() - $('footer').height() - $('.banner').height() - $('.box').height();
+        if(vh < 0){
+            vh = '10vw';
+        }
+
+        $('footer').css({
+            'position': 'relative',
+            'margin-top': vh
+        });
+
+
+    });
+    /**登陆**/
+    function login(){
+        var re=reg();
+        var uid=$('.uid>input').val();
+        if(re==true){
+            $.ajax({
+                url: "{:Url('Verify/login')}",
+                type: 'post',
+                data: {
+                    user: uid
+                },
+                success:function(data){
+                    //data.code  1为成功 0为失败
+                    if(data.code == 1){
+                        swal({
+                            title: ' ',
+                            text: data.msg,
+                            type: 'success',
+                            confirmButtonText:'确定'
+                        });
+                        var url = data.url;
+                        //如果没有session的Url就默认跳首页
+                        if(url = '/home/index/null') {
+                            url = '/home/index/index';
+                        }
+                        setTimeout(function(){
+                            window.location.replace(url);
+                        },1000);
+                    }else{
+                        swal({
+                            title: ' ',
+                            text: data.msg,
+                            type: 'error',
+                            confirmButtonText:'确定'
+                        });
+                    }
+                }
+            })
+        }else{
+            swal({
+                title: ' ',
+                text: re,
+                type: 'error',
+                confirmButtonText:'确定'
+            });
+        }
+    }
+    /**表单验证**/
+    function reg(){
+        var uid=$('.uid>input').val();
+        if(uid==''||uid==null){
+            return "请输入您的手机号码";
+        }else{
+            var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+            if(!myreg.test(uid)||uid.length<11)
+            {
+                return '请输入有效的手机号码！';
+            }else{
+                return true
+            }
+        }
+    }
+
+</script>
+{/block}
