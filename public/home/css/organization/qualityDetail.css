@@ -1,0 +1,93 @@
+/* 标题区域*/
+.article {
+    width: 100%;
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
+    padding-top: 3.5vw;
+}
+.title {
+    font-size: .48rem;
+    font-weight: 600;
+    text-align: center;
+}
+.title p {
+    display: inline-block;
+    width: auto;
+    text-align: left;
+    color: #333;
+}
+.article .note span {
+    font-size: .32rem;
+    color: #999;
+    line-height: 8vw;
+}
+/* 列表区*/
+.tableList {
+    width: 94vw;
+    margin: 0 auto;
+}
+.tableList table {
+    border: 1px solid #d7d7d7;
+}
+.tableList table tbody>tr {
+    /*line-height: 4vw;*/
+    text-align: left;
+    color: #666;
+    font-size: .32rem;
+}
+.tableList table th {
+    width: 20%;
+    padding: 1.6vw 0 1.6vw 1.6vw;
+    border-top: 1px solid #d7d7d7;
+    border-left: 1px solid #d7d7d7;
+}
+.tableList table td {
+    border-top: 1px solid #d7d7d7;
+    border-left: 1px solid #d7d7d7;
+    padding-left: 1.6vw;
+}
+/*conclusion*/
+.conclusion {
+    font-size: .37rem;
+    color: #333;
+    padding: 0 3vw;
+    margin: 8vw auto 9.6vw;
+}
+.conclusion p {
+    text-indent: 2em;
+    color: #333;
+    margin-top: 1.2vw;
+}
+.conclusion .note {
+    color: #999999;
+    font-size: .37rem;
+}
+.conclusion .note span {
+    height: 10.7vw;
+    display: inline-block;
+    margin-right: 2.7vw;
+    line-height: 10.7vw;
+}
+.conclusion .note_ span{
+    margin-right: 0;
+}
+.conclusion .note .read {
+    background: url('/home/images/detail/scan_.png') 0 3.2vw no-repeat;
+    background-size: 4vw 4vw;
+    padding-left: 4.8vw;
+}
+.conclusion .note .good {
+    background: url('/home/images/detail/good.png') 0 3.2vw no-repeat;
+}
+.conclusion .note .good_ {
+    animation: shake 300ms ease;
+    -webkit-animation: shake 300ms ease;
+    background: url('/home/images/detail/good_.png') 0 3.2vw no-repeat;
+}
+.conclusion .note .isgood {
+    background-size: 4vw 4vw;
+    padding-left: 4.8vw;
+}
+#refreshContainer {
+    padding-bottom: 13.4vw;
+}

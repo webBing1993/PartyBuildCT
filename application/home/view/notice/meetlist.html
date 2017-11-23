@@ -1,0 +1,219 @@
+{extend name="public/common"}
+
+{block name="style"}
+<link rel="stylesheet" href="/home/css/notice/meetlist.css">
+{/block}
+
+{block name="body"}
+<!--<div class="default">
+	<img src="/home/images/notice/nomessage.png" alt="暂无消息">
+</div>-->
+<div id="refreshContainer" class="mui-content mui-scroll-wrapper">
+	<div class="mui-scroll">
+		<div class="mui-slider-group">
+			<div class="lists">
+				<!-- 循环体-->
+				<a href="{:Url('Notice/meet')}" class="list clear">
+					<div class="fl">
+						<img src="/home/images/common/party.png" alt="图片">
+					</div>
+					<div class="fr right">
+						<div class="title limit_">会议情况的标题</div>
+						<div class="clear time">
+							<span class="fl">2017-11-21</span>
+							<span class="fr fa fa-angle-right"></span>
+						</div>
+					</div>
+				</a>
+				<!-- 循环体-->
+				<a href="{:Url('Notice/meet')}" class="list clear">
+					<div class="fl">
+						<img src="/home/images/common/party.png" alt="图片">
+					</div>
+					<div class="fr right">
+						<div class="title limit_">会议情况的标题</div>
+						<div class="clear time">
+							<span class="fl">2017-11-21</span>
+							<span class="fr fa fa-angle-right"></span>
+						</div>
+					</div>
+				</a>
+				<!-- 循环体-->
+				<a href="{:Url('Notice/meet')}" class="list clear">
+					<div class="fl">
+						<img src="/home/images/common/party.png" alt="图片">
+					</div>
+					<div class="fr right">
+						<div class="title limit_">会议情况的标题</div>
+						<div class="clear time">
+							<span class="fl">2017-11-21</span>
+							<span class="fr fa fa-angle-right"></span>
+						</div>
+					</div>
+				</a>
+				<!-- 循环体-->
+				<a href="{:Url('Notice/meet')}" class="list clear">
+					<div class="fl">
+						<img src="/home/images/common/party.png" alt="图片">
+					</div>
+					<div class="fr right">
+						<div class="title limit_">会议情况的标题</div>
+						<div class="clear time">
+							<span class="fl">2017-11-21</span>
+							<span class="fr fa fa-angle-right"></span>
+						</div>
+					</div>
+				</a>
+				<!-- 循环体-->
+				<a href="{:Url('Notice/meet')}" class="list clear">
+					<div class="fl">
+						<img src="/home/images/common/party.png" alt="图片">
+					</div>
+					<div class="fr right">
+						<div class="title limit_">会议情况的标题</div>
+						<div class="clear time">
+							<span class="fl">2017-11-21</span>
+							<span class="fr fa fa-angle-right"></span>
+						</div>
+					</div>
+				</a>
+				<!-- 循环体-->
+				<a href="{:Url('Notice/meet')}" class="list clear">
+					<div class="fl">
+						<img src="/home/images/common/party.png" alt="图片">
+					</div>
+					<div class="fr right">
+						<div class="title limit_">会议情况的标题</div>
+						<div class="clear time">
+							<span class="fl">2017-11-21</span>
+							<span class="fr fa fa-angle-right"></span>
+						</div>
+					</div>
+				</a>
+				<!-- 循环体-->
+				<a href="{:Url('Notice/meet')}" class="list clear">
+					<div class="fl">
+						<img src="/home/images/common/party.png" alt="图片">
+					</div>
+					<div class="fr right">
+						<div class="title limit_">会议情况的标题</div>
+						<div class="clear time">
+							<span class="fl">2017-11-21</span>
+							<span class="fr fa fa-angle-right"></span>
+						</div>
+					</div>
+				</a>
+				<!-- 循环体-->
+				<a href="{:Url('Notice/meet')}" class="list clear">
+					<div class="fl">
+						<img src="/home/images/common/party.png" alt="图片">
+					</div>
+					<div class="fr right">
+						<div class="title limit_">会议情况的标题</div>
+						<div class="clear time">
+							<span class="fl">2017-11-21</span>
+							<span class="fr fa fa-angle-right"></span>
+						</div>
+					</div>
+				</a>
+				<!-- 循环体-->
+				<a href="{:Url('Notice/meet')}" class="list clear">
+					<div class="fl">
+						<img src="/home/images/common/party.png" alt="图片">
+					</div>
+					<div class="fr right">
+						<div class="title limit_">会议情况的标题</div>
+						<div class="clear time">
+							<span class="fl">2017-11-21</span>
+							<span class="fr fa fa-angle-right"></span>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+
+{block name="script"}
+<script>
+
+	$(function () {
+		$("title").text("会议情况");
+	});
+
+window.onload = function () {
+	if ($(".lists .list").length < 9) {
+		mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
+	} else {
+		mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
+	}
+};
+mui.init({
+	pullRefresh : {
+		container: "#refreshContainer",
+		up : {
+			callback : loadScroll
+		}
+	}
+});
+function loadScroll() {
+	var len = $(".lists .list").length;
+	$.ajax({
+		type: "post",
+		url: "",
+		data: {
+			length: len
+		},
+		beforeSend: function(XMLHttpRequest){
+		},
+		success:function(data){
+			addCourse(data);
+			if(data.code == 1){
+				var dataLen =data.data.length;
+				if(data.data.length == 9){
+					mui('#refreshContainer').pullRefresh().endPullupToRefresh(false);
+				}else{
+					mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
+				}
+			}else{
+				mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
+			}
+		}
+	})
+}
+
+function addCourse(data) {
+	var html = '';
+	var lists = data.data;
+	var len = lists.length;
+	console.log(len);
+	for(var i = 0; i< len;i++){
+		var list = lists[i];
+		html +=
+				'<a href="/home/notice/meet/id/'+ list.id+'.html" class="list clear">'+
+				'<div class="fl">'+
+				'<img src="'+list.path+'" alt="图片">'+
+				'</div>'+
+				'<div class="fr right">'+
+				'<div class="title limit_">'+list.title+'</div>'+
+				'<div class="clear time">'+
+				'<span class="fl">'+list.time+'</span>'+
+				'<span class="fr fa fa-angle-right"></span>'+
+				'</div>'+
+				'</div>'+
+				'</a>'
+	}
+	$(".lists" ).append(html);
+}
+mui("#refreshContainer").on("touchstart","a",function(){
+	$(this).css("backgroundColor","rgba(0,0,0,.1)");
+}).on("touchend","a", function () {
+	$(this).css("backgroundColor","#fff");
+});
+mui("#refreshContainer").on("tap","a",function(){
+	var url = this.getAttribute("href");
+	window.location.href = url;
+})
+</script>
+{/block}

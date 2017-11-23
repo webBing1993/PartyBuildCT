@@ -1,13 +1,389 @@
 {extend name="public/common"}
 
 {block name="style"}
-
+<title>城投公司党建</title>
+<link rel="stylesheet" href="/home/css/index/index.css">
+<link rel="stylesheet" href="/static/swiper/swiper-3.3.1.min.css">
 {/block}
 
 {block name="body"}
+<div id="refreshContainer" class="mui-content mui-scroll-wrapper">
+    <div class="mui-scroll">
+        <div class="mui-slider-group">
+            <!--banner-->
+            <div class="banner">
+                <img src="/home/images/banner/2.png" alt="首页banner图">
+                <a  class="exit">
+                    <img src="/home/images/index/exit.png" alt="">
+                </a>
+                <a href="{:Url('User/index')}" class="rank">
+                    <img src="/home/images/index/usercenter.png" alt="">
 
-{/block}
+                    <img src="/home/images/banner/1.png" alt="">
+                </a>
+            </div>
+            <!--图标轮播-->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <ul class="model clearfix">
+                            <li>
+                                <a href="{:Url('Structure/index')}">
+                                    <img src="/home/images/index/structure_1.png" alt="云上组织">
+                                    <span>组织架构</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{:Url('Notice/index')}">
+                                    <img src="/home/images/index/star_1.png" alt="先锋引领">
+                                    <span>通知公告</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{:Url('news/index')}">
+                                    <img src="/home/images/index/news_1.png" alt="最新动态">
+                                    <span>最新动态</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{:Url('Learn/index?c=1')}">
+                                    <img src="/home/images/index/learn_1.png" alt="每日一课">
+                                    <span>两学一做</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{:Url('Notice/index')}">
+                                    <img src="/home/images/index/announcement_1.png" alt="美丽乡村">
+                                    <span>三会一课</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{:Url('Activity/index?c=1')}">
+                                    <img src="/home/images/index/active.png" alt="活动发起">
+                                    <span>组织活动</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
-{block name="script"}
+                <!--分割线-->
+                <div class="level"></div>
+                <!--新闻通知-->
+                <div class="content">
+                    <div class="notices">
+                        <div class="notice party">
+                            <!--第一聚焦-->
+                            <!--循环体-->
+                            <a href="/home/news/detail.html" class="list clear" >
+                                <div class="fl">
+                                    <img src="/home/images/banner/1.png" alt="news">
+                                    <span class="type">第一聚焦</span>
+                                </div>
+                                <div class="fr right">
+                                    <div class="title limit_">新闻标题</div>
+                                    <div class="time clear">
+                                        <span class="fl">发布人</span>
+                                        <span class="fr">2017-11-22</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <!--循环体-->
+                            <a href="/home/news/detail.html" class="list clear" >
+                                <div class="fl">
+                                    <img src="/home/images/banner/1.png" alt="news">
+                                    <span class="type">第一聚焦</span>
+                                </div>
+                                <div class="fr right">
+                                    <div class="title limit_">新闻标题</div>
+                                    <div class="time clear">
+                                        <span class="fl">发布人</span>
+                                        <span class="fr">2017-11-22</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <!--循环体-->
+                            <a href="/home/news/detail.html" class="list clear" >
+                                <div class="fl">
+                                    <img src="/home/images/banner/1.png" alt="news">
+                                    <span class="type">第一聚焦</span>
+                                </div>
+                                <div class="fr right">
+                                    <div class="title limit_">新闻标题</div>
+                                    <div class="time clear">
+                                        <span class="fl">发布人</span>
+                                        <span class="fr">2017-11-22</span>
+                                    </div>
+                                </div>
+                            </a>
 
-{/block}
+                            <!--通知公告-->
+                            <!--循环体-->
+                            <a href="/home/Organization/detail.html" class="list clear" >
+                                <div class="fl">
+                                    <img src="/home/images/banner/1.png" alt="organization">
+                                    <span class="type">通知公告</span>
+                                </div>
+                                <div class="fr right">
+                                    <div class="title limit_">新闻标题</div>
+                                    <div class="time clear">
+                                        <span class="fl">发布人</span>
+                                        <span class="fr">2017-11-22</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <!--循环体-->
+                            <a href="/home/Organization/detail.html" class="list clear" >
+                                <div class="fl">
+                                    <img src="/home/images/banner/1.png" alt="organization">
+                                    <span class="type">通知公告</span>
+                                </div>
+                                <div class="fr right">
+                                    <div class="title limit_">新闻标题</div>
+                                    <div class="time clear">
+                                        <span class="fl">发布人</span>
+                                        <span class="fr">2017-11-22</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <!--循环体-->
+                            <a href="/home/Organization/detail.html" class="list clear" >
+                                <div class="fl">
+                                    <img src="/home/images/banner/1.png" alt="organization">
+                                    <span class="type">通知公告</span>
+                                </div>
+                                <div class="fr right">
+                                    <div class="title limit_">新闻标题</div>
+                                    <div class="time clear">
+                                        <span class="fl">发布人</span>
+                                        <span class="fr">2017-11-22</span>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!--三会一课-->
+                            <!--循环体-->
+                            <a href="/home/Notice/relevant.html" class="list clear" >
+                                <div class="fl">
+                                    <img src="/home/images/banner/1.png" alt="notice">
+                                    <span class="type">三会一课</span>
+                                </div>
+                                <div class="fr right">
+                                    <div class="title limit_">新闻标题</div>
+                                    <div class="time clear">
+                                        <span class="fl">发布人</span>
+                                        <span class="fr">2017-11-22</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <!--循环体-->
+                            <a href="/home/Notice/meet.html" class="list clear" >
+                                <div class="fl">
+                                    <img src="/home/images/banner/1.png" alt="notice">
+                                    <span class="type">三会一课</span>
+                                </div>
+                                <div class="fr right">
+                                    <div class="title limit_">新闻标题</div>
+                                    <div class="time clear">
+                                        <span class="fl">发布人</span>
+                                        <span class="fr">2017-11-22</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <!--循环体-->
+                            <a href="/home/Notice/party.html" class="list clear" >
+                                <div class="fl">
+                                    <img src="/home/images/banner/1.png" alt="notice">
+                                    <span class="type">三会一课</span>
+                                </div>
+                                <div class="fr right">
+                                    <div class="title limit_">新闻标题</div>
+                                    <div class="time clear">
+                                        <span class="fl">发布人</span>
+                                        <span class="fr">2017-11-22</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+    {/block}
+
+    {block name="script"}
+    <script src="/static/swiper/swiper-3.3.1.jquery.min.js"></script>
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+//        loop: true,
+            autoplayDisableOnInteraction: false,
+            pagination : '.swiper-pagination',
+            paginationClickable :true
+        });
+        $(function(){
+            // 清缓存
+            isOut();
+
+            $(".banner>.exit").on("click",function(){
+                swal({
+                    title:"",
+                    text: "是否确认退出",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "确认",
+                    closeOnConfirm: false,
+                    cancelButtonText:"取消"
+                },
+                function(){
+                    swal({
+                        title: ' ',
+                        text: '退出成功！',
+                        type: 'success',
+                        confirmButtonText:'确定'
+                    });
+                    setTimeout(function(){
+                        window.location.replace("{:Url('Verify/logout')}");
+                    },1000)
+                });
+            })
+        });
+        window.onload = function () {
+            if ($(".notice a").length < 9) {
+                mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
+            } else {
+                mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
+            }
+        };
+        mui.init({
+            pullRefresh : {
+                container: "#refreshContainer",
+                up : {
+                    contentrefresh: '正在加载...',
+                    callback : loadScroll
+                }
+            }
+        });
+
+        // 加载更多
+        function loadScroll() {
+            var p1 = $('[data-type = "news"]').length;
+            var p2 = $('[data-type = "notice"]').length;
+            var p3 = $('[data-type = "organization"]').length;
+            $.ajax({
+                type: "post",
+                url: "",
+                data: {
+                    p1: p1,
+                    p2: p2,
+                    p3: p3
+                },
+                beforeSend: function(XMLHttpRequest){
+                },
+                success:function(data){
+                    addCourse(data);
+                    if(data.code == 1){
+                        var dataLen =data.data.length;
+                        if(dataLen == 9){
+                            mui('#refreshContainer').pullRefresh().endPullupToRefresh(false);
+                        }else{
+                            mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
+                        }
+                    }else{
+                        mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
+                    }
+                }
+            })
+        }
+        function addCourse(data) {
+            var html = '';
+            var lists = data.data;
+            var len = lists.length;
+            var href ='';  // 跳转链接
+            var name = '';  // 对应的模块名称
+            for(var i = 0; i< len;i++){
+                var list = lists[i];
+                if(list.class_name == 'news'){
+                    href = '/home/news/detail/id/'+list['id']+".html";
+                }else if(list.class_name == 'notice'){
+                    if (list.type == 2 || list.type == 3 || list.type == 5) {
+                        href = '/home/notice/meet/id/'+list['id']+".html";
+                    }else {
+                        href = '/home/notice/party/id/'+list['id']+".html";
+                    }
+                }else{
+                    href = '/home/organization/detail/id/'+list['id']+".html";
+                }
+                html +=
+                        '<a href="'+href+'" class="list clear" >'+
+                        '<div class="fl">'+
+                        '<img src="'+list.path+'" alt="图片">'+
+                        '<span class="type">'+class_name+'</span>'+
+                        '</div>'+
+                        '<div class="fr right">'+
+                        '<div class="title limit_">'+list.title+'</div>'+
+                        '<div class="clear time">'+
+                        '<span class="fl">'+list.publisher+'</span>'+
+                        '<span class="fr">'+list.time+'</span>'+
+                        '</div>'+
+                        '</div>'+
+                        '</a>'
+            }
+            $(".notice" ).append(html);
+        }
+        mui("#refreshContainer").on("touchstart","a",function(){
+            $(this).css("backgroundColor","rgba(0,0,0,.1)");
+        }).on("touchend","a", function () {
+            $(this).css("backgroundColor","#fff");
+        });
+
+        mui("#refreshContainer").on("tap","a",function(){
+            var url = this.getAttribute("href");
+            window.location.href = url;
+        });
+
+        //退出清理tab缓存
+        function isOut(){
+            pushHistory();
+            setTimeout(function(){
+                window.addEventListener("popstate", function(e) {
+                    delCookie("type");
+                    window.location.href = "/home/index/index.html";
+                    return false;
+                }, false);
+            },200)
+        }
+        //防止恶意刷新
+        function pushHistory(){
+            var sta = {
+                title: "title"
+            };
+            if( window.history.state === null )
+            {
+                window.history.pushState( sta, "title" );
+            }
+        }
+        function setCookie(name,value){
+            var Days = 30;
+            var exp = new Date();
+            exp.setTime(exp.getTime() + Days*24*60*60*1000);
+            document.cookie = name + "="+ value + ";expires=" + exp.toGMTString();
+        }
+        function getCookie(name){
+            var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+            if(arr=document.cookie.match(reg))
+                return arr[2];
+            else
+                return null;
+        }
+        function delCookie(name){
+            var exp = new Date();
+            exp.setTime(exp.getTime() - 1);
+            var cval=getCookie(name);
+            if(cval!=null)
+                document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+        }
+
+
+    </script>
+    {/block}

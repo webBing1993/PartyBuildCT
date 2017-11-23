@@ -1,0 +1,178 @@
+{extend name="public/pure"}
+{block name="style"}
+<link rel="stylesheet" href="/home/css/verify/memberslogin.css">
+<style type='text/css'>
+    .circle{
+        width: 100vw;
+        height: 68vw;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .circle1, .circle2, .circle3{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin: -12vw 0 0 -12vw;
+        width: 24vw;
+        height: 24vw;
+        border-radius: 50%;
+        background-color: #eaa59d;
+        opacity: 0;
+    }
+    .center{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin: -15vw 0 0 -15vw;
+        width: 30vw;
+        height: 30vw;
+        border-radius: 50%;
+        text-align:center;
+        line-height:70px;
+        color:#EAEAEA;
+        font-size: .45rem;
+        font-family:'';
+        opacity: 0;
+    }
+
+    .circle1{
+        -webkit-animation:circle 3s linear infinite;
+        animation:circle 3s linear infinite;
+    }
+
+    .circle2{
+        -webkit-animation:circle 3s linear 0.8s infinite;
+        animation:circle 3s linear 0.8s infinite;
+    }
+    .circle3{
+        -webkit-animation:circle 3s linear 1.6s infinite;
+        animation:circle 3s linear 1.6s infinite;
+    }
+    @-webkit-keyframes circle{
+        from{
+            opacity:.5;
+            -webkit-transform:scale(0);
+        }
+        to{
+            opacity:0;
+            -webkit-transform:scale(4);
+        }
+    }
+</style>
+{/block}
+{block name="body"}
+<div class="banner">
+    <img src="/home/images/verify/loginbanner.png">
+    <p>测试党建名称</p>
+</div>
+<!-- 旋转-->
+<div class='circle'>
+    <div class='circle1'>&nbsp;</div>
+    <div class='circle2'>&nbsp;</div>
+    <div class='circle3'>&nbsp;</div>
+    <div class='center'></div>
+</div>
+
+<div class="box">
+<div class="login-box">
+    <div class="form">
+        <div class="uid">
+            <span></span><input type="text" maxlength="11" placeholder="请输入手机号" id="phone">
+        </div>
+    </div>
+</div>
+<div class="btn">登&emsp;录</div>
+    <a class="login" href="{:Url('Verify/tourist')}">游客模式入口<img src="/home/images/verify/loginentrance.png"></a>
+    <!--<a class="login" href="tel:400-900-9710">红色热线 400-900-9710</a>-->
+</div>
+<footer>
+    <img src="/home/images/verify/footer.png">
+</footer>
+
+{/block}
+{block name="script"}
+<script src="/admin/js/plugins/sweetalert/sweetalert.min.js"></script>
+<script>
+    $(function(){
+        $('.btn').on("click",function(){
+            login()
+        });
+        //绝对定位bug
+        var vh =$(window).height() - $('footer').height() - $('.banner').height() - $('.box').height();
+        if(vh < 0){
+            vh = '10vw';
+        }
+
+        $('footer').css({
+            'position': 'relative',
+            'margin-top': vh
+        });
+
+
+    });
+    /**登陆**/
+    function login(){
+        var re=reg();
+        var uid=$('.uid>input').val();
+        if(re==true){
+            $.ajax({
+                url: "{:Url('Verify/login')}",
+                type: 'post',
+                data: {
+                    user: uid
+                },
+                success:function(data){
+                    //data.code  1为成功 0为失败
+                    if(data.code == 1){
+                        swal({
+                            title: ' ',
+                            text: data.msg,
+                            type: 'success',
+                            confirmButtonText:'确定'
+                        });
+                        var url = data.url;
+                        //如果没有session的Url就默认跳首页
+                        if(url = '/home/index/null') {
+                            url = '/home/index/index';
+                        }
+                        setTimeout(function(){
+                            window.location.replace(url);
+                        },1000);
+                    }else{
+                        swal({
+                            title: ' ',
+                            text: data.msg,
+                            type: 'error',
+                            confirmButtonText:'确定'
+                        });
+                    }
+                }
+            })
+        }else{
+            swal({
+                title: ' ',
+                text: re,
+                type: 'error',
+                confirmButtonText:'确定'
+            });
+        }
+    }
+    /**表单验证**/
+    function reg(){
+        var uid=$('.uid>input').val();
+        if(uid==''||uid==null){
+            return "请输入您的手机号码";
+        }else{
+            var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+            if(!myreg.test(uid)||uid.length<11)
+            {
+                return '请输入有效的手机号码！';
+            }else{
+                return true
+            }
+        }
+    }
+
+</script>
+{/block}
