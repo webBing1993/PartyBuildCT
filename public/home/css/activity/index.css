@@ -1,11 +1,45 @@
 #refreshContainer {
     /*margin-top: 10vw;*/
 }
+.mui-slider-indicator.mui-segmented-control {
+    padding: 0 3.2vw;
+    border-bottom: 1px solid #f1f1f1;
+    line-height: 13.7vw;
+    height: 13.7vw;
+}
+#tab1.mui-slider-indicator.mui-segmented-control {
+    padding: 0;
+}
+#tab1.mui-slider-indicator.mui-segmented-control a:first-of-type {
+    padding-left: 3.2vw;
+}
+#tab1.mui-slider-indicator.mui-segmented-control a:last-of-type {
+    padding-right: 3.2vw;
+}
+.mui-slider-indicator.mui-segmented-control a {
+    font-size: .4rem;
+    position: relative;
+    line-height: 13.7vw;
+    height: 100%;
+}
 #tab1.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
-    background-color: #BF0301;
+    background-color: #000;
+    color: #fff;
+    font-weight: 600;
 }
 .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
-    color:  #FF9800;
+    color:  #000;
+    font-weight: 600;
+}
+#tab .mui-active::after {
+    content: '';
+    width: 8vw;
+    height: 1.6vw;
+    background-color: #000;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -4vw;
 }
 /*banner*/
 .banner {
@@ -21,10 +55,10 @@
 .summary .list {
     display: block;
     width: 100%;
-    padding-left: 3.4666vw;
-    padding-right: 3.4666vw;
-    padding-top: 1.3333vw;
-    height: 26.6666vw;
+    padding-left: 3.2vw;
+    padding-right: 3.2vw;
+    padding-top: 1.3vw;
+    height: 28.3vw;
     border-bottom: 0.2666vw solid #f1f1f1;
     position: relative;
 }
@@ -66,9 +100,9 @@
 .list{
     display: block;
     width: 100%;
-    height: 28.2vw;
-    padding-left: 3.5vw;
-    padding-right: 3.5vw;
+    height: 27vw;
+    padding-left: 3.2vw;
+    padding-right: 3.2vw;
     border-bottom: 1px solid #dddddd;
 }
 .list .fl img{
