@@ -1,7 +1,6 @@
 {extend name="public/common"}
 
 {block name="style"}
-<title>三会一课</title>
 <link rel="stylesheet" href="/static/swiper/swiper-3.3.1.min.css">
 <link rel="stylesheet" href="/home/css/notice/notice.css">
 {/block}
@@ -139,6 +138,11 @@
 {block name="script"}
 <script src="/static/swiper/swiper-3.3.1.jquery.min.js"></script>
 <script>
+
+	$(function () {
+		$("title").text("三会一课");
+	});
+
 window.onload = function () {
 	if ($(".party a").length < 3) {
 		mui('#refreshContainer').pullRefresh().disablePullupToRefresh();

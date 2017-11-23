@@ -4,17 +4,21 @@
 
 {/block}
 {block name="body"}
+<div class="banner">
+    <img src="/home/images/banner/1.png" alt="">
+</div>
+<div id="tab" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+    <a class="mui-control-item" href="#item1mobile" data-index="0">
+        <span>活动通知</span>
+    </a>
+    <a class="mui-control-item" href="#item2mobile" data-index="1">
+        <span>活动展示</span>
+    </a>
+</div>
 <div id="refreshContainer" class="mui-content mui-scroll-wrapper">
     <div class="mui-scroll">
         <div class="mui-slider-group">
-            <div class="banner">
-                <img src="/home/images/banner/1.png" alt="">
-            </div>
-            <div class="tabs">
-                <span class="tab active"><span>活动通知</span></span>
-                <span class="tab"><span>活动展示</span></span>
-            </div>
-            <div class="lists summary">
+            <div class="lists summary mui-slider-item mui-control-content" id="item1mobile">
                 <!--两种状态：ing进行中，over已结束-->
                 <!-- 循环体-->
                 <a href="/home/activity/detail.html" class="list">
@@ -87,8 +91,85 @@
                     </div>
                 </a>
             </div>
-            <div class="lists hide down">
-
+            <div class="lists down mui-slider-item mui-control-content" id="item2mobile">
+                <!-- 活动展示循环体-->
+                <a class="list clear" href="/home/activity/detail2.html">
+                    <div class="fl">
+                        <img src="/home/images/common/party.png" alt="第一聚焦">
+                    </div>
+                    <div class="fr lr">
+                        <div class="title limit_">新闻标题</div>
+                        <div class="clear">
+                            <span class="fl">2017-11-21</span>
+                            <span class="fr">详情</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- 活动展示循环体-->
+                <a class="list clear" href="/home/activity/detail2.html">
+                    <div class="fl">
+                        <img src="/home/images/common/party.png" alt="第一聚焦">
+                    </div>
+                    <div class="fr lr">
+                        <div class="title limit_">新闻标题</div>
+                        <div class="clear">
+                            <span class="fl">2017-11-21</span>
+                            <span class="fr">详情</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- 活动展示循环体-->
+                <a class="list clear" href="/home/activity/detail2.html">
+                    <div class="fl">
+                        <img src="/home/images/common/party.png" alt="第一聚焦">
+                    </div>
+                    <div class="fr lr">
+                        <div class="title limit_">新闻标题</div>
+                        <div class="clear">
+                            <span class="fl">2017-11-21</span>
+                            <span class="fr">详情</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- 活动展示循环体-->
+                <a class="list clear" href="/home/activity/detail2.html">
+                    <div class="fl">
+                        <img src="/home/images/common/party.png" alt="第一聚焦">
+                    </div>
+                    <div class="fr lr">
+                        <div class="title limit_">新闻标题</div>
+                        <div class="clear">
+                            <span class="fl">2017-11-21</span>
+                            <span class="fr">详情</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- 活动展示循环体-->
+                <a class="list clear" href="/home/activity/detail2.html">
+                    <div class="fl">
+                        <img src="/home/images/common/party.png" alt="第一聚焦">
+                    </div>
+                    <div class="fr lr">
+                        <div class="title limit_">新闻标题</div>
+                        <div class="clear">
+                            <span class="fl">2017-11-21</span>
+                            <span class="fr">详情</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- 活动展示循环体-->
+                <a class="list clear" href="/home/activity/detail2.html">
+                    <div class="fl">
+                        <img src="/home/images/common/party.png" alt="第一聚焦">
+                    </div>
+                    <div class="fr lr">
+                        <div class="title limit_">新闻标题</div>
+                        <div class="clear">
+                            <span class="fl">2017-11-21</span>
+                            <span class="fr">详情</span>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
@@ -100,11 +181,11 @@
 <script>
 
     $(function(){
-        // tab切换
-        $(".tabs .tab").on("tap", function () {
-            $(this).addClass("active").siblings(".tab").removeClass("active");
-            $(".lists").eq($(this).index()).fadeIn().siblings(".lists").fadeOut();
-        })
+        $("title").text("组织活动");
+        // 初始化显示
+        c = getCookie("c")?getCookie("c"):0;
+        $("#tab a").eq(c).addClass('mui-active');
+        $(".mui-slider-group>div").eq(c).addClass('mui-active');
     });
 
     $(function() {
@@ -112,10 +193,18 @@
     });
 
     window.onload = function () {
-        if ($(".lists.summary .list").length < 6) {
-            mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
-        } else {
-            mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
+        if (c = 0) {
+            if ($(".lists.summary .list").length < 6) {
+                mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
+            } else {
+                mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
+            }
+        }else {
+            if ($(".lists.down .list").length < 6) {
+                mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
+            } else {
+                mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
+            }
         }
     };
     mui.init({
@@ -127,17 +216,24 @@
         }
     });
     function loadScroll() {
-        var len = $(".lists .list").length;
+        var len;
+        if (c = 0) {
+            len = $(".lists.summary .list").length;
+        }else {
+            len = $(".lists.down .list").length;
+        }
+
         $.ajax({
             type: "post",
             url: "",
             data: {
-                length: len
+                length: len,
+                type: c
             },
             beforeSend: function(XMLHttpRequest){
             },
             success:function(data){
-                addCourse(data);
+                addCourse(data,c);
                 if(data.code == 1){
                     var dataLen =data.data.length;
                     if(data.data.length == 6){
@@ -152,29 +248,48 @@
         })
     }
 
-    function addCourse(data) {
+    function addCourse(data,type) {
         var html = '';
         var lists = data.data;
         var len = lists.length;
-        console.log(len);
         for(var i = 0; i< len;i++){
             var list = lists[i];
-            html +=
-                    '<a href="/home/notice/relevant/id/'+ list.id+'.html" class="list">'+
-                    '<div class="title limit">'+list.title+'</div>'+
-                    '<div class="content limit_">'+list.description+'</div>'+
-                    '<div class="note clear">';
-            if(list.state == 0){
-                html +=	'<span class="fl ing">进行中</span>'
-            }else{
-                html +=	'<span class="fl over">已结束</span>'
+            if (type = 0) {
+                html +=
+                        '<a href = /home/activity/detail/id/' + list.id + '.html class="list">'+
+                        '<div class="title limit">'+list.title+'</div>'+
+                        '<div class="content limit_">'+list.description+'</div>'+
+                        '<div class="note clear">';
+                if(list.state == 0){
+                    html +=	'<span class="fl ing">进行中</span>'
+                }else{
+                    html +=	'<span class="fl over">已结束</span>'
+                }
+                html +=
+                        '<span class="time fr">'+list.time+'</span>'+
+                        '</div>'+
+                        '</a>'
+            }else {
+                html = '<a class="list clear" href="/home/activity/detail2/id/'+list.id+'.html">'+
+                        '<div class="fl">'+
+                        '<img src="'+ list.src+'" alt="图片">'+
+                        '</div>'+
+                        '<div class="fr lr">'+
+                        '<div class="title limit_">'+list.title+'</div>'+
+                        '<div class="clear">'+
+                        '<span class="fl">'+ list.time+'</span>'+
+                        '<span class="fr">详情</span>'+
+                        '</div>'+
+                        '</div>'+
+                        '</a>';
             }
-            html +=
-                    '<span class="time fr">'+list.time+'</span>'+
-                    '</div>'+
-                    '</a>'
+
         }
-        $(".lists" ).append(html);
+        if (type = 0) {
+            $(".lists.summary" ).append(html);
+        }else {
+            $(".lists.down" ).append(html);
+        }
     }
     mui("#refreshContainer").on("touchstart","a",function(){
         $(this).css("backgroundColor","rgba(0,0,0,.1)");

@@ -1,7 +1,6 @@
 {extend name="public/common"}
 
 {block name="style"}
-<title>三会一课</title>
 <link rel="stylesheet" href="/home/css/notice/detail.css">
 <link rel="stylesheet" href="/static/sweetalert/sweetalert1.css">
 <script src="/static/sweetalert/sweetalert1.min.js"></script>
@@ -128,6 +127,11 @@
 {block name="script"}
 <script src="/home/js/reset.js"></script>
 <script>
+
+	$(function () {
+		$("title").text("会议情况详情");
+	});
+
 	/**
 	 * 点赞
 	 * @param e

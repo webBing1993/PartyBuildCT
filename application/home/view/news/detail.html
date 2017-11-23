@@ -71,6 +71,11 @@
 {block name="script"}
 <script src="/home/js/reset.js"></script>
 <script>
+
+	$(function () {
+		$("title").text("第一聚焦");
+	});
+
 	window.onload = function () {
 		if ($(".lists .list").length < 6) {
 			mui('#refreshContainer').pullRefresh().disablePullupToRefresh();

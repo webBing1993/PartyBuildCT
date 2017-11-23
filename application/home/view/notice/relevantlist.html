@@ -1,7 +1,6 @@
 {extend name="public/common"}
 
 {block name="style"}
-<title>三会一课</title>
 <link rel="stylesheet" href="/home/css/notice/relevantlist.css">
 {/block}
 
@@ -92,6 +91,11 @@
 
 {block name="script"}
 <script>
+
+	$(function () {
+		$("title").text("相关通知");
+	});
+
 window.onload = function () {
 	if ($(".lists .list").length < 6) {
 		mui('#refreshContainer').pullRefresh().disablePullupToRefresh();

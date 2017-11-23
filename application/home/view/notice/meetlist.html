@@ -1,7 +1,6 @@
 {extend name="public/common"}
 
 {block name="style"}
-<title>三会一课</title>
 <link rel="stylesheet" href="/home/css/notice/meetlist.css">
 {/block}
 
@@ -138,6 +137,11 @@
 
 {block name="script"}
 <script>
+
+	$(function () {
+		$("title").text("会议情况");
+	});
+
 window.onload = function () {
 	if ($(".lists .list").length < 9) {
 		mui('#refreshContainer').pullRefresh().disablePullupToRefresh();

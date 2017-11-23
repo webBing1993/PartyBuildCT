@@ -25,4 +25,21 @@ class Activity extends Base {
         return $this->fetch();
     }
 
+
+    /**
+     * 活动通知详情页
+     */
+    public function detail(){
+
+        return $this->fetch();
+    }
+
+    /**
+     * 活动展示详情页
+     */
+    public function detail2(){
+
+        return $this->fetch();
+    }
+
 }
