@@ -38,39 +38,4 @@ class Base extends Model
         }while($o == $last);
         return $o;
     }
-
-    /**
-     * 生成二维码
-     * type :1第一聚焦 2两学一做
-     */
-    public function qrcode($type,$code) {
-        if($type == 1) {
-            $url = "http://".$_SERVER['SERVER_NAME']."/home/policy/review?code=".$code;
-        }else{
-            $url = "http://".$_SERVER['SERVER_NAME']."/home/learn/review?code=".$code;
-        }
-        //生成保存二维码文件路径
-        $date = date("Y-m",time());
-        if (!is_dir('qrcode')) mkdir('qrcode', 0777);
-        if (!is_dir('qrcode/'.$date)) mkdir('qrcode/'.$date, 0777);
-        $file = "qrcode/".$date."/".time().".jpg";
-        //生成二维码
-        $qrCode = new QrCode();
-        $qrCode
-            ->setText($url)
-            ->setSize(300)
-            ->setPadding(10)
-            ->setErrorCorrection('high')
-            ->setForegroundColor(array('r' => 0, 'g' => 0, 'b' => 0, 'a' => 0))
-            ->setBackgroundColor(array('r' => 255, 'g' => 255, 'b' => 255, 'a' => 0))
-            ->setLabelFontSize(16)
-            ->render($file)
-        ;
-        $data = array(
-            'code' => $code,
-            'url' => $url,
-            'code_path' => $file,
-        );
-        return json_encode($data);
-    }
 }
