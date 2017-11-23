@@ -1,5 +1,8 @@
 #refreshContainer {
-    margin-top: 60vw;
+    /*margin-top: 10vw;*/
+}
+#tab1.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+    background-color: #BF0301;
 }
 .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
     color:  #FF9800;

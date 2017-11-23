@@ -4,21 +4,29 @@
 
 {/block}
 {block name="body"}
-<div class="banner">
-    <img src="/home/images/banner/1.png" alt="">
-</div>
-<div id="tab" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
-    <a class="mui-control-item" href="#item1mobile" data-index="0">
+<div id="tab1" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+    <a class="mui-control-item" href="javascript:;" data-index="0">
         <span>活动通知</span>
     </a>
-    <a class="mui-control-item" href="#item2mobile" data-index="1">
+    <a class="mui-control-item" href="javascript:;" data-index="1">
         <span>活动展示</span>
     </a>
 </div>
 <div id="refreshContainer" class="mui-content mui-scroll-wrapper">
     <div class="mui-scroll">
         <div class="mui-slider-group">
-            <div class="lists summary mui-slider-item mui-control-content" id="item1mobile">
+            <div class="banner">
+                <img src="/home/images/banner/1.png" alt="">
+            </div>
+            <div id="tab" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+                <a class="mui-control-item" href="javascript:;" data-index="0">
+                    <span>活动通知</span>
+                </a>
+                <a class="mui-control-item" href="javascript:;" data-index="1">
+                    <span>活动展示</span>
+                </a>
+            </div>
+            <div class="lists summary mui-slider-item mui-control-content">
                 <!--两种状态：ing进行中，over已结束-->
                 <!-- 循环体-->
                 <a href="/home/activity/detail.html" class="list">
@@ -91,7 +99,7 @@
                     </div>
                 </a>
             </div>
-            <div class="lists down mui-slider-item mui-control-content" id="item2mobile">
+            <div class="lists down mui-slider-item mui-control-content">
                 <!-- 活动展示循环体-->
                 <a class="list clear" href="/home/activity/detail2.html">
                     <div class="fl">
@@ -160,14 +168,19 @@
         c = getCookie("c")?getCookie("c"):0;
         $("#tab a").eq(c).addClass('mui-active');
         $(".mui-slider-group>div").eq(c).addClass('mui-active');
+        $(".mui-control-content").eq(c).show().siblings(".mui-control-content").hide();
+        $("#tab1 a").eq(c).addClass("mui-active");
     });
 
-    //tab点击事件
-    mui('#tab').on('tap', 'a', function(e) {
+    // tab点击事件
+    mui('#tab,#tab1').on('tap', 'a', function(e) {
         mui('#refreshContainer').pullRefresh().scrollTo(0,0);
         mui('#refreshContainer').scroll().scrollTo(0,0);
         mui('#refreshContainer').pullRefresh().refresh(true);
         c = this.getAttribute("data-index");
+        $(".mui-control-content").eq(c).show().siblings(".mui-control-content").hide();
+        $("#tab a").eq(c).addClass("mui-active").siblings("#tab a").removeClass("mui-active");
+        $("#tab1 a").eq(c).addClass("mui-active").siblings("#tab1 a").removeClass("mui-active");
         if(c==0){
             if($(".lists.summary a").length < 6){
                 mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
@@ -183,12 +196,26 @@
         }
         setCookie("c",c)
     });
+    
+    // 滑动时切换tab
+    var scroll = mui('.mui-scroll-wrapper').scroll();
+    document.querySelector('.mui-scroll-wrapper' ).addEventListener('scroll', function (e ) {
+        if (scroll.y <= -Math.ceil(($("body").width() / 2))) {
+            $("#tab").hide();
+            $("#tab1").show();
+            $("#refreshContainer").css("marginTop","10vw");
+        }else {
+            $("#tab").show();
+            $("#tab1").hide();
+            $("#refreshContainer").css("marginTop","0");
+        }
+    });
+
     $(function() {
         $("img.lazy").lazyload({effect: "fadeIn"});
     });
 
     window.onload = function () {
-        console.log(c);
         if (c == 0) {
             if ($(".lists.summary .list").length < 6) {
                 mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
