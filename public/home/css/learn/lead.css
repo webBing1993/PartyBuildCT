@@ -1,0 +1,51 @@
+/*banner*/
+.banner {
+    width: 100vw;
+    height: 50vw;
+    position: relative;
+}
+.banner img {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+.banner .person {
+    width: 27vw;
+    height: 27vw;
+    position: absolute;
+    bottom: -4vw;
+    left: 50%;
+    margin-left: -13.5vw;
+    box-shadow: 0 0 .8vw #d9d9d9;
+    border-radius: 50%;
+}
+.banner .person img {
+    box-shadow: 0 0 .8vw #d9d9d9;
+    border-radius: 50%;
+}
+/*info*/
+.info {
+    margin-top: 6.7vw;
+    text-align: center;
+    margin-bottom: 5.4vw;
+}
+.info .name {
+    font-size: .4rem;
+    color: #333;
+}
+.info .name span {
+    display: inline-block;
+    margin-left: 2.7vw;
+    font-size: .37rem;
+}
+.info p:last-of-type {
+    font-size: .35rem;
+    color: #333;
+}
+/*content*/
+.content {
+    color: #333;
+    font-size: .35rem;
+    padding: 0 3.2vw;
+    line-height: 1.5;
+}

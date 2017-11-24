@@ -1,0 +1,168 @@
+.mui-content {
+    background: #eeeeee !important;
+}
+/*banner*/
+.banner {
+    width: 100vw;
+    height: 50vw;
+}
+.banner img {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+/*tab*/
+#tab,#tab1 {
+    background-color: #fff !important;
+}
+.mui-slider-indicator.mui-segmented-control {
+    padding: 0 3.2vw;
+    border-bottom: 1px solid #f1f1f1;
+    line-height: 13.7vw;
+    height: 13.7vw;
+}
+#tab1.mui-slider-indicator.mui-segmented-control {
+    padding: 0;
+}
+#tab1.mui-slider-indicator.mui-segmented-control a:first-of-type {
+    padding-left: 3.2vw;
+}
+#tab1.mui-slider-indicator.mui-segmented-control a:last-of-type {
+    padding-right: 3.2vw;
+}
+.mui-slider-indicator.mui-segmented-control a {
+    font-size: .4rem;
+    position: relative;
+    line-height: 13.7vw;
+    height: 100%;
+}
+#tab1.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+    background-color: #000;
+    color: #fff;
+    font-weight: 600;
+}
+.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+    color:  #000;
+    font-weight: 600;
+}
+#tab .mui-active::after {
+    content: '';
+    width: 8vw;
+    height: 1.6vw;
+    background-color: #000;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -4vw;
+}
+/*lists1*/
+.lists1 .list {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 2.7vw;
+    margin-bottom: 2.7vw;
+    background: #ffffff;
+    text-align: center;
+    overflow: hidden;
+}
+.lists1 .list .tab {
+    position: absolute;
+    top: 4vw;
+    left: 1.5vw;
+    width: 12vw;
+    height: 8vw;
+    background: url(/home/images/learn/bg_blue.png) no-repeat;
+    background-size: 12vw 8vw;
+    color: #ffffff;
+    font-size: 0.32rem;
+    text-align: center;
+    line-height: 0.5rem;
+}
+.lists1 .list .img {
+    width: 100%;
+    height: 48vw;
+    -webkit-border-radius: 2.2vw;
+    border-radius: 2.2vw;
+}
+.lists1 .list .title {
+    margin-top: 1.6vw;
+    color: #333333;
+    font-size: 0.36rem;
+    line-height: 4vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.lists1 .list .study {
+    display: inline-block;
+    background: url(/home/images/learn/people.png) 0 0 no-repeat;
+    background-size: 4vw 4vw;
+    padding-left: 4.8vw;
+    color: #999999;
+    font-size: 0.34rem;
+    text-align: center;
+    line-height: 4vw;
+}
+.lists1 .default img{
+    width: 16vw;
+    position: absolute;
+    left: 50%;
+    margin-top: 50%;
+    margin-left: -8vw;
+}
+/*lists2*/
+
+/*lists3*/
+.lists3 {
+    background-color: #fff !important;
+    padding: 0 3.2vw;
+}
+.lists3 .list {
+    height: 24vw;
+    padding: 4vw 0;
+    display: block;
+    border-bottom: 1px solid #f1f1f1;
+}
+.lists3 .list .img {
+    width: 24.4vw;
+}
+.lists3 .list .img img {
+    width: 16vw;
+    height: 16vw;
+    border-radius: 50%;
+    box-shadow: 0 0 .8vw #d9d9d9;
+    margin: 0 auto;
+    display: block;
+}
+.lists3 .list .content {
+    padding: 1.6vw 0;
+    width: 69.2vw;
+    height: 100%;
+    position: relative;
+}
+.lists3 .list .name {
+    font-size: .37rem;
+    color: #333;
+}
+.lists3 .list .name .sex {
+    font-size: .32rem;
+    color: #999;
+    margin-left: 1.2vw;
+}
+.lists3 .list .professional {
+    position: absolute;
+    bottom: 1.6vw;
+    width: 69.2vw;
+    font-size: .32rem;
+    color: #999;
+}
+.lists3 .list .professional .fl {
+    width: 50%;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+
+}
