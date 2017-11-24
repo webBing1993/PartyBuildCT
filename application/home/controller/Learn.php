@@ -26,6 +26,13 @@ class Learn extends Base {
         return $this->fetch();
     }
 
+    /**
+     * 答题答案
+     */
+    public function answer(){
+
+        return $this->fetch();
+    }
 
     /**
      * 手机党校详情页
