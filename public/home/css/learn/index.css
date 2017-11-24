@@ -60,20 +60,20 @@
     position: relative;
     display: block;
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 2.7vw;
+    margin-bottom: 2.7vw;
     background: #ffffff;
     text-align: center;
     overflow: hidden;
 }
 .lists1 .list .tab {
     position: absolute;
-    top: 0.4rem;
-    left: 0.15rem;
-    width: 1.2rem;
-    height: 0.8rem;
+    top: 4vw;
+    left: 1.5vw;
+    width: 12vw;
+    height: 8vw;
     background: url(/home/images/learn/bg_blue.png) no-repeat;
-    background-size: 1.2rem 0.8rem;
+    background-size: 12vw 8vw;
     color: #ffffff;
     font-size: 0.32rem;
     text-align: center;
@@ -82,14 +82,14 @@
 .lists1 .list .img {
     width: 100%;
     height: 48vw;
-    -webkit-border-radius: 8px;
-    border-radius: 8px;
+    -webkit-border-radius: 2.2vw;
+    border-radius: 2.2vw;
 }
 .lists1 .list .title {
     margin-top: 1.6vw;
     color: #333333;
     font-size: 0.36rem;
-    line-height: 0.58rem;
+    line-height: 4vw;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -99,11 +99,12 @@
 .lists1 .list .study {
     display: inline-block;
     background: url(/home/images/learn/people.png) 0 0 no-repeat;
-    background-size: 0.4rem 0.4rem;
-    padding-left: 0.46rem;
+    background-size: 4vw 4vw;
+    padding-left: 4.8vw;
     color: #999999;
     font-size: 0.34rem;
     text-align: center;
+    line-height: 4vw;
 }
 .lists1 .default img{
     width: 16vw;
