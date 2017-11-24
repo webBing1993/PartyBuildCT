@@ -174,9 +174,32 @@
     });
 
     // tab点击事件
-    mui('#tab,#tab1').on('tap', 'a', function(e) {
+    mui('#tab').on('tap', 'a', function(e) {
         mui('#refreshContainer').pullRefresh().scrollTo(0,0);
         mui('#refreshContainer').scroll().scrollTo(0,0);
+        mui('#refreshContainer').pullRefresh().refresh(true);
+        c = this.getAttribute("data-index");
+        $(".mui-control-content").eq(c).show().siblings(".mui-control-content").hide();
+        $("#tab a").eq(c).addClass("mui-active").siblings("#tab a").removeClass("mui-active");
+        $("#tab1 a").eq(c).addClass("mui-active").siblings("#tab1 a").removeClass("mui-active");
+        if(c==0){
+            if($(".lists.summary a").length < 6){
+                mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
+            }else{
+                mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
+            }
+        }else if(c==1){
+            if($(".lists.down a").length < 6){
+                mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
+            }else{
+                mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
+            }
+        }
+        setCookie("c",c)
+    });
+    mui('#tab1').on('tap', 'a', function(e) {
+        mui('#refreshContainer').pullRefresh().scrollTo(0,-$(".banner").height());
+        mui('.mui-scroll-wrapper').scroll().y = -$(".banner").height();
         mui('#refreshContainer').pullRefresh().refresh(true);
         c = this.getAttribute("data-index");
         $(".mui-control-content").eq(c).show().siblings(".mui-control-content").hide();

@@ -37,19 +37,19 @@
     height: 100%;
 }
 #tab1.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
-    background-color: #000;
+    background-color: #333;
     color: #fff;
     font-weight: 600;
 }
 .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
-    color:  #000;
+    color:  #333;
     font-weight: 600;
 }
 #tab .mui-active::after {
     content: '';
     width: 8vw;
     height: 1.6vw;
-    background-color: #000;
+    background-color: #333;
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -155,7 +155,7 @@
     color: #d43f3a;
 }
 .lists2 .btn {
-    width: 60vw;
+    width: 93.6vw;
     border-radius: 2.7vw;
     font-size: .4rem;
     background-color: #d43f3a;
