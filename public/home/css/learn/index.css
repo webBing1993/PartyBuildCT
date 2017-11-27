@@ -60,7 +60,7 @@
     position: relative;
     display: block;
     width: 100%;
-    padding: 2.7vw;
+    padding: 2.7vw 3.2vw;
     margin-bottom: 2.7vw;
     background: #ffffff;
     text-align: center;
@@ -105,6 +105,7 @@
     font-size: 0.34rem;
     text-align: center;
     line-height: 4vw;
+    margin-top: 1.2vw;
 }
 .lists1 .default img{
     width: 16vw;
