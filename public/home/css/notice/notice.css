@@ -121,8 +121,8 @@
 .content .notices .notice .tab {
   display: block;
   width: 100%;
-  padding-left: 3.5vw;
-  padding-right: 3.5vw;
+  padding-left: 3.2vw;
+  padding-right: 3.2vw;
   height: 8.6vw;
   line-height: 8.6vw;
   font-size: .32rem;
@@ -130,8 +130,8 @@
 .content .notices .notice .list {
   display: block;
   width: 100%;
-  padding-left: 3.5vw;
-  padding-right: 3.5vw;
+  padding-left: 3.2vw;
+  padding-right: 3.2vw;
   border-bottom: 1px solid #f1f1f1;
   color: #666666;
 }
@@ -152,7 +152,7 @@
   font-size: .32rem;
   position: absolute;
   bottom: 1.6vw;
-  width: 93%;
+  width: 93.6%;
 }
 .content .notices .notice .list .time .over {
   color: #e82a2a;
@@ -170,7 +170,7 @@
   color: #e82a2a;
 }
 .content .notices .notice:nth-child(1) .list {
-  height: 26vw;
+  height: 27vw;
   position: relative;
 }
 .content .notices .notice:nth-child(1) .list .title {

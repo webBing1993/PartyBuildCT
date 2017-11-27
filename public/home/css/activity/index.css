@@ -108,22 +108,13 @@
 .list .fl img{
     width: 28.2vw;
     height: 18.8vw;
-    /*width: 26.7vw;*/
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
-}
-.list img{
-    width: 26.7vw;
-    height: 55px;
-    margin-top: 5.4vw;
+    margin-top: 4.1vw;
 }
 .list .lr{
     width: 62vw;
     position: relative;
     height: 18.8vw;
-    margin-top: 5.4vw;
+    margin-top: 4.1vw;
 }
 .down .list .lr .title{
     width: 100%;
