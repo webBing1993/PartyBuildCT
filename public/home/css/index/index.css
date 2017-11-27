@@ -81,8 +81,8 @@ html,body{
 }
 .model>li>a>img{
     display: block;
-    width: 14.7vw;
-    height: 14.7vw;
+    width: 15.5vw;
+    height: 15.1vw;
     margin: 0 auto;
     /*border-radius: 50%;*/
     overflow: hidden;
