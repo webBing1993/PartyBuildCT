@@ -1,5 +1,6 @@
 {extend name="public/pure"}
 {block name="style"}
+<link rel="stylesheet" href="/static/sweetalert/sweetalert.css">
 <link rel="stylesheet" href="/home/css/verify/memberslogin.css">
 {/block}
 {block name="body"}
@@ -54,9 +55,9 @@
     });
     /**登陆**/
     function login(){
-        var re=reg();
-        var uid=$('.uid>input').val();
-        if(re==true){
+        var re = reg();
+        var uid = $('.uid>input').val();
+        if(re == true){
             $.ajax({
                 url: "{:Url('Verify/login')}",
                 type: 'post',
@@ -93,9 +94,10 @@
         }else{
             swal({
                 title: ' ',
-                text: re,
+                text: "您还没有输入手机号！",
                 type: 'error',
-                confirmButtonText:'确定'
+                confirmButtonText:'确定',
+                timer: 1500
             });
         }
     }
