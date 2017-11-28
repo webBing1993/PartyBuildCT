@@ -42,8 +42,8 @@ html,body{
     left:4vw;
 }
 .banner>.exit>img{
-    width:10.7vw;
-    height:10.7vw;
+    width:9.2vw;
+    height:9.2vw;
 }
 .banner>.rank{
     position: absolute;
@@ -51,18 +51,18 @@ html,body{
     right:-2vw;
 }
 .banner>.rank>img{
-    width:13.7vw;
-    height:11vw;
+    width:16.8vw;
+    height:12vw;
 }
 .banner>.rank img:last-child{
     position: absolute;
-    top:1.4vw;
-    left:3vw;
+    top: .2vw;
+    left: 2vw;
     border-radius: 50%;
-    width:7.5vw;
-    height:7.5vw;
+    width: 10.8vw;
+    height: 10.8vw;
     /*box-shadow: 0 0 2px 1px #fff inset;*/
-    border: 1px solid #fff;
+    /*border: 1px solid #fff;*/
 }
 /*model*/
 .model{
