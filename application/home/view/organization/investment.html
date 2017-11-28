@@ -1,10 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{extend name="public/common"}
 
-</body>
-</html>
+{block name="style"}
+<title>招商信息</title>
+<link rel="stylesheet" href="/home/css/organization/investment.css">
+{/block}
+
+{block name="body"}
+    <div class="banner">
+        <img src="/home/images/banner/1.png" alt="">
+        <div class="notes">
+            <span>杭州市文一西路海创大厦A座803</span>
+        </div>
+    </div>
+    <div class="title"><span>企业信息</span></div>
+    <div class="lists">
+        <div class="list">
+            <span class="name">企业名称：</span>
+            <span class="content">杭州之图网络科技有限公司</span>
+        </div>
+        <div class="list">
+            <span class="name">企业类别：</span>
+            <span class="content"></span>
+        </div>
+        <div class="list">
+            <span class="name">主营业务：</span>
+            <span class="content"></span>
+        </div>
+        <div class="list">
+            <span class="name">联系人：</span>
+            <span class="content">郑</span>
+        </div>
+        <div class="list">
+            <span class="name">联系方式：</span>
+            <span class="content">15558023165</span>
+        </div>
+        <div class="list">
+            <span class="name">意向房源：</span>
+            <span class="content"></span>
+        </div>
+        <div class="list">
+            <span class="name">登记时间：</span>
+            <span class="content">2017-11-28</span>
+        </div>
+    </div>
+{/block}
+{block name="script"}
+
+<script>
+    $(function () {
+        $("title").text("招商信息");
+    });
+</script>
+
+{/block}
