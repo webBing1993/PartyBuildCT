@@ -34,8 +34,8 @@
 }
 .content .top {
     width: 100%;
-    padding-left: 3.4666vw;
-    padding-right: 3.4666vw;
+    padding-left: 3.2vw;
+    padding-right: 3.2vw;
 }
 .content .top .title {
     font-weight: 600;
@@ -52,7 +52,7 @@
 .content .top .note span {
     height: 10.6666vw;
     display: inline-block;
-    margin-right: 2.6666vw;
+    /*margin-right: 2.6666vw;*/
     line-height: 10.6666vw;
 }
 .content .top .read {
@@ -74,14 +74,14 @@
 .content .message div {
     width: 100%;
     height: 10.6666vw;
-    padding-left: 13.3333vw;
+    padding-left: 10.8vw;
     line-height: 10.6666vw;
     border-bottom: 0.2666vw dashed #eeeeee;
 }
 .content .message div span {
     display: inline-block;
     width: 100%;
-    padding-right: 4vw;
+    padding-right: 3.2vw;
 }
 .content .message div span:nth-child(5) {
     border-bottom: none;
@@ -90,15 +90,15 @@
     padding-right: 0!important;
 }
 .content .message div:nth-child(1) {
-    background: url("/home/images/detail/time.png") 4vw 2.6666vw no-repeat;
+    background: url("/home/images/detail/time.png") 3.2vw center no-repeat;
     background-size: 5.3333vw 5.3333vw;
 }
 .content .message div:nth-child(2) {
-    background: url("/home/images/detail/address.png") 4vw 2.6666vw no-repeat;
+    background: url("/home/images/detail/address.png") 3.2vw center no-repeat;
     background-size: 5.3333vw 5.3333vw ;
 }
 .content .message div:nth-child(3) {
-    background: url("/home/images/detail/people.png") 4vw 2.6666vw no-repeat;
+    background: url("/home/images/detail/people.png") 3.2vw center no-repeat;
     background-size: 5.3333vw 5.3333vw ;
 }
 .content .article {

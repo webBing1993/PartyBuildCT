@@ -23,19 +23,19 @@
     height: 100%;
 }
 #tab1.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
-    background-color: #000;
+    background-color: #333;
     color: #fff;
     font-weight: 600;
 }
 .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
-    color:  #000;
+    color:  #333;
     font-weight: 600;
 }
 #tab .mui-active::after {
     content: '';
     width: 8vw;
     height: 1.6vw;
-    background-color: #000;
+    background-color: #333;
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -108,22 +108,13 @@
 .list .fl img{
     width: 28.2vw;
     height: 18.8vw;
-    /*width: 26.7vw;*/
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
-}
-.list img{
-    width: 26.7vw;
-    height: 55px;
-    margin-top: 5.4vw;
+    margin-top: 4.1vw;
 }
 .list .lr{
     width: 62vw;
     position: relative;
     height: 18.8vw;
-    margin-top: 5.4vw;
+    margin-top: 4.1vw;
 }
 .down .list .lr .title{
     width: 100%;

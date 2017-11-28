@@ -19,7 +19,7 @@
                 <a href="{:Url('User/index')}" class="rank">
                     <img src="/home/images/index/usercenter.png" alt="">
 
-                    <img src="/home/images/banner/1.png" alt="">
+                    <img src="/home/images/index/person.png" alt="">
                 </a>
             </div>
             <!--图标轮播-->
@@ -34,7 +34,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{:Url('Notice/index')}">
+                                <a href="{:Url('Organization/index')}">
                                     <img src="/home/images/index/star_1.png" alt="先锋引领">
                                     <span>通知公告</span>
                                 </a>
@@ -46,7 +46,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{:Url('Learn/index?c=1')}">
+                                <a href="{:Url('Learn/index')}">
                                     <img src="/home/images/index/learn_1.png" alt="每日一课">
                                     <span>两学一做</span>
                                 </a>
@@ -58,7 +58,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{:Url('Activity/index?c=1')}">
+                                <a href="{:Url('Activity/index')}">
                                     <img src="/home/images/index/active.png" alt="活动发起">
                                     <span>组织活动</span>
                                 </a>
@@ -225,7 +225,7 @@
             // 清缓存
             isOut();
 
-            $(".banner>.exit").on("click",function(){
+            $(".banner>.exit").on("tap",function(e){
                 swal({
                     title:"",
                     text: "是否确认退出",
@@ -246,6 +246,7 @@
                         window.location.replace("{:Url('Verify/logout')}");
                     },1000)
                 });
+                return false;
             })
         });
         window.onload = function () {

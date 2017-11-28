@@ -37,19 +37,19 @@
     height: 100%;
 }
 #tab1.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
-    background-color: #000;
+    background-color: #333;
     color: #fff;
     font-weight: 600;
 }
 .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
-    color:  #000;
+    color:  #333;
     font-weight: 600;
 }
 #tab .mui-active::after {
     content: '';
     width: 8vw;
     height: 1.6vw;
-    background-color: #000;
+    background-color: #333;
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -60,7 +60,7 @@
     position: relative;
     display: block;
     width: 100%;
-    padding: 2.7vw;
+    padding: 2.7vw 3.2vw;
     margin-bottom: 2.7vw;
     background: #ffffff;
     text-align: center;
@@ -105,6 +105,7 @@
     font-size: 0.34rem;
     text-align: center;
     line-height: 4vw;
+    margin-top: 1.2vw;
 }
 .lists1 .default img{
     width: 16vw;
@@ -114,6 +115,132 @@
     margin-left: -8vw;
 }
 /*lists2*/
+.lists2 {
+    background-color: #fff !important;
+    padding-bottom: 8vw;
+}
+.lists2 .list {
+    border-bottom: 1px solid #f1f1f1;
+    padding: 4.8vw 3.2vw;
+}
+.lists2 .list .question {
+    font-size: .37rem;
+    color: #333;
+    margin-bottom: 2vw;
+}
+.lists2 .list .question .type {
+    width: 4.8vw;
+    height: 4.8vw;
+    border: 1px solid #d43f3a;
+    border-radius: 50%;
+    padding: .8vw;
+    display: inline-flex;
+}
+.lists2 .list .question .type span {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #d43f3a;
+}
+.lists2 .list .option_ {
+    display: block;
+    padding-left: 4.8vw;
+    line-height: 8vw;
+    font-size: .37rem;
+}
+.lists2 .list .option_ input {
+    display: none;
+}
+.lists2 .list .option_.active {
+    color: #d43f3a;
+}
+.lists2 .btn {
+    width: 93.6vw;
+    border-radius: 2.7vw;
+    font-size: .4rem;
+    background-color: #d43f3a;
+    color: #fff;
+    text-align: center;
+    margin: 8vw auto 0;
+    display: block;
+    box-shadow: 0 0 2.7vw #d43f3a;
+}
+/*保存提示框*/
+.suc{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.30);
+    position: fixed;
+    z-index: 109;
+    top:0;
+    display: none;
+}
+.timer{
+    width: 8vw;
+    height: 8vw;
+    background-color: transparent;
+    box-shadow: inset 0 0 0 2px #fff;
+    border-radius: 50%;
+    position: relative;
+    margin: 50% auto;
+}
+.timer:after, .timer:before{
+    position: absolute;
+    content:"";
+    background-color: #fff;
+}
+.timer:after{
+    width: 3.2vw;
+    height: 2px;
+    top: 3.4vw;
+    left: 3.4vw;
+    -webkit-transform-origin: 1px 1px;
+    -moz-transform-origin: 1px 1px;
+    transform-origin: 1px 1px;
+    -webkit-animation: minhand 2s linear infinite;
+    -moz-animation: minhand 2s linear infinite;
+    animation: minhand 2s linear infinite;
+}
+
+.timer:before{
+    width: 2.7vw;
+    height: 2px;
+    top: 3.4vw;
+    left: 3.4vw;
+    -webkit-transform-origin: 1px 1px;
+    -moz-transform-origin: 1px 1px;
+    transform-origin: 1px 1px;
+    -webkit-animation: hrhand 8s linear infinite;
+    -moz-animation: hrhand 8s linear infinite;
+    animation: hrhand 8s linear infinite;
+}
+
+@-webkit-keyframes minhand{
+    0%{-webkit-transform:rotate(0deg)}
+    100%{-webkit-transform:rotate(360deg)}
+}
+@keyframes minhand{
+    0%{transform:rotate(0deg)}
+    100%{transform:rotate(360deg)}
+}
+
+@-webkit-keyframes hrhand{
+    0%{-webkit-transform:rotate(0deg)}
+    100%{-webkit-transform:rotate(360deg)}
+}
+@keyframes hrhand{
+    0%{transform:rotate(0deg)}
+    100%{transform:rotate(360deg)}
+}
+.up {
+    width: 100vw;
+    position: fixed;
+    top: 43%;
+    color: #ffffff;
+    font-size: 0.6rem;
+    text-align: center;
+}
 
 /*lists3*/
 .lists3 {

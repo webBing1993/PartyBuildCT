@@ -1,0 +1,99 @@
+/*banner*/
+.banner {
+    width: 100vw;
+    height: 50vw;
+    position: relative;
+}
+.banner img {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+.banner .notes {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 10.8vw;
+    line-height: 10.8vw;
+    background-color: rgba(0,0,0,.6);
+}
+.banner .notes span {
+    display: block;
+    font-size: .32rem;
+    color: #f1f1f1;
+    padding-left: 10.8vw;
+    background: url("/home/images/organization/map.png") 3.2vw center no-repeat;
+    background-size: 5.4vw 5.4vw;
+}
+/*title*/
+.title {
+    width: 100vw;
+    height: 12vw;
+    border-bottom: 2px solid #f1f1f1;
+    line-height: 12vw;
+    font-size: .48rem;
+    font-weight: 600;
+    color: #f41919;
+    text-align: center;
+    position: relative;
+}
+.title span {
+    display: inline-block;
+    padding-left: 6.4vw;
+    background: url("/home/images/organization/ifon.png") 0 center no-repeat;
+    background-size: 5.4vw 5.4vw;
+}
+/*lists*/
+.lists {
+    width: 86vw;
+    background-color: #fff;
+    box-shadow: 0 0 2.7vw #f1f1f1;
+    margin: 5.4vw auto;
+    padding: 5.4vw 4vw;
+    border-radius: 2.7vw;
+}
+.lists .list {
+    margin-bottom: 2.7vw;
+    line-height: 10.8vw;
+}
+.lists .list .name {
+    display: inline-block;
+    padding-left: 8vw;
+    color: #5b5757;
+    font-size: .35rem;
+    font-weight: 600;
+}
+.lists .list .content {
+    display: inline-block;
+    color: #333;
+    font-weight: 600;
+    font-size: .35rem;
+}
+.lists .list:first-of-type {
+    background: url("/home/images/organization/name.png") 0 center no-repeat;
+    background-size: 5.4vw 5.4vw;
+}
+.lists .list:nth-of-type(2) {
+    background: url("/home/images/organization/name1.png") 0 center no-repeat;
+    background-size: 5.4vw 5.4vw;
+}
+.lists .list:nth-of-type(3) {
+    background: url("/home/images/organization/content.png") 0 center no-repeat;
+    background-size: 5.4vw 5.4vw;
+}
+.lists .list:nth-of-type(4) {
+    background: url("/home/images/organization/person.png") 0 center no-repeat;
+    background-size: 5.4vw 5.4vw;
+}
+.lists .list:nth-of-type(5) {
+    background: url("/home/images/organization/phone.png") 0 center no-repeat;
+    background-size: 5.4vw 5.4vw;
+}
+.lists .list:nth-of-type(6) {
+    background: url("/home/images/organization/address.png") 0 center no-repeat;
+    background-size: 5.4vw 5.4vw;
+}
+.lists .list:last-of-type {
+    background: url("/home/images/organization/time.png") 0 center no-repeat;
+    background-size: 5.4vw 5.4vw;
+}

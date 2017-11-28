@@ -70,7 +70,122 @@
 
             </div>
             <div class="mui-slider-item mui-control-content lists2">
-
+                <!--选择题循环-->
+                <div class="list" data-id="1">
+                    <div class="question">
+                        <span class="type"><span></span></span>
+                        禁止党员领导干部脱离实际，弄虚作假，损害群众利益和党群干群关系。不准（）。
+                    </div>
+                    <span class="option_">
+                        <input type="radio" name="s1" value="1">
+                        <span class="option">A.</span>
+                        <span class="opt">搞”形象工程“和”政绩工程“</span>
+                    </span>
+                    <span class="option_">
+                        <input type="radio" name="s1" value="2">
+                        <span class="option">B.</span>
+                        <span class="opt">虚报工作业绩</span>
+                    </span>
+                    <span class="option_">
+                        <input type="radio" name="s1" value="3">
+                        <span class="option">C.</span>
+                        <span class="opt">大办婚丧喜庆事宜</span>
+                    </span>
+                    <div class="sum fr"><span class="num">1</span>/5</div>
+                </div>
+                <!--选择题循环-->
+                <div class="list" data-id="2">
+                    <div class="question">
+                        <span class="type"><span></span></span>
+                        禁止党员领导干部脱离实际，弄虚作假，损害群众利益和党群干群关系。不准（）。
+                    </div>
+                    <span class="option_">
+                        <input type="radio" name="s2" value="1">
+                        <span class="option">A.</span>
+                        <span class="opt">搞”形象工程“和”政绩工程“</span>
+                    </span>
+                    <span class="option_">
+                        <input type="radio" name="s2" value="2">
+                        <span class="option">B.</span>
+                        <span class="opt">虚报工作业绩</span>
+                    </span>
+                    <span class="option_">
+                        <input type="radio" name="s2" value="3">
+                        <span class="option">C.</span>
+                        <span class="opt">大办婚丧喜庆事宜</span>
+                    </span>
+                    <div class="sum fr"><span class="num">2</span>/5</div>
+                </div>
+                <!--选择题循环-->
+                <div class="list" data-id="3">
+                    <div class="question">
+                        <span class="type"><span></span></span>
+                        禁止党员领导干部脱离实际，弄虚作假，损害群众利益和党群干群关系。不准（）。
+                    </div>
+                    <span class="option_">
+                        <input type="radio" name="s3" value="1">
+                        <span class="option">A.</span>
+                        <span class="opt">搞”形象工程“和”政绩工程“</span>
+                    </span>
+                    <span class="option_">
+                        <input type="radio" name="s3" value="2">
+                        <span class="option">B.</span>
+                        <span class="opt">虚报工作业绩</span>
+                    </span>
+                    <span class="option_">
+                        <input type="radio" name="s3" value="3">
+                        <span class="option">C.</span>
+                        <span class="opt">大办婚丧喜庆事宜</span>
+                    </span>
+                    <div class="sum fr"><span class="num">3</span>/5</div>
+                </div>
+                <!--选择题循环-->
+                <div class="list" data-id="4">
+                    <div class="question">
+                        <span class="type"><span></span></span>
+                        禁止党员领导干部脱离实际，弄虚作假，损害群众利益和党群干群关系。不准（）。
+                    </div>
+                    <span class="option_">
+                        <input type="radio" name="s4" value="1">
+                        <span class="option">A.</span>
+                        <span class="opt">搞”形象工程“和”政绩工程“</span>
+                    </span>
+                    <span class="option_">
+                        <input type="radio" name="s4" value="2">
+                        <span class="option">B.</span>
+                        <span class="opt">虚报工作业绩</span>
+                    </span>
+                    <span class="option_">
+                        <input type="radio" name="s4" value="3">
+                        <span class="option">C.</span>
+                        <span class="opt">大办婚丧喜庆事宜</span>
+                    </span>
+                    <div class="sum fr"><span class="num">4</span>/5</div>
+                </div>
+                <!--选择题循环-->
+                <div class="list" data-id="5">
+                    <div class="question">
+                        <span class="type"><span></span></span>
+                        禁止党员领导干部脱离实际，弄虚作假，损害群众利益和党群干群关系。不准（）。
+                    </div>
+                    <span class="option_">
+                        <input type="radio" name="s5" value="1">
+                        <span class="option">A.</span>
+                        <span class="opt">搞”形象工程“和”政绩工程“</span>
+                    </span>
+                    <span class="option_">
+                        <input type="radio" name="s5" value="2">
+                        <span class="option">B.</span>
+                        <span class="opt">虚报工作业绩</span>
+                    </span>
+                    <span class="option_">
+                        <input type="radio" name="s5" value="3">
+                        <span class="option">C.</span>
+                        <span class="opt">大办婚丧喜庆事宜</span>
+                    </span>
+                    <div class="sum fr"><span class="num">5</span>/5</div>
+                </div>
+                <div class="btn">提交</div>
             </div>
             <div class="mui-slider-item mui-control-content lists3">
                 <!-- 党员先锋列表-->
@@ -139,6 +254,10 @@
     </div>
 </div>
 
+<div class="suc">
+    <div class="timer"></div>
+    <div class="up">上传中...</div>
+</div>
 
 {/block}
 
@@ -155,7 +274,7 @@
         $("#tab1 a").eq(c).addClass("mui-active");
     });
 
-    //首页加载是否需要上拉加载
+    // 首页加载是否需要上拉加载
     window.onload = function() {
         if(c == 0){
             if ($(".lists .lesson").length < 7) {
@@ -171,9 +290,30 @@
     };
 
     // tab点击事件
-    mui('#tab,#tab1').on('tap', 'a', function(e) {
+    mui('#tab').on('tap', 'a', function(e) {
         mui('#refreshContainer').pullRefresh().scrollTo(0,0);
         mui('#refreshContainer').scroll().scrollTo(0,0);
+        mui('#refreshContainer').pullRefresh().refresh(true);
+        c = this.getAttribute("data-index");
+        $(".mui-control-content").eq(c).show().siblings(".mui-control-content").hide();
+        $("#tab a").eq(c).addClass("mui-active").siblings("#tab a").removeClass("mui-active");
+        $("#tab1 a").eq(c).addClass("mui-active").siblings("#tab1 a").removeClass("mui-active");
+        if(c == 0){
+            if($(".lists1 a").length < 6){
+                mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
+            }else{
+                mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
+            }
+        }else if(c == 1){
+            mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
+        }else {
+            mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
+        }
+        setCookie("c",c)
+    });
+    mui('#tab1').on('tap', 'a', function(e) {
+        mui('#refreshContainer').pullRefresh().scrollTo(0,-$(".banner").height());
+        mui('.mui-scroll-wrapper').scroll().y = -$(".banner").height();
         mui('#refreshContainer').pullRefresh().refresh(true);
         c = this.getAttribute("data-index");
         $(".mui-control-content").eq(c).show().siblings(".mui-control-content").hide();
@@ -207,7 +347,7 @@
         }
     });
 
-    //初始化下拉加载
+    // 初始化下拉加载
     mui.init({
         pullRefresh: {
             container: '#refreshContainer',
@@ -272,9 +412,82 @@
         window.location.href = url;
     });
 
-    $(".party .start1").click(function(){
-        window.location.href = "{:Url('Learn/answer')}";
+    // 答题选中
+    $(".lists2 .list").on("tap",".option_", function () {
+        $(this).addClass("active").siblings(".option_").removeClass("active");
+//        $(this).children("input").attr("checked",true).parent(".option_").siblings(".option_").children("input").removeAttr("checked");
+    });
+    // 答案获取
+    function getAn() {
+        var arr = [];
+        for (var i = 0; i < $(".lists2 .list").length; i++) {
+            var t = $(".lists2 .list").eq(i).find(".option_.active");
+            var len_t = t.length;
+            if (len_t == 0) {
+                arr.push(0);
+            }else if (len_t == 1) {
+                arr.push(t.children("input").val());
+            }
+        }
+        return arr;
+    }
+    // 答题序号获取
+    function anId() {
+        var anId = [];
+        for (var i = 0; i < $(".lists2 .list").length; i++) {
+            anId.push($(".lists2 .list").eq(i).attr("data-id"));
+        }
+        return anId;
+    }
+    // 答案提交
+    $(".lists2 .btn").on("tap", function () {
+        var arr1 = getAn();
+        var suc = $(".suc");
+        for (var i = 0; i < arr1.length; i++) {
+            if (arr1[i] == 0) {
+                swal({
+                    title: "",
+                    text: "答题未完成！",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "确定",
+                    cancelButtonText: "取消"
+                },function(isConfirm){
+                    $.ajax({
+                        type: "post",
+                        url: '',
+                        data: {arr: arr1,id: anId()},
+                        success: function (data) {
+                            suc.show();
+                            setTimeout(function () {
+                                window.location.href = "/home/learn/answer.html";
+                            },1500)
+                        }
+                    })
+                })
+            }else {
+                swal({
+                    title: "",
+                    text: "答题完成！",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    cancelButtonText: "取消"
+                },function()
+                {
+                    $.ajax({
+                        type: "post",
+                        url: '',
+                        data: {arr: arr1,id: anId()},
+                        success: function (data) {
+                            suc.show();
+                            setTimeout(function () {
+                                window.location.href = "/home/learn/answer.html";
+                            },1500)
+                        }
+                    })
+                })
+            }
+        }
     })
-
 </script>
 {/block}

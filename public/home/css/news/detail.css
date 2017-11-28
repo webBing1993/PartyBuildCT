@@ -32,9 +32,9 @@
 /*文章*/
 .article {
   width: 100%;
-  padding-left: 3.5vw;
-  padding-right: 3.5vw;
-  padding-top: 3.5vw;
+  padding-left: 3.2vw;
+  padding-right: 3.2vw;
+  padding-top: 3.2vw;
 }
 .article .title {
   font-size: .48rem;
@@ -98,6 +98,7 @@
 .article .content .note {
   color: #999999;
   font-size: .37rem;
+  padding: 0;
 }
 .article .content .note span {
   height: 10.7vw;
