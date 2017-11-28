@@ -1,6 +1,6 @@
 .top{height: 50vw;width: 100vw; background: -webkit-linear-gradient(left,#e4672d, #e9ad2c);border-bottom: 2.7vw solid #efeef3;}
 .top .top_top{width: 100%;height: 37vw;font-size: 13px;}
-.top .top_top img{width: 21vw;height: 21vw;border-radius: 50%;margin-top: 3vw;margin-left: 40vw;}
+.top .top_top img{width: 21vw;height: 21vw;border-radius: 50%;margin-top: 3vw;margin-left: 40vw;box-shadow: 0 0 2.7vw #f1f1f1;}
 .top .top_top p{margin: -6.7vw 0 8vw 0;color: #fff;font-size: 13px;text-align: center;}
 .top .top_body{height: 10.6vw;width: 100%;position: relative;}
 .top .top_body ul li{height: 100%;width: 49.5%;float: left;text-align: center;}
