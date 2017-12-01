@@ -1,20 +1,20 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Lxx<779219930@qq.com>
- * Date: 2017/11/23
- * Time: 17:22
+ * User: laowang
+ * Date: 2017/1/16
+ * Time: 15:10
  */
-
 namespace app\admin\model;
 
 
-class Focus extends Base {
+class Learn extends Base {
     protected $insert = [
         'views' => 0,
         'likes' => 0,
         'comments' => 0,
         'create_time' => NOW_TIME,
-        'status' => 1
+        'status' => 1,
     ];
+
 }
