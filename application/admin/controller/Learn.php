@@ -8,10 +8,6 @@
 namespace app\admin\controller;
 
 use app\admin\model\Learn as LearnModel;
-use app\admin\model\Picture;
-use app\admin\model\Push;
-use com\wechat\TPQYWechat;
-use think\Config;
 use think\Db;
 
 /**

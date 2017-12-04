@@ -37,7 +37,7 @@ class Notice extends Admin {
             if(empty($data['id'])) {
                 unset($data['id']);
             }
-            $data['time'] = time_format($data['time']);
+            $data['time'] = strtotime($data['time']);
             $info = $Model->validate('notice.notice')->save($data);
             if($info) {
                 return $this->success("新增成功",Url('Notice/index'));

@@ -44,7 +44,7 @@ class Organization extends Admin {
                 unset($data['id']);
             }
             if($data['type'] == 1) {
-                $data['time'] = time_format($data['time']);
+                $data['time'] = strtotime($data['time']);
                 $info = $Model->validate('Organization.one')->save($data);
             }else {
                 $info = $Model->validate('Organization.two')->save($data);
