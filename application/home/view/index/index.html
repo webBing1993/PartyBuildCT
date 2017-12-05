@@ -72,12 +72,12 @@
     {block name="script"}
     <script src="/static/swiper/swiper-3.3.1.jquery.min.js"></script>
     <script>
-        var mySwiper = new Swiper('.swiper-container', {
+        /*var mySwiper = new Swiper('.swiper-container', {
 //        loop: true,
             autoplayDisableOnInteraction: false,
             pagination : '.swiper-pagination',
             paginationClickable :true
-        });
+        });*/
         $(function(){
             // 清缓存
             isOut();
@@ -177,7 +177,7 @@
         mui("#refreshContainer").on("touchstart","a",function(){
             $(this).css("backgroundColor","rgba(0,0,0,.1)");
         }).on("touchend","a", function () {
-            $(this).css("backgroundColor","#fff");
+            $(this).css("backgroundColor","transparent");
         });
 
         mui("#refreshContainer").on("tap","a",function(){
