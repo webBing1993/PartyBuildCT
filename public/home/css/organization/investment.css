@@ -64,10 +64,14 @@
     font-weight: 600;
 }
 .lists .list .content {
+    width: 62%;
     display: inline-block;
     color: #333;
     font-weight: 600;
     font-size: .35rem;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
 .lists .list:first-of-type {
     background: url("/home/images/organization/name.png") 0 center no-repeat;

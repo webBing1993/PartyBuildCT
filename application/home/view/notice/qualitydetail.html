@@ -26,9 +26,9 @@
                         <span class="read">{$detail.views}</span>
                         {eq name="visit" value="0"}
                         {eq name="detail.is_like" value="1"}
-                        <span class="isgood good_" onclick="isGood(this,2,{$detail.id})">{$detail.likes}</span>
+                        <span class="isgood good_" onclick="isGood(this,0,{$detail.id})">{$detail.likes}</span>
                         {else/}
-                        <span class="isgood good" onclick="isGood(this,2,{$detail.id})">{$detail.likes}</span>
+                        <span class="isgood good" onclick="isGood(this,0,{$detail.id})">{$detail.likes}</span>
                         {/eq}
                         {/eq}
                     </span>
@@ -96,7 +96,7 @@
         var len = $(".lists .list").length;
         $.ajax({
             type: "post",
-            url: "",
+            url: "{:Url('Notice/qualitydetail')}",
             data: {
                 length: len
             },
@@ -142,7 +142,7 @@
     mui("#refreshContainer").on("touchstart","a",function(){
         $(this).css("backgroundColor","rgba(0,0,0,.1)");
     }).on("touchend","a", function () {
-        $(this).css("backgroundColor","#fff");
+        $(this).css("backgroundColor","transparent");
     });
     mui("#refreshContainer").on("tap","a",function(){
         var url = this.getAttribute("href");
@@ -157,6 +157,7 @@
      *
      */
     var isGood = function(e,type,id){
+        console.log(type);
         //样式变化，移到suc
         var n = $(e ).text();
         $(e).toggleClass('good' ).toggleClass('good_');
@@ -166,10 +167,10 @@
 //	var type = $(e ).hasClass('fr')?2:1;
         $.ajax({
             type:"post",
-            url:"{:Url('Base/like')}",
+            url:"{:Url('Notice/qualitydetail')}",
             data:{
                 type:type,
-                aid:id,
+                aid:id
             },
             success:function(data){
 
@@ -206,11 +207,11 @@
                     }
                     $.ajax({
                         type:"post",
-                        url:"{:Url('Base/comment')}",
+                        url:"{:Url('Notice/qualitydetail')}",
                         data:{
                             type:type,
-                            aid:id,
-                            content:inputValue
+                            id:id,
+                            comment:inputValue
                         },
                         beforeSend:function(){
                             swal({

@@ -29,13 +29,18 @@
                 </div>
                 <div class="article">
                     <div class="clearfix">{$detail.content}</div>
-                    {eq name="visit" value="0"}
-                    {eq name="detail.is_like" value="1"}
-                    <span class="isgood good_" onclick="isGood(this,1,{$detail.id})">{$detail.likes}</span>
-                    {else/}
-                    <span class="isgood good" onclick="isGood(this,1,{$detail.id})">{$detail.likes}</span>
-                    {/eq}
-                    {/eq}
+                    <div class="note clearfix">
+                        <span class="fr">
+                            <span class="read">{$detail.views}</span>
+                            {eq name="visit" value="0"}
+                            {eq name="detail.is_like" value="1"}
+                            <span class="isgood good_" onclick="isGood(this,0,{$detail.id})">{$detail.likes}</span>
+                            {else/}
+                            <span class="isgood good" onclick="isGood(this,0,{$detail.id})">{$detail.likes}</span>
+                            {/eq}
+                            {/eq}
+                        </span>
+                    </div>
                 </div>
                 <div class="comment">
                     <div class="sum">共<span>{$detail.comments}</span>条评论</div>
@@ -92,10 +97,10 @@
 //	var type = $(e ).hasClass('fr')?2:1;
         $.ajax({
             type:"post",
-            url:"{:Url('Base/like')}",
+            url:"{:Url('Notice/detail')}",
             data:{
                 type:type,
-                aid:id,
+                id:id
             },
             success:function(data){
 
@@ -127,11 +132,11 @@
             }
             $.ajax({
                 type: "post",
-                url: "{:Url('Base/comment')}",
+                url: "{:Url('Notice/detail')}",
                 data: {
                     type: type,
-                    aid: id,
-                    content: inputValue
+                    id: id,
+                    comment: inputValue
                 },
                 beforeSend: function () {
                     swal({
@@ -166,6 +171,9 @@
                         confirmButtonText: '确定',
                         timer: 3000
                     });
+                },
+                error: function (data) {
+//                    console.log(data);
                 }
             });
         })
@@ -190,7 +198,7 @@
         var len = $(".lists .list").length;
         $.ajax({
             type: "post",
-            url: "",
+            url: "{:Url('Notice/detail')}",
             data: {
                 length: len
             },
@@ -242,7 +250,7 @@
     mui("#refreshContainer").on("touchstart","a",function(){
         $(this).css("backgroundColor","rgba(0,0,0,.1)");
     }).on("touchend","a", function () {
-        $(this).css("backgroundColor","#fff");
+        $(this).css("backgroundColor","transparent");
     });
     mui("#refreshContainer").on("tap","a",function(){
         var url = this.getAttribute("href");
