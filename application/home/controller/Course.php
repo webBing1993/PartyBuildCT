@@ -16,10 +16,10 @@ use app\home\model\WechatUser;
 
 
 /**
- * Class Notice
- * @package 通知公告/支部活动
+ * Class Course
+ * @package 三会一课
  */
-class Notice extends Base {
+class Course extends Base {
     /**
      * 主页
      */

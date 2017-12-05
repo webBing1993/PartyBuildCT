@@ -27,46 +27,17 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <ul class="model clearfix">
+                            {volist name="module" id="mo"}
                             <li>
-                                <a href="{:Url('Structure/index')}">
-                                    <img src="/home/images/index/structure_1.png" alt="云上组织">
-                                    <span>组织架构</span>
+                                <a href="{$mo.url}">
+                                    <img src="{$mo.icon|get_cover='path'}" alt="{$mo.name}">
+                                    <span>{$mo.name}</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="{:Url('Organization/index')}">
-                                    <img src="/home/images/index/star_1.png" alt="先锋引领">
-                                    <span>通知公告</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{:Url('news/index')}">
-                                    <img src="/home/images/index/news_1.png" alt="最新动态">
-                                    <span>最新动态</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{:Url('Learn/index')}">
-                                    <img src="/home/images/index/learn_1.png" alt="每日一课">
-                                    <span>两学一做</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{:Url('Notice/index')}">
-                                    <img src="/home/images/index/announcement_1.png" alt="美丽乡村">
-                                    <span>三会一课</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{:Url('Activity/index')}">
-                                    <img src="/home/images/index/active.png" alt="活动发起">
-                                    <span>组织活动</span>
-                                </a>
-                            </li>
+                            {/volist}
                         </ul>
                     </div>
                 </div>
-
                 <!--分割线-->
                 <div class="level"></div>
                 <!--新闻通知-->
@@ -74,8 +45,9 @@
                     <div class="notices">
                         <div class="notice party">
                             <!--第一聚焦-->
+                            {volist name="list" id="vo"}
                             <!--循环体-->
-                            <a href="/home/news/detail.html" class="list clear" >
+                            <a href="" class="list clear" >
                                 <div class="fl">
                                     <img src="/home/images/banner/1.png" alt="news">
                                     <span class="type">第一聚焦</span>
@@ -88,6 +60,7 @@
                                     </div>
                                 </div>
                             </a>
+                            {/volist}
                             <!--循环体-->
                             <a href="/home/news/detail.html" class="list clear" >
                                 <div class="fl">

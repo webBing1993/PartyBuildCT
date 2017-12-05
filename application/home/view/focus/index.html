@@ -14,50 +14,34 @@
 				<div class="swiper-container">
 					<div class="imgs swiper-wrapper">
 						<!--轮播图-->
+						{volist name="top" id="to"}
 						<div class="banner swiper-slide">
-							<a href="/home/news/detail.html">
-								<img src="/home/images/banner/1.png" alt="新闻图片">
-								<div class="title_ limit">这是新闻标题</div>
+							<a href="{:Url('Focus/detail?id='.$to['id'])}">
+								<img src="{$to.front_cover|get_cover='path'}" alt="新闻图片">
+								<div class="title_ limit">{$to.title}</div>
 							</a>
 						</div>
-						<!-- 轮播图-->
-						<div class="banner swiper-slide">
-							<a href="/home/news/detail.html">
-								<img src="/home/images/banner/2.png" alt="新闻图片">
-								<div class="title_ limit">这是新闻标题</div>
-							</a>
-						</div>
+						{/volist}
 					</div>
 				</div>
 			</div>
 			<!--新闻列表-->
 			<div class="lists">
 				<!-- 新闻聚焦循环体-->
-				<a class="list clear" href="/home/news/detail.html">
+				{volist name="list" id="vo"}
+				<a class="list clear" href="{:Url('Focus/detail?id='.$vo['id'])}">
 					<div class="fl">
-						<img src="/home/images/common/party.png" alt="第一聚焦">
+						<img src="{$vo.front_cover|get_cover='path'}" alt="第一聚焦">
 					</div>
 					<div class="fr lr">
-						<div class="title limit_">新闻标题</div>
+						<div class="title limit_">{$vo.title}</div>
 						<div class="clear">
-							<span class="fl">2017-11-21</span>
+							<span class="fl">{$vo.create_time|time_format='Y-m-d'}</span>
 							<span class="fr">详情</span>
 						</div>
 					</div>
 				</a>
-				<!-- 新闻聚焦循环体-->
-				<a class="list clear" href="/home/news/detail.html">
-					<div class="fl">
-						<img src="/home/images/common/party.png" alt="第一聚焦">
-					</div>
-					<div class="fr lr">
-						<div class="title limit_">新闻标题</div>
-						<div class="clear">
-							<span class="fl">2017-11-21</span>
-							<span class="fr">详情</span>
-						</div>
-					</div>
-				</a>
+				{/volist}
 			</div>
 		</div>
 	</div>
@@ -96,7 +80,7 @@
 		var len = $(".lists .list").length;
 		$.ajax({
 			type: "post",
-			url: "",
+			url: "{:Url('Focus/listmore')}",
 			data: {
 				length: len
 			},
@@ -126,9 +110,9 @@
 		for(var i = 0; i< len;i++){
 			var list = lists[i];
 			html +=
-				'<a class="list clear" href="/home/news/detail/id/'+list.id+'.html">'+
+				'<a class="list clear" href="/home/focus/detail/id/'+list.id+'.html">'+
 				 '<div class="fl">'+
-				 '<img src="'+ list.src+'" alt="图片">'+
+				 '<img src="'+ list.path+'" alt="图片">'+
 				 '</div>'+
 				 '<div class="fr lr">'+
 				 '<div class="title limit_">'+list.title+'</div>'+
