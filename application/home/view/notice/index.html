@@ -106,19 +106,19 @@
         $("#tab a").eq(c).addClass("mui-active").siblings("#tab a").removeClass("mui-active");
         $("#tab1 a").eq(c).addClass("mui-active").siblings("#tab1 a").removeClass("mui-active");
         if(c == 0){
-            if($(".lists1 a").length < 6){
+            if($(".lists1 a").length < 8){
                 mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
             }else{
                 mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
             }
         }else if(c == 1){
-            if($(".lists2 a").length < 6){
+            if($(".lists2 a").length < 8){
                 mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
             }else{
                 mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
             }
         }else {
-            if($(".lists3 a").length < 6){
+            if($(".lists3 a").length < 8){
                 mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
             }else{
                 mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
@@ -135,19 +135,19 @@
         $("#tab a").eq(c).addClass("mui-active").siblings("#tab a").removeClass("mui-active");
         $("#tab1 a").eq(c).addClass("mui-active").siblings("#tab1 a").removeClass("mui-active");
         if(c == 0){
-            if($(".lists1 a").length < 6){
+            if($(".lists1 a").length < 8){
                 mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
             }else{
                 mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
             }
         }else if(c == 1){
-            if($(".lists2 a").length < 6){
+            if($(".lists2 a").length < 8){
                 mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
             }else{
                 mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
             }
         }else {
-            if($(".lists3 a").length < 6){
+            if($(".lists3 a").length < 8){
                 mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
             }else{
                 mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
@@ -176,19 +176,19 @@
 
     window.onload = function () {
         if (c == 0) {
-            if ($(".lists1 .list").length < 6) {
+            if ($(".lists1 .list").length < 8) {
                 mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
             } else {
                 mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
             }
         }else if (c == 1) {
-            if ($(".lists2 .list").length < 6) {
+            if ($(".lists2 .list").length < 8) {
                 mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
             } else {
                 mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
             }
         }else {
-            if ($(".lists3 .list").length < 6) {
+            if ($(".lists3 .list").length < 8) {
                 mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
             } else {
                 mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
@@ -215,18 +215,18 @@
 
         $.ajax({
             type: "post",
-            url: "",
+            url: "{:Url('Notice/index')}",
             data: {
                 length: len,
-                type: c
+                type: parseFloat(c)+1
             },
             beforeSend: function(XMLHttpRequest){
             },
             success:function(data){
-                addCourse(data,c);
+                addCourse(data,parseFloat(c)+1);
                 if(data.code == 1){
                     var dataLen =data.data.length;
-                    if(data.data.length == 6){
+                    if(data.data.length == 8){
                         mui('#refreshContainer').pullRefresh().endPullupToRefresh(false);
                     }else{
                         mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
@@ -244,7 +244,7 @@
         var len = lists.length;
         for(var i = 0; i< len;i++){
             var list = lists[i];
-            if (type == 0) {
+            if (type == 1) {
                 html +=
                         '<a href="/home/notice/detail'+
                         list.id +
@@ -254,14 +254,14 @@
                         '</div>'+
                         '<div class="note clearfix">'+
                         '<span class="fl">' +
-                        list.className +
+                        list.publisher +
                         '</span>'+
                         '<span class="fr">' +
                         list.time +
                         '</span>'+
                         '</div>'+
                         '</a>';
-            }else if (type == 1) {
+            }else if (type == 2) {
                 html =  '<a href="/home/notice/qualitydetail' +
                         list.id+
                         '.html" class="list">'+
@@ -283,7 +283,7 @@
                         list.id+
                         '.html" class="list">'+
                         '<div class="title">' +
-                        list.title +
+                        list.contacts +
                         '</div>'+
                         '<div class="content">' +
                         list.content +
@@ -298,9 +298,9 @@
             }
 
         }
-        if (type == 0) {
+        if (type == 1) {
             $(".lists1" ).append(html);
-        }else if (type == 1) {
+        }else if (type == 2) {
             $(".lists2" ).append(html);
         }else {
             $(".lists3" ).append(html);
@@ -309,7 +309,7 @@
     mui("#refreshContainer").on("touchstart","a",function(){
         $(this).css("backgroundColor","rgba(0,0,0,.1)");
     }).on("touchend","a", function () {
-        $(this).css("backgroundColor","#fff");
+        $(this).css("backgroundColor","transparent");
     });
     mui("#refreshContainer").on("tap","a",function(){
         var url = this.getAttribute("href");
