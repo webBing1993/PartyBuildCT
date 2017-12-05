@@ -128,7 +128,7 @@
 	mui("#refreshContainer").on("touchstart","a",function(){
 		$(this).css("backgroundColor","rgba(0,0,0,.1)");
 	}).on("touchend","a", function () {
-		$(this).css("backgroundColor","#fff");
+		$(this).css("backgroundColor","transparent");
 	});
 	mui("#refreshContainer").on("tap","a",function(){
 		var url = this.getAttribute("href");

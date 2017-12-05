@@ -48,6 +48,10 @@
 	/*margin-top: 4vw;*/
 	/*margin-bottom: 2.2vw;*/
 	color:#333333;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
 }
 .list .lr .clear{
 	font-size: .32rem;
