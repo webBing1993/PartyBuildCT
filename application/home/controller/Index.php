@@ -51,16 +51,16 @@ class Index extends Base {
             $res[$k]['time'] = date("Y-m-d",$v['create_time']);
             switch ($v['list_type']) {
                 case 1:
-                    $v['type_text'] = "通知公告";
-                    $v['url'] = Url('Notice/detail?id='.$v['id']);
+                    $res[$k]['type_text'] = "通知公告";
+                    $res[$k]['url'] = Url('Notice/detail?id='.$v['id']);
                     break;
                 case 2:
-                    $v['type_text'] = "第一聚焦";
-                    $v['url'] = Url('Focus/detail?id='.$v['id']);
+                    $res[$k]['type_text'] = "第一聚焦";
+                    $res[$k]['url'] = Url('Focus/detail?id='.$v['id']);
                     break;
                 case 3:
-                    $v['type_text'] = "三会一课";
-                    $v['url'] = Url('Course/detail?id='.$v['id']);
+                    $res[$k]['type_text'] = "三会一课";
+                    $res[$k]['url'] = Url('Course/detail?id='.$v['id']);
                     break;
                 default:
                     break;
