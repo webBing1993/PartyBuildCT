@@ -16,7 +16,7 @@ use think\Db;
 /**
  * 组织活动
  */
-class Activity extends Base {
+class Organization extends Base {
     /**
      * 组织活动首页
      */
