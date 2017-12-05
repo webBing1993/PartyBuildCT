@@ -14,7 +14,7 @@ use app\home\model\WechatUserTag;
 /**
  * 通知公告
  */
-class Organization extends Base {
+class Notice extends Base {
     /**
      * 通知公告
      */
