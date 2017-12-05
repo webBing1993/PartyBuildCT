@@ -36,18 +36,22 @@ class Focus extends Base {
         $this->anonymous();
         $Model = new FocusModel();
         $id = input('id');
-        $uid = session('userId');
+        $userId = session('userId');
         $detail = $Model->get($id);
-        
+
         $Model->where('id',$id)->setInc("views");
+        if($userId != "visitor"){
+            //浏览不存在则存入pb_browse表
+            $this->browser(3,$userId,$id);
+        }
         //获取点赞
         $likeModel = new Like();
-        $like = $likeModel->getLike(4,$id,$uid);
+        $like = $likeModel->getLike(3,$id,$userId);
         $detail['is_like'] = $like;
         $this->assign('detail',$detail);
         //获取评论
         $commentModel = new Comment();
-        $comment = $commentModel->getComment(4,$id,$uid);
+        $comment = $commentModel->getComment(3,$id,$userId);
         $this->assign('comment',$comment);
         return $this->fetch();
     }

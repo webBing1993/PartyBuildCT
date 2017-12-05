@@ -7,13 +7,13 @@
 {block name="body"}
     <div class="banner">
         <img src="/home/images/learn/01.png" alt="">
-        <div class="person"><img src="/home/images/banner/1.png" alt=""></div>
+        <div class="person"><img src="{$detail.front_cover|get_cover='path'}" alt=""></div>
     </div>
     <div class="info">
-        <p class="name">张三 <span class="sex">男</span></p>
-        <p>公安局局长</p>
+        <p class="name">{$detail.name}</p>
+        <p>{$detail.summary}</p>
     </div>
-    <div class="content">简介：这里是个人的简介区域这里是个人的简介区域这里是个人的简介区域这里是个人的简介区域这里是个人的简介区域</div>
+    <div class="content">简介：{$detail.content}</div>
 {/block}
 {block name="script"}
 <script>

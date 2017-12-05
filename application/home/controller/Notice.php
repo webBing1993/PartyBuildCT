@@ -43,18 +43,22 @@ class Notice extends Base {
         $this->anonymous();
         $Model = new NoticeModel();
         $id = input('id');
-        $uid = session('userId');
+        $userId = session('userId');
         $detail = $Model->get($id);
 
         $Model->where('id',$id)->setInc("views");
+        if($userId != "visitor"){
+            //浏览不存在则存入pb_browse表
+            $this->browser(1,$userId,$id);
+        }
         //获取点赞
         $likeModel = new Like();
-        $like = $likeModel->getLike(1,$id,$uid);
+        $like = $likeModel->getLike(1,$id,$userId);
         $detail['is_like'] = $like;
         $this->assign('detail',$detail);
         //获取评论
         $commentModel = new Comment();
-        $comment = $commentModel->getComment(1,$id,$uid);
+        $comment = $commentModel->getComment(1,$id,$userId);
         $this->assign('comment',$comment);
         return $this->fetch();
     }
@@ -66,18 +70,22 @@ class Notice extends Base {
         $this->anonymous();
         $Model = new Water();
         $id = input('id');
-        $uid = session('userId');
+        $userId = session('userId');
         $detail = $Model->get($id);
 
         $Model->where('id',$id)->setInc("views");
+        if($userId != "visitor"){
+            //浏览不存在则存入pb_browse表
+            $this->browser(2,$userId,$id);
+        }
         //获取点赞
         $likeModel = new Like();
-        $like = $likeModel->getLike(2,$id,$uid);
+        $like = $likeModel->getLike(2,$id,$userId);
         $detail['is_like'] = $like;
         $this->assign('detail',$detail);
         //获取评论
         $commentModel = new Comment();
-        $comment = $commentModel->getComment(2,$id,$uid);
+        $comment = $commentModel->getComment(2,$id,$userId);
         $this->assign('comment',$comment);
         return $this->fetch();
     }
@@ -89,19 +97,15 @@ class Notice extends Base {
         $this->anonymous();
         $Model = new Investment();
         $id = input('id');
-        $uid = session('userId');
+        $userId = session('userId');
         $detail = $Model->get($id);
 
         $Model->where('id',$id)->setInc("views");
-        //获取点赞
-        $likeModel = new Like();
-        $like = $likeModel->getLike(3,$id,$uid);
-        $detail['is_like'] = $like;
+        if($userId != "visitor"){
+            //浏览不存在则存入pb_browse表
+            $this->browser(7,$userId,$id);
+        }
         $this->assign('detail',$detail);
-        //获取评论
-        $commentModel = new Comment();
-        $comment = $commentModel->getComment(3,$id,$uid);
-        $this->assign('comment',$comment);
         return $this->fetch();
     }
 
