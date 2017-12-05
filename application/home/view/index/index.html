@@ -107,7 +107,7 @@
             })
         });
         window.onload = function () {
-            if ($(".notice a").length < 9) {
+            if ($(".notice a").length < 8) {
                 mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
             } else {
                 mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
@@ -125,16 +125,12 @@
 
         // 加载更多
         function loadScroll() {
-            var p1 = $('[data-type = "news"]').length;
-            var p2 = $('[data-type = "notice"]').length;
-            var p3 = $('[data-type = "organization"]').length;
+            var len = $('.notice a').length;
             $.ajax({
                 type: "post",
-                url: "",
+                url: "{:Url('Index/moreDataList')}",
                 data: {
-                    p1: p1,
-                    p2: p2,
-                    p3: p3
+                    length: len
                 },
                 beforeSend: function(XMLHttpRequest){
                 },
@@ -142,7 +138,7 @@
                     addCourse(data);
                     if(data.code == 1){
                         var dataLen =data.data.length;
-                        if(dataLen == 9){
+                        if(dataLen == 8){
                             mui('#refreshContainer').pullRefresh().endPullupToRefresh(false);
                         }else{
                             mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
@@ -161,22 +157,11 @@
             var name = '';  // 对应的模块名称
             for(var i = 0; i< len;i++){
                 var list = lists[i];
-                if(list.class_name == 'news'){
-                    href = '/home/news/detail/id/'+list['id']+".html";
-                }else if(list.class_name == 'notice'){
-                    if (list.type == 2 || list.type == 3 || list.type == 5) {
-                        href = '/home/notice/meet/id/'+list['id']+".html";
-                    }else {
-                        href = '/home/notice/party/id/'+list['id']+".html";
-                    }
-                }else{
-                    href = '/home/organization/detail/id/'+list['id']+".html";
-                }
                 html +=
-                        '<a href="'+href+'" class="list clear" >'+
+                        '<a href="'+ list.url +'" class="list clear" >'+
                         '<div class="fl">'+
                         '<img src="'+list.path+'" alt="图片">'+
-                        '<span class="type">'+class_name+'</span>'+
+                        '<span class="type">'+ list.type_text +'</span>'+
                         '</div>'+
                         '<div class="fr right">'+
                         '<div class="title limit_">'+list.title+'</div>'+
