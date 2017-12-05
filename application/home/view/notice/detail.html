@@ -12,114 +12,61 @@
     <div class="mui-scroll">
         <div class="mui-slider-group">
             <div class="banner">
-                <img src="/home/images/banner/1.png" alt="支部活动banner" class="banner-img">
+                <img src="{$detail.front_cover|get_cover='path'}" alt="支部活动banner" class="banner-img">
             </div>
             <div class="content">
                 <div class="top">
-                    <div class="title limit_"><p>标题所在地</p></div>
+                    <div class="title limit_"><p>{$detail.title}</p></div>
                     <div class="note clearfix">
-                        <span class="address fl">地址所在地</span>
-                        <span class="time fr">2017-11-21</span>
+                        <span class="address fl">{$detail.publisher}</span>
+                        <span class="time fr">{$detail.create_time|time_format="Y-m-d"}</span>
                     </div>
                 </div>
                 <div class="message">
-                    <div><span class="limit">2017.11.21 18.00-18.30</span></div>
-                    <div><span class="limit">杭州市余杭区海创大厦A座803</span></div>
-                    <div><span class="limit">之图党支部</span></div>
+                    <div><span class="limit">{$detail.time|time_format="Y-m-d H:i"}</span></div>
+                    <div><span class="limit">{$detail.address}</span></div>
+                    <div><span class="limit">{$detail.publisher}</span></div>
                 </div>
                 <div class="article">
-                    <div class="clearfix">这里是内容区域</div>
-                    <div class="fr isgood good" onclick="isGood()">12</div>
+                    <div class="clearfix">{$detail.content}</div>
+                    {eq name="visit" value="0"}
+                    {eq name="detail.is_like" value="1"}
+                    <span class="isgood good_" onclick="isGood(this,1,{$detail.id})">{$detail.likes}</span>
+                    {else/}
+                    <span class="isgood good" onclick="isGood(this,1,{$detail.id})">{$detail.likes}</span>
+                    {/eq}
+                    {/eq}
                 </div>
                 <div class="comment">
-                    <div class="sum">共<span>100</span>条评论</div>
+                    <div class="sum">共<span>{$detail.comments}</span>条评论</div>
                     <div class="lists">
-                        <!-- 评论循环体-->
+                        <!-- 评论区循环-->
+                        {volist name="comment" id="co"}
                         <div class="list clear">
                             <div class="fl">
-                                <img src="/home/images/common/party.png" alt="用户" class="user">
+                                <img src="{$co.header}" alt="用户" class="user">
                             </div>
                             <div class="fl mid">
-                                <div class="name limit">姓名</div>
-                                <div class="content" >评论区内容</div>
-                                <div class="time">2017-11-21</div>
+                                <div class="name limit">{$co.nickname}</div>
+                                <div class="content" >{$co.content}</div>
+                                <div class="time">{$co.create_time|time_format="Y-m-d"}</div>
                             </div>
-                            <div class="fr isgood good_" onclick="isGood()">11</div>
-                            <!--<div class="fr isgood good" onclick="isGood()">12</div>-->
+                            {eq name="visit" value="0"}
+                            {eq name="co.is_like" value="1"}
+                            <div class="fr isgood good_" onclick="isGood(this,0,{$co.id})">{$co.likes}</div>
+                            {else/}
+                            <div class="fr isgood good" onclick="isGood(this,0,{$co.id})">{$co.likes}</div>
+                            {/eq}
+                            {/eq}
                         </div>
-                        <!-- 评论循环体-->
-                        <div class="list clear">
-                            <div class="fl">
-                                <img src="/home/images/common/party.png" alt="用户" class="user">
-                            </div>
-                            <div class="fl mid">
-                                <div class="name limit">姓名</div>
-                                <div class="content" >评论区内容</div>
-                                <div class="time">2017-11-21</div>
-                            </div>
-                            <div class="fr isgood good_" onclick="isGood()">11</div>
-                            <!--<div class="fr isgood good" onclick="isGood()">12</div>-->
-                        </div>
-                        <!-- 评论循环体-->
-                        <div class="list clear">
-                            <div class="fl">
-                                <img src="/home/images/common/party.png" alt="用户" class="user">
-                            </div>
-                            <div class="fl mid">
-                                <div class="name limit">姓名</div>
-                                <div class="content" >评论区内容</div>
-                                <div class="time">2017-11-21</div>
-                            </div>
-                            <div class="fr isgood good_" onclick="isGood()">11</div>
-                            <!--<div class="fr isgood good" onclick="isGood()">12</div>-->
-                        </div>
-                        <!-- 评论循环体-->
-                        <div class="list clear">
-                            <div class="fl">
-                                <img src="/home/images/common/party.png" alt="用户" class="user">
-                            </div>
-                            <div class="fl mid">
-                                <div class="name limit">姓名</div>
-                                <div class="content" >评论区内容</div>
-                                <div class="time">2017-11-21</div>
-                            </div>
-                            <div class="fr isgood good_" onclick="isGood()">11</div>
-                            <!--<div class="fr isgood good" onclick="isGood()">12</div>-->
-                        </div>
-                        <!-- 评论循环体-->
-                        <div class="list clear">
-                            <div class="fl">
-                                <img src="/home/images/common/party.png" alt="用户" class="user">
-                            </div>
-                            <div class="fl mid">
-                                <div class="name limit">姓名</div>
-                                <div class="content" >评论区内容</div>
-                                <div class="time">2017-11-21</div>
-                            </div>
-                            <div class="fr isgood good_" onclick="isGood()">11</div>
-                            <!--<div class="fr isgood good" onclick="isGood()">12</div>-->
-                        </div>
-                        <!-- 评论循环体-->
-                        <div class="list clear">
-                            <div class="fl">
-                                <img src="/home/images/common/party.png" alt="用户" class="user">
-                            </div>
-                            <div class="fl mid">
-                                <div class="name limit">姓名</div>
-                                <div class="content" >评论区内容</div>
-                                <div class="time">2017-11-21</div>
-                            </div>
-                            <div class="fr isgood good_" onclick="isGood()">11</div>
-                            <!--<div class="fr isgood good" onclick="isGood()">12</div>-->
-                        </div>
-
+                        {/volist}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="bottom clear" onclick="send()">
+<div class="bottom clear" onclick="send(this,1,{$detail.id})">
     <div class="myword fl">
         <input type="text" placeholder="说说你的感想！" disabled>
     </div>

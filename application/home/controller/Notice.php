@@ -6,10 +6,11 @@
  * Time: 14:11
  */
 namespace app\home\controller;
-use app\home\model\WechatDepartment;
-use app\home\model\WechatDepartmentUser;
-use app\home\model\WechatUser;
-use app\home\model\WechatUserTag;
+use app\home\model\Comment;
+use app\home\model\Investment;
+use app\home\model\Like;
+use app\home\model\Notice as NoticeModel;
+use app\home\model\Water;
 
 /**
  * 通知公告
@@ -19,23 +20,65 @@ class Notice extends Base {
      * 通知公告
      */
     public function index(){
-
-        return $this->fetch();
+        $Model = new NoticeModel;
+        if(IS_POST) {
+            $data = input('post.');
+            $list = $Model->getMoreList($data['length'],$data['type']);
+            if($list) {
+                return $this->success("加载成功","",$list);
+            }else {
+                return $this->error("加载失败");
+            }
+        }else {
+            $list = $Model->getIndexList();
+            $this->assign('list',$list);
+            return $this->fetch();  
+        }
     }
 
     /**
      * 通知公告详情页
      */
     public function detail(){
+        $this->anonymous();
+        $Model = new NoticeModel();
+        $id = input('id');
+        $uid = session('userId');
+        $detail = $Model->get($id);
 
+        $Model->where('id',$id)->setInc("views");
+        //获取点赞
+        $likeModel = new Like();
+        $like = $likeModel->getLike(1,$id,$uid);
+        $detail['is_like'] = $like;
+        $this->assign('detail',$detail);
+        //获取评论
+        $commentModel = new Comment();
+        $comment = $commentModel->getComment(1,$id,$uid);
+        $this->assign('comment',$comment);
         return $this->fetch();
     }
 
     /**
      * 水质报表详情页
      */
-    public function qualityDetail(){
+    public function qualitydetail(){
+        $this->anonymous();
+        $Model = new Water();
+        $id = input('id');
+        $uid = session('userId');
+        $detail = $Model->get($id);
 
+        $Model->where('id',$id)->setInc("views");
+        //获取点赞
+        $likeModel = new Like();
+        $like = $likeModel->getLike(2,$id,$uid);
+        $detail['is_like'] = $like;
+        $this->assign('detail',$detail);
+        //获取评论
+        $commentModel = new Comment();
+        $comment = $commentModel->getComment(2,$id,$uid);
+        $this->assign('comment',$comment);
         return $this->fetch();
     }
 
@@ -43,7 +86,22 @@ class Notice extends Base {
      * 招商信息详情页
      */
     public function investment(){
+        $this->anonymous();
+        $Model = new Investment();
+        $id = input('id');
+        $uid = session('userId');
+        $detail = $Model->get($id);
 
+        $Model->where('id',$id)->setInc("views");
+        //获取点赞
+        $likeModel = new Like();
+        $like = $likeModel->getLike(3,$id,$uid);
+        $detail['is_like'] = $like;
+        $this->assign('detail',$detail);
+        //获取评论
+        $commentModel = new Comment();
+        $comment = $commentModel->getComment(3,$id,$uid);
+        $this->assign('comment',$comment);
         return $this->fetch();
     }
 

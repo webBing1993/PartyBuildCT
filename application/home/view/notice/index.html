@@ -34,199 +34,43 @@
             </div>
             <div class="mui-slider-item mui-control-content lists1">
                 <!-- 通知公告循环体-->
-                <a href="/home/organization/detail.html" class="list">
-                    <div class="title">这里是标题区域</div>
+                {volist name="list.one" id="one"}
+                <a href="{:Url('Notice/detail?id='.$one['id'])}" class="list">
+                    <div class="title">{$one.title}</div>
                     <div class="note clearfix">
-                        <span class="fl">我是发布者</span>
-                        <span class="fr">2017-11-23</span>
+                        <span class="fl">{$one.publisher}</span>
+                        <span class="fr">{$one.create_time|time_format="Y-m-d"}</span>
                     </div>
                 </a>
-                <!-- 通知公告循环体-->
-                <a href="/home/organization/detail.html" class="list">
-                    <div class="title">这里是标题区域</div>
-                    <div class="note clearfix">
-                        <span class="fl">我是发布者</span>
-                        <span class="fr">2017-11-23</span>
-                    </div>
-                </a>
-                <!-- 通知公告循环体-->
-                <a href="/home/organization/detail.html" class="list">
-                    <div class="title">这里是标题区域</div>
-                    <div class="note clearfix">
-                        <span class="fl">我是发布者</span>
-                        <span class="fr">2017-11-23</span>
-                    </div>
-                </a>
-                <!-- 通知公告循环体-->
-                <a href="/home/organization/detail.html" class="list">
-                    <div class="title">这里是标题区域</div>
-                    <div class="note clearfix">
-                        <span class="fl">我是发布者</span>
-                        <span class="fr">2017-11-23</span>
-                    </div>
-                </a>
-                <!-- 通知公告循环体-->
-                <a href="/home/organization/detail.html" class="list">
-                    <div class="title">这里是标题区域</div>
-                    <div class="note clearfix">
-                        <span class="fl">我是发布者</span>
-                        <span class="fr">2017-11-23</span>
-                    </div>
-                </a>
-                <!-- 通知公告循环体-->
-                <a href="/home/organization/detail.html" class="list">
-                    <div class="title">这里是标题区域</div>
-                    <div class="note clearfix">
-                        <span class="fl">我是发布者</span>
-                        <span class="fr">2017-11-23</span>
-                    </div>
-                </a>
-                <!-- 通知公告循环体-->
-                <a href="/home/organization/detail.html" class="list">
-                    <div class="title">这里是标题区域</div>
-                    <div class="note clearfix">
-                        <span class="fl">我是发布者</span>
-                        <span class="fr">2017-11-23</span>
-                    </div>
-                </a>
-                <!-- 通知公告循环体-->
-                <a href="/home/organization/detail.html" class="list">
-                    <div class="title">这里是标题区域</div>
-                    <div class="note clearfix">
-                        <span class="fl">我是发布者</span>
-                        <span class="fr">2017-11-23</span>
-                    </div>
-                </a>
+                {/volist}
             </div>
             <div class="mui-slider-item mui-control-content lists2">
                 <!--水质报表循环体-->
-                <a href="/home/organization/qualityDetail.html" class="list">
-                    <div class="title">这是水质报表的标题</div>
-                    <div class="content">这是水质报表的内容区域</div>
+                {volist name="list.two" id="two"}
+                <a href="{:Url('Notice/qualitydetail?id='.$two['id'])}" class="list">
+                    <div class="title">{$two.title}</div>
+                    <div class="content">{$two.content}</div>
                     <div class="note clearfix">
-                        <span class="fl">2017-11-23</span>
+                        <span class="fl">{$two.create_time|time_format='Y-m-d'}</span>
                         <span class="fr"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
                     </div>
                 </a>
+                {/volist}
                 <!--水质报表循环体-->
-                <a href="/home/organization/qualityDetail.html" class="list">
-                    <div class="title">这是水质报表的标题</div>
-                    <div class="content">这是水质报表的内容区域</div>
-                    <div class="note clearfix">
-                        <span class="fl">2017-11-23</span>
-                        <span class="fr"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                    </div>
-                </a>
-                <!--水质报表循环体-->
-                <a href="/home/organization/qualityDetail.html" class="list">
-                    <div class="title">这是水质报表的标题</div>
-                    <div class="content">这是水质报表的内容区域</div>
-                    <div class="note clearfix">
-                        <span class="fl">2017-11-23</span>
-                        <span class="fr"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                    </div>
-                </a>
-                <!--水质报表循环体-->
-                <a href="/home/organization/qualityDetail.html" class="list">
-                    <div class="title">这是水质报表的标题</div>
-                    <div class="content">这是水质报表的内容区域</div>
-                    <div class="note clearfix">
-                        <span class="fl">2017-11-23</span>
-                        <span class="fr"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                    </div>
-                </a>
-                <!--水质报表循环体-->
-                <a href="/home/organization/qualityDetail.html" class="list">
-                    <div class="title">这是水质报表的标题</div>
-                    <div class="content">这是水质报表的内容区域</div>
-                    <div class="note clearfix">
-                        <span class="fl">2017-11-23</span>
-                        <span class="fr"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                    </div>
-                </a>
-                <!--水质报表循环体-->
-                <a href="/home/organization/qualityDetail.html" class="list">
-                    <div class="title">这是水质报表的标题</div>
-                    <div class="content">这是水质报表的内容区域</div>
-                    <div class="note clearfix">
-                        <span class="fl">2017-11-23</span>
-                        <span class="fr"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                    </div>
-                </a>
-                <!--水质报表循环体-->
-                <a href="/home/organization/qualityDetail.html" class="list">
-                    <div class="title">这是水质报表的标题</div>
-                    <div class="content">这是水质报表的内容区域</div>
-                    <div class="note clearfix">
-                        <span class="fl">2017-11-23</span>
-                        <span class="fr"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                    </div>
-                </a>
             </div>
             <div class="mui-slider-item mui-control-content lists3">
                 <!--招商信息循环体-->
-                <a href="/home/organization/investment.html" class="list">
-                    <div class="title">这是招商信息的标题</div>
-                    <div class="content">这是招商信息的内容区域</div>
+                {volist name="list.three" id="three"}
+                <a href="{:Url('Notice/Investment?id='.$three['id'])}" class="list">
+                    <div class="title">{$three.name}</div>
+                    <div class="content">{$three.content}</div>
                     <div class="note clearfix">
-                        <span class="fl">2017-11-23</span>
+                        <span class="fl">{$three.create_time|time_format="Y-m-d"}</span>
                         <span class="fr"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
                     </div>
                 </a>
+                {/volist}
                 <!--招商信息循环体-->
-                <a href="/home/organization/investment.html" class="list">
-                    <div class="title">这是招商信息的标题</div>
-                    <div class="content">这是招商信息的内容区域</div>
-                    <div class="note clearfix">
-                        <span class="fl">2017-11-23</span>
-                        <span class="fr"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                    </div>
-                </a>
-                <!--招商信息循环体-->
-                <a href="/home/organization/investment.html" class="list">
-                    <div class="title">这是招商信息的标题</div>
-                    <div class="content">这是招商信息的内容区域</div>
-                    <div class="note clearfix">
-                        <span class="fl">2017-11-23</span>
-                        <span class="fr"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                    </div>
-                </a>
-                <!--招商信息循环体-->
-                <a href="/home/organization/investment.html" class="list">
-                    <div class="title">这是招商信息的标题</div>
-                    <div class="content">这是招商信息的内容区域</div>
-                    <div class="note clearfix">
-                        <span class="fl">2017-11-23</span>
-                        <span class="fr"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                    </div>
-                </a>
-                <!--招商信息循环体-->
-                <a href="/home/organization/investment.html" class="list">
-                    <div class="title">这是招商信息的标题</div>
-                    <div class="content">这是招商信息的内容区域</div>
-                    <div class="note clearfix">
-                        <span class="fl">2017-11-23</span>
-                        <span class="fr"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                    </div>
-                </a>
-                <!--招商信息循环体-->
-                <a href="/home/organization/investment.html" class="list">
-                    <div class="title">这是招商信息的标题</div>
-                    <div class="content">这是招商信息的内容区域</div>
-                    <div class="note clearfix">
-                        <span class="fl">2017-11-23</span>
-                        <span class="fr"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                    </div>
-                </a>
-                <!--招商信息循环体-->
-                <a href="/home/organization/investment.html" class="list">
-                    <div class="title">这是招商信息的标题</div>
-                    <div class="content">这是招商信息的内容区域</div>
-                    <div class="note clearfix">
-                        <span class="fl">2017-11-23</span>
-                        <span class="fr"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                    </div>
-                </a>
             </div>
         </div>
     </div>
@@ -402,7 +246,7 @@
             var list = lists[i];
             if (type == 0) {
                 html +=
-                        '<a href="/home/organization/detail'+
+                        '<a href="/home/notice/detail'+
                         list.id +
                         '.html" class="list">'+
                         '<div class="title">' +
@@ -418,7 +262,7 @@
                         '</div>'+
                         '</a>';
             }else if (type == 1) {
-                html =  '<a href="/home/organization/qualityDetail' +
+                html =  '<a href="/home/notice/qualitydetail' +
                         list.id+
                         '.html" class="list">'+
                         '<div class="title">' +
@@ -435,7 +279,7 @@
                         '</div>'+
                         '</a>';
             }else {
-                html =  '<a href="/home/organization/investment' +
+                html =  '<a href="/home/notice/investment' +
                         list.id+
                         '.html" class="list">'+
                         '<div class="title">' +

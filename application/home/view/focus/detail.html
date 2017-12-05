@@ -22,7 +22,13 @@
 					{$detail.content}
 					<div class="note">
 						<span class="read">{$detail.views}</span>
+						{eq name="visit" value="0"}
+						{eq name="detail.is_like" value="1"}
+						<span class="isgood good_" onclick="isGood(this,4,{$detail.id})">{$detail.likes}</span>
+						{else/}
 						<span class="isgood good" onclick="isGood(this,4,{$detail.id})">{$detail.likes}</span>
+						{/eq}
+						{/eq}
 					</div>
 				</div>
 			</div>

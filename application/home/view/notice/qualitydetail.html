@@ -12,214 +12,58 @@
     <div class="mui-scroll">
         <div class="mui-slider-group">
             <div class="article">
-                <div class="title"><p>水质检测报表</p></div>
-                <div class="note clearfix"><span class="fr">2017年11月22日</span></div>
+                <div class="title"><p>{$detail.title}</p></div>
+                <div class="note clearfix"><span class="fr">{$detail.create_time|time_format='Y-m-d'}</span></div>
             </div>
             <div class="tableList">
-                <table>
-                    <tr>
-                        <th></th>
-                        <th>项目指标</th>
-                        <th>单位</th>
-                        <th>限值</th>
-                        <th>检测结果</th>
-                    </tr>
-                    <tr>
-                        <td rowspan="7">原水</td>
-                        <tr>
-                            <td>湿度</td>
-                            <td>摄氏度</td>
-                            <td></td>
-                            <td>17.5</td>
-                        </tr>
-                        <tr>
-                            <td>浑浊度</td>
-                            <td>NTU</td>
-                            <td><10</td>
-                            <td>19.3(上午8:30)</td>
-                        </tr>
-                        <tr>
-                            <td>浑浊度</td>
-                            <td>NTU</td>
-                            <td><10</td>
-                            <td>18.8(上午10:00)</td>
-                        </tr>
-                        <tr>
-                            <td>浑浊度</td>
-                            <td>NTU</td>
-                            <td><10</td>
-                            <td>18.8(下午14:00)</td>
-                        </tr>
-                        <tr>
-                            <td>嗅和味</td>
-                            <td></td>
-                            <td>无异臭、无异味</td>
-                            <td>无异臭、无异味</td>
-                        </tr>
-                        <tr>
-                            <td>肉眼可见的</td>
-                            <td></td>
-                            <td>无</td>
-                            <td>无</td>
-                        </tr>
-                    </tr>
-                    <tr>
-                        <td rowspan="4">沉后水</td>
-                        <tr>
-                            <td>浑浊度</td>
-                            <td>NTU</td>
-                            <td><10</td>
-                            <td>19.3(上午8:30)</td>
-                        </tr>
-                        <tr>
-                            <td>浑浊度</td>
-                            <td>NTU</td>
-                            <td><10</td>
-                            <td>18.8(上午10:00)</td>
-                        </tr>
-                        <tr>
-                            <td>浑浊度</td>
-                            <td>NTU</td>
-                            <td><10</td>
-                            <td>18.8(下午14:00)</td>
-                        </tr>
-                    </tr>
-                    <tr>
-                        <td rowspan="3">滤后水</td>
-                        <tr>
-                            <td>浑浊度</td>
-                            <td>NTU</td>
-                            <td><10</td>
-                            <td>19.3(上午8:30)</td>
-                        </tr>
-                        <tr>
-                            <td>浑浊度</td>
-                            <td>NTU</td>
-                            <td><10</td>
-                            <td>18.8(下午14:00)</td>
-                        </tr>
-                    </tr>
-                    <tr>
-                        <td rowspan="5">出厂水</td>
-                        <tr>
-                            <td>浑浊度</td>
-                            <td>NTU</td>
-                            <td><10</td>
-                            <td>19.3(上午8:30)</td>
-                        </tr>
-                        <tr>
-                            <td>嗅和味</td>
-                            <td></td>
-                            <td>无异臭、无异味</td>
-                            <td>无异臭、无异味</td>
-                        </tr>
-                        <tr>
-                            <td>肉眼可见的</td>
-                            <td></td>
-                            <td>无</td>
-                            <td>无</td>
-                        </tr>
-                        <tr>
-                            <td>余氢</td>
-                            <td>mgl</td>
-                            <td><0.3/td>
-                            <td>无0.49/td>
-                        </tr>
-                    </tr>
-                </table>
+                {$detail.content}
             </div>
             <div class="conclusion">
                 结论：
-                <p>这里是结论的内容介绍这里是结论的内容介绍这里是结论的内容介绍这里是结论的内容介绍这里是结论的内容介绍</p>
+                {$detail.conclusion}
                 <div class="note">
                     <span class="fr">
-                        <span class="read">100</span>
-                        <span class="isgood good" onclick="isGood()">5</span>
+                        <span class="read">{$detail.views}</span>
+                        {eq name="visit" value="0"}
+                        {eq name="detail.is_like" value="1"}
+                        <span class="isgood good_" onclick="isGood(this,2,{$detail.id})">{$detail.likes}</span>
+                        {else/}
+                        <span class="isgood good" onclick="isGood(this,2,{$detail.id})">{$detail.likes}</span>
+                        {/eq}
+                        {/eq}
                     </span>
                 </div>
             </div>
             <div class="comment">
-                <div class="sum">共<span>3</span>条评论</div>
+                <div class="sum">共<span>{$detail.comments}</span>条评论</div>
                 <div class="lists">
                     <!-- 评论区循环-->
+                    {volist name="comment" id="co"}
                     <div class="list clear">
                         <div class="fl">
-                            <img src="/home/images/common/party.png" alt="用户" class="user">
+                            <img src="{$co.header}" alt="用户" class="user">
                         </div>
                         <div class="fl mid">
-                            <div class="name limit">姓名</div>
-                            <div class="content">评论内容</div>
-                            <div class="time">2017-11-21</div>
+                            <div class="name limit">{$co.nickname}</div>
+                            <div class="content" >{$co.content}</div>
+                            <div class="time">{$co.create_time|time_format="Y-m-d"}</div>
                         </div>
-                        <div class="fr isgood good" onclick="isGood()">2</div>
+                        {eq name="visit" value="0"}
+                        {eq name="co.is_like" value="1"}
+                        <div class="fr isgood good_" onclick="isGood(this,0,{$co.id})">{$co.likes}</div>
+                        {else/}
+                        <div class="fr isgood good" onclick="isGood(this,0,{$co.id})">{$co.likes}</div>
+                        {/eq}
+                        {/eq}
                     </div>
-                    <!-- 评论区循环-->
-                    <div class="list clear">
-                        <div class="fl">
-                            <img src="/home/images/common/party.png" alt="用户" class="user">
-                        </div>
-                        <div class="fl mid">
-                            <div class="name limit">姓名</div>
-                            <div class="content" >评论内容</div>
-                            <div class="time">2017-11-21</div>
-                        </div>
-                        <div class="fr isgood good" onclick="isGood()">2</div>
-                    </div>
-                    <!-- 评论区循环-->
-                    <div class="list clear">
-                        <div class="fl">
-                            <img src="/home/images/common/party.png" alt="用户" class="user">
-                        </div>
-                        <div class="fl mid">
-                            <div class="name limit">姓名</div>
-                            <div class="content" >评论内容</div>
-                            <div class="time">2017-11-21</div>
-                        </div>
-                        <div class="fr isgood good" onclick="isGood()">2</div>
-                    </div>
-                    <!-- 评论区循环-->
-                    <div class="list clear">
-                        <div class="fl">
-                            <img src="/home/images/common/party.png" alt="用户" class="user">
-                        </div>
-                        <div class="fl mid">
-                            <div class="name limit">姓名</div>
-                            <div class="content" >评论内容</div>
-                            <div class="time">2017-11-21</div>
-                        </div>
-                        <div class="fr isgood good" onclick="isGood()">2</div>
-                    </div>
-                    <!-- 评论区循环-->
-                    <div class="list clear">
-                        <div class="fl">
-                            <img src="/home/images/common/party.png" alt="用户" class="user">
-                        </div>
-                        <div class="fl mid">
-                            <div class="name limit">姓名</div>
-                            <div class="content" >评论内容</div>
-                            <div class="time">2017-11-21</div>
-                        </div>
-                        <div class="fr isgood good" onclick="isGood()">2</div>
-                    </div>
-                    <!-- 评论区循环-->
-                    <div class="list clear">
-                        <div class="fl">
-                            <img src="/home/images/common/party.png" alt="用户" class="user">
-                        </div>
-                        <div class="fl mid">
-                            <div class="name limit">姓名</div>
-                            <div class="content" >评论内容</div>
-                            <div class="time">2017-11-21</div>
-                        </div>
-                        <div class="fr isgood good" onclick="isGood()">2</div>
-                    </div>
+                    {/volist}
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- 评论弹框-->
-<div class="bottom clear" onclick="send()">
+<div class="bottom clear" onclick="send(this,2,{$detail.id})">
     <div class="myword fl">
         <input type="text" placeholder="说说你的感想！" disabled>
     </div>

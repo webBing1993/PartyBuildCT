@@ -33,6 +33,7 @@ class Focus extends Base {
      * 新闻内容页
      */
     public function detail(){
+        $this->anonymous();
         $Model = new FocusModel();
         $id = input('id');
         $uid = session('userId');
@@ -48,7 +49,6 @@ class Focus extends Base {
         $commentModel = new Comment();
         $comment = $commentModel->getComment(4,$id,$uid);
         $this->assign('comment',$comment);
-        
         return $this->fetch();
     }
 
