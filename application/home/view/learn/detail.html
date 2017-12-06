@@ -108,7 +108,7 @@
             url:"{:Url('Base/like')}",
             data:{
                 type:type,
-                id:id
+                aid:id
             },
             success:function(data){
 
@@ -135,7 +135,7 @@
         var len = $(".lists .list").length;
         $.ajax({
             type: "post",
-            url: "{:Url('Learn/detail')}",
+            url: "{:Url('Base/morecomment')}",
             data: {
                 length: len
             },

@@ -34,10 +34,12 @@
                             <span class="read">{$detail.views}</span>
                             {eq name="visit" value="0"}
                             {eq name="detail.is_like" value="1"}
-                            <span class="isgood good_" onclick="isGood(this,0,{$detail.id})">{$detail.likes}</span>
+                            <span class="isgood good_ notvisitor"  data-type="1" data-id="{$detail.id}">{$detail.likes}</span>
                             {else/}
-                            <span class="isgood good" onclick="isGood(this,0,{$detail.id})">{$detail.likes}</span>
+                            <span class="isgood good notvisitor"  data-type="1" data-id="{$detail.id}">{$detail.likes}</span>
                             {/eq}
+                            {else/}
+                            <span class="isgood good">{$detail.likes}</span>
                             {/eq}
                         </span>
                     </div>
@@ -58,10 +60,12 @@
                             </div>
                             {eq name="visit" value="0"}
                             {eq name="co.is_like" value="1"}
-                            <div class="fr isgood good_" onclick="isGood(this,0,{$co.id})">{$co.likes}</div>
+                            <div class="fr isgood good_ notvisitor"  data-type="0" data-id="{$co.id}">{$co.likes}</div>
                             {else/}
-                            <div class="fr isgood good" onclick="isGood(this,0,{$co.id})">{$co.likes}</div>
+                            <div class="fr isgood good notvisitor"  data-type="0" data-id="{$co.id}">{$co.likes}</div>
                             {/eq}
+                            {else/}
+                            div.fr,<isgood class="good">{$co.likes}</isgood>
                             {/eq}
                         </div>
                         {/volist}
@@ -87,6 +91,15 @@
         $("title").text("通知公告");
     });
 
+    mui('#refreshContainer').on('tap', '.notvisitor', function(e) {
+        var type = this.getAttribute("data-type");
+        var id = this.getAttribute("data-id");
+        isGood(this,type,id);
+    });
+
+    /*
+    * 点赞
+    * */
     function isGood(e,type,id){
         //样式变化，移到suc
         var n = $(e ).text();
@@ -97,10 +110,10 @@
 //	var type = $(e ).hasClass('fr')?2:1;
         $.ajax({
             type:"post",
-            url:"{:Url('Notice/detail')}",
+            url:"{:Url('Base/like')}",
             data:{
                 type:type,
-                id:id
+                aid:id
             },
             success:function(data){
 
@@ -132,11 +145,11 @@
             }
             $.ajax({
                 type: "post",
-                url: "{:Url('Notice/detail')}",
+                url: "{:Url('Base/comment')}",
                 data: {
                     type: type,
-                    id: id,
-                    comment: inputValue
+                    aid: id,
+                    content: inputValue
                 },
                 beforeSend: function () {
                     swal({
@@ -158,7 +171,7 @@
                             '<div class="content" >' + inputValue + '</div>' +
                             '<div class="time">' + data.time + '</div>' +
                             '</div>' +
-                            '<div class="fr isgood good" onclick="isGood(this,0,' + data.id + ')">' + data.likes + '</div>' +
+                            '<div class="fr isgood good notvisitor"  data-type="0" data-id='+data.id+'>' + data.likes + '</div>' +
                             '</div>';
                     $('.lists').prepend(html);
                     inputValue = "";
@@ -198,7 +211,7 @@
         var len = $(".lists .list").length;
         $.ajax({
             type: "post",
-            url: "{:Url('Notice/detail')}",
+            url: "{:Url('Base/morecomment')}",
             data: {
                 length: len
             },
@@ -224,7 +237,6 @@
         var html = '';
         var lists = data.data;
         var len = lists.length;
-        console.log(len);
         for(var i = 0; i< len;i++){
             var list = lists[i];
             html +=
@@ -237,10 +249,14 @@
                             '<div class="content" >'+ list.content+'</div>'+
                             '<div class="time">'+ list.time+'</div>'+
                             '</div>';
-            if(list.is_like == 0){
-                html+='<div class="fr isgood good" onclick="isGood(this,0,'+list.id+')">'+list.likes+'</div>'
-            }else{
-                html+='<div class="fr isgood good_" onclick="isGood(this,0,'+list.id+')">'+list.likes+'</div>'
+            if ("{$visit}" == 0){
+                if(list.is_like == 0){
+                    html+='<div class="fr isgood good notvisitor"  data-type="0" data-id='+list.id+'>'+list.likes+'</div>'
+                }else{
+                    html+='<div class="fr isgood good_ notvisitor"  data-type="0" data-id='+list.id+'>'+list.likes+'</div>'
+                }
+            }else {
+                html+='<div class="fr isgood good">'+list.likes+'</div>'
             }
             html+=
                     '</div>'
@@ -250,7 +266,7 @@
     mui("#refreshContainer").on("touchstart","a",function(){
         $(this).css("backgroundColor","rgba(0,0,0,.1)");
     }).on("touchend","a", function () {
-        $(this).css("backgroundColor","transparent");
+        $(this).css("backgroundColor","#fff");
     });
     mui("#refreshContainer").on("tap","a",function(){
         var url = this.getAttribute("href");

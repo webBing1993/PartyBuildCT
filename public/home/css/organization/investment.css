@@ -58,46 +58,59 @@
 }
 .lists .list .name {
     display: inline-block;
-    padding-left: 8vw;
+    /*padding-left: 8vw;*/
     color: #5b5757;
     font-size: .35rem;
     font-weight: 600;
 }
+.lists .list .name::before {
+    content: "";
+    display: inline-block;
+    margin-right: 4vw;
+    width: 5.4vw;
+    height: 5.4vw;
+    float: left;
+    margin-top: 2.7vw;
+}
 .lists .list .content {
-    width: 62%;
+    width: 63%;
     display: inline-block;
     color: #333;
     font-weight: 600;
     font-size: .35rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
     overflow: hidden;
-    text-overflow:ellipsis;
-    white-space: nowrap;
 }
-.lists .list:first-of-type {
+.lists .list .content p {
+    color: #333;
+}
+.lists .list:first-of-type .name::before {
     background: url("/home/images/organization/name.png") 0 center no-repeat;
     background-size: 5.4vw 5.4vw;
 }
-.lists .list:nth-of-type(2) {
+.lists .list:nth-of-type(2) .name::before {
     background: url("/home/images/organization/name1.png") 0 center no-repeat;
     background-size: 5.4vw 5.4vw;
 }
-.lists .list:nth-of-type(3) {
+.lists .list:nth-of-type(3) .name::before {
     background: url("/home/images/organization/content.png") 0 center no-repeat;
     background-size: 5.4vw 5.4vw;
 }
-.lists .list:nth-of-type(4) {
+.lists .list:nth-of-type(4) .name::before {
     background: url("/home/images/organization/person.png") 0 center no-repeat;
     background-size: 5.4vw 5.4vw;
 }
-.lists .list:nth-of-type(5) {
+.lists .list:nth-of-type(5) .name::before {
     background: url("/home/images/organization/phone.png") 0 center no-repeat;
     background-size: 5.4vw 5.4vw;
 }
-.lists .list:nth-of-type(6) {
+.lists .list:nth-of-type(6) .name::before {
     background: url("/home/images/organization/address.png") 0 center no-repeat;
     background-size: 5.4vw 5.4vw;
 }
-.lists .list:last-of-type {
+.lists .list:last-of-type .name::before {
     background: url("/home/images/organization/time.png") 0 center no-repeat;
     background-size: 5.4vw 5.4vw;
 }
