@@ -157,6 +157,7 @@
   overflow: hidden;
   -webkit-border-radius: 50%;
   border-radius: 50%;
+  display: inline-block;
 }
 .comment .lists .list .mid {
   width: 73%;
