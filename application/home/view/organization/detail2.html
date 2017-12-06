@@ -99,7 +99,7 @@
         var len = $(".lists .list").length;
         $.ajax({
             type: "post",
-            url: "",
+            url: "{:Url('Base/morecomment')}",
             data: {
                 length: len
             },
@@ -128,17 +128,26 @@
         for(var i = 0; i< len;i++){
             var list = lists[i];
             html +=
-                    '<div class="list clear">'+
-                    '<div class="fl">'+
-                    '<img src="'+data.header+'" alt="用户头像" class="user">'+
-                    '</div>'+
-                    '<div class="fl mid">'+
-                    '<div class="name limit">'+data.nickname+'</div>'+
-                    '<div class="content" >'+inputValue+'</div>'+
-                    '<div class="time">'+data.time+'</div>'+
-                    '</div>'+
-                    '<div class="fr isgood good" onclick="isGood(this,0,'+data.id+')">'+data.likes+'</div>'+
-                    '</div>';
+                    html += '<div class="list clear">'+
+                            '<div class="fl">'+
+                            '<img src="'+list.header+'" alt="用户" class="user">'+
+                            '</div>'+
+                            '<div class="fl mid">'+
+                            '<div class="name limit">'+ list.nickname+'</div>'+
+                            '<div class="content" >'+ list.content+'</div>'+
+                            '<div class="time">'+ list.time+'</div>'+
+                            '</div>';
+            if ("{$visit}" == 0){
+                if(list.is_like == 0){
+                    html+='<div class="fr isgood good notvisitor" data-type="0" data-id=' + list.id + '>'+list.likes+'</div>'
+                }else{
+                    html+='<div class="fr isgood good_ notvisitor" data-type="0" data-id=' + list.id + '>'+list.likes+'</div>'
+                }
+            }else {
+                html+='<div class="fr isgood good">'+list.likes+'</div>'
+            }
+            html+=
+                    '</div>'
         }
         $('.lists' ).prepend(html);
     }
@@ -153,12 +162,15 @@
     });
 
 
-    var scrollNow = true;//判断下拉请求是否执行中.false为正在请求
+    mui('#refreshContainer').on('tap', '.notvisitor', function(e) {
+        var type = this.getAttribute("data-type");
+        var id = this.getAttribute("data-id");
+        isGood(this,type,id);
+    });
 
-    /**
+    /*
      * 点赞
-     *
-     */
+     * */
     var isGood = function(e,type,id){
         //样式变化，移到suc
         var n = $(e ).text();
@@ -235,7 +247,7 @@
                                 '<div class="content" >'+inputValue+'</div>'+
                                 '<div class="time">'+data.time+'</div>'+
                                 '</div>'+
-                                '<div class="fr isgood good" onclick="isGood(this,0,'+data.id+')">'+data.likes+'</div>'+
+                                '<div class="fr isgood good notvisitor" data-type="0" data-id='+ data.id +'>'+data.likes+'</div>'+
                                 '</div>';
                         $('.lists' ).prepend(html);
                         inputValue="";
