@@ -57,6 +57,12 @@
 .article .note_ span {
     margin-right: 0;
 }
+.article .video {
+    text-align: center;
+}
+.article .video iframe {
+    /*width: 100%;*/
+}
 .article .content {
     width: 100%;
     overflow: hidden;
