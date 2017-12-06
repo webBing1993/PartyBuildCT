@@ -29,129 +29,38 @@
             <div class="lists summary mui-slider-item mui-control-content">
                 <!--两种状态：ing进行中，over已结束-->
                 <!-- 循环体-->
-                <a href="/home/activity/detail.html" class="list">
-                    <div class="title limit">标题</div>
-                    <div class="content limit_">区域内容</div>
+                {volist name="list.one" id="one"}
+                <a href="{:Url('Organization/detail?id='.$one['id'])}" class="list">
+                    <div class="title limit">{$one.title}</div>
+                    <div class="content limit_">{$one.content}</div>
                     <div class="note clear">
+                        {eq name="one.is_conduct" value="0"}
                         <span class="fl over">已结束</span>
-                        <!--<span class="fl ing">进行中</span>-->
-                        <span class="time fr">2017-11-21</span>
-                    </div>
-                </a>
-                <!-- 循环体-->
-                <a href="/home/activity/detail.html" class="list">
-                    <div class="title limit">标题</div>
-                    <div class="content limit_">区域内容</div>
-                    <div class="note clear">
-                        <span class="fl over">已结束</span>
-                        <!--<span class="fl ing">进行中</span>-->
-                        <span class="time fr">2017-11-21</span>
-                    </div>
-                </a>
-                <!-- 循环体-->
-                <a href="/home/activity/detail.html" class="list">
-                    <div class="title limit">标题</div>
-                    <div class="content limit_">区域内容</div>
-                    <div class="note clear">
-                        <span class="fl over">已结束</span>
-                        <!--<span class="fl ing">进行中</span>-->
-                        <span class="time fr">2017-11-21</span>
-                    </div>
-                </a>
-                <!-- 循环体-->
-                <a href="/home/activity/detail.html" class="list">
-                    <div class="title limit">标题</div>
-                    <div class="content limit_">区域内容</div>
-                    <div class="note clear">
-                        <!--<span class="fl over">已结束</span>-->
+                        {else/}
                         <span class="fl ing">进行中</span>
-                        <span class="time fr">2017-11-21</span>
+                        {/eq}
+                        <span class="time fr">{$one.create_time|time_format='Y-m-d'}</span>
                     </div>
                 </a>
-                <!-- 循环体-->
-                <a href="/home/activity/detail.html" class="list">
-                    <div class="title limit">标题</div>
-                    <div class="content limit_">区域内容</div>
-                    <div class="note clear">
-                        <!--<span class="fl over">已结束</span>-->
-                        <span class="fl ing">进行中</span>
-                        <span class="time fr">2017-11-21</span>
-                    </div>
-                </a>
-                <!-- 循环体-->
-                <a href="/home/activity/detail.html" class="list">
-                    <div class="title limit">标题</div>
-                    <div class="content limit_">区域内容</div>
-                    <div class="note clear">
-                        <!--<span class="fl over">已结束</span>-->
-                        <span class="fl ing">进行中</span>
-                        <span class="time fr">2017-11-21</span>
-                    </div>
-                </a>
-                <!-- 循环体-->
-                <a href="/home/activity/detail.html" class="list">
-                    <div class="title limit">标题</div>
-                    <div class="content limit_">区域内容</div>
-                    <div class="note clear">
-                        <!--<span class="fl over">已结束</span>-->
-                        <span class="fl ing">进行中</span>
-                        <span class="time fr">2017-11-21</span>
-                    </div>
-                </a>
+                {/volist}
             </div>
             <div class="lists down mui-slider-item mui-control-content">
                 <!-- 活动展示循环体-->
-                <a class="list clear" href="/home/activity/detail2.html">
+                {volist name="list.two" id="two"}
+                <a class="list clear" href="{:Url('Organization/detail2?id='.$two['id'])}">
                     <div class="fl">
-                        <img src="/home/images/common/party.png" alt="第一聚焦">
+                        <img src="{$two.front_cover|time_format='Y-m-d'}" alt="第一聚焦">
                     </div>
                     <div class="fr lr">
-                        <div class="title limit_">新闻标题</div>
+                        <div class="title limit_">{$two.title}</div>
                         <div class="clear">
-                            <span class="fl">2017-11-21</span>
+                            <span class="fl">{$two.create_time|time_format='Y-m-d'}</span>
                             <span class="fr">详情</span>
                         </div>
                     </div>
                 </a>
+                {/volist}
                 <!-- 活动展示循环体-->
-                <a class="list clear" href="/home/activity/detail2.html">
-                    <div class="fl">
-                        <img src="/home/images/common/party.png" alt="第一聚焦">
-                    </div>
-                    <div class="fr lr">
-                        <div class="title limit_">新闻标题</div>
-                        <div class="clear">
-                            <span class="fl">2017-11-21</span>
-                            <span class="fr">详情</span>
-                        </div>
-                    </div>
-                </a>
-                <!-- 活动展示循环体-->
-                <a class="list clear" href="/home/activity/detail2.html">
-                    <div class="fl">
-                        <img src="/home/images/common/party.png" alt="第一聚焦">
-                    </div>
-                    <div class="fr lr">
-                        <div class="title limit_">新闻标题</div>
-                        <div class="clear">
-                            <span class="fl">2017-11-21</span>
-                            <span class="fr">详情</span>
-                        </div>
-                    </div>
-                </a>
-                <!-- 活动展示循环体-->
-                <a class="list clear" href="/home/activity/detail2.html">
-                    <div class="fl">
-                        <img src="/home/images/common/party.png" alt="第一聚焦">
-                    </div>
-                    <div class="fr lr">
-                        <div class="title limit_">新闻标题</div>
-                        <div class="clear">
-                            <span class="fl">2017-11-21</span>
-                            <span class="fr">详情</span>
-                        </div>
-                    </div>
-                </a>
             </div>
         </div>
     </div>
@@ -305,7 +214,7 @@
                 html +=
                         '<a href = /home/activity/detail/id/' + list.id + '.html class="list">'+
                         '<div class="title limit">'+list.title+'</div>'+
-                        '<div class="content limit_">'+list.description+'</div>'+
+                        '<div class="content limit_">'+list.content+'</div>'+
                         '<div class="note clear">';
                 if(list.state == 0){
                     html +=	'<span class="fl ing">进行中</span>'
@@ -313,18 +222,18 @@
                     html +=	'<span class="fl over">已结束</span>'
                 }
                 html +=
-                        '<span class="time fr">'+list.time+'</span>'+
+                        '<span class="time fr">'+list.create_time+'</span>'+
                         '</div>'+
                         '</a>'
             }else {
                 html = '<a class="list clear" href="/home/activity/detail2/id/'+list.id+'.html">'+
                         '<div class="fl">'+
-                        '<img src="'+ list.src+'" alt="图片">'+
+                        '<img src="'+ list.path+'" alt="图片">'+
                         '</div>'+
                         '<div class="fr lr">'+
                         '<div class="title limit_">'+list.title+'</div>'+
                         '<div class="clear">'+
-                        '<span class="fl">'+ list.time+'</span>'+
+                        '<span class="fl">'+ list.create_time+'</span>'+
                         '<span class="fr">详情</span>'+
                         '</div>'+
                         '</div>'+
