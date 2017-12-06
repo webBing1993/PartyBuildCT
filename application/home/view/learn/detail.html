@@ -20,7 +20,14 @@
                 </div>
                 <!-- 视频-->
                 <div class="video">
-                    <iframe src="http://open.iqiyi.com/developer/player_js/coopPlayerIndex.html?vid=7fe58ee9c42703ac03f96c97eba8e847&tvId=858872200&accessToken=2.f22860a2479ad60d8da7697274de9346&appKey=3955c3425820435e86d0f4cdfe56f5e7&appId=1368&height=100%&width=100%" frameborder="0" allowfullscreen="true"></iframe>
+                    <!--本地视频-->
+                    {neq name="$detail.video_path" value=""}
+                    <video class="videocon" src="{$video.video_path}"></video>
+                    <img src="/home/images/learn/video.png" class="play" alt="播放">
+                    {else/}
+                    <!--链接视频-->
+                    <iframe  class="videocon" src="http://player.youku.com/embed/XODY3NDMzNjY4" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                    {/neq}
                 </div>
                 <div class="content">
                     {$detail.content}
@@ -84,6 +91,9 @@
 
     $(function () {
         $("title").text("手机党校");
+        //播放视频
+        hideplay();
+        videoPlay();
     });
 
     mui('#refreshContainer').on('tap', '.notvisitor', function(e) {
@@ -271,5 +281,22 @@
             }
         );
     };
+
+    var hideplay = function(){
+        var u = navigator.userAgent;
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+        if(!isiOS){
+            $('.play' ).show();
+        }
+    };
+    var videoPlay =function(){
+        $(".play" ).on("tap",function(){
+            var video=$(".video video");
+            $(this).hide();
+            video[0].play();
+            video.attr({controls:"controls"});
+        });
+    };
+
 </script>
 {/block}
