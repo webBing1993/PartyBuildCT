@@ -16,9 +16,9 @@
                 {$vo.title}
             </div>
                 {volist name="vo->Option" id="value" key="k"}
-                <span class="option_">
+                <span class="option_ {eq name='$vo.right' value='$k' }active{/eq}">
                     <input type="radio" name="" value="{$k}">
-                    <span class="option {eq name='$vo.right' value='$k' }active{/eq}">{if condition="($k eq 1) AND ($value neq ' ')"}A{elseif condition="($k eq 2) AND ($value neq ' ')"}B{elseif condition="($k eq 3 )AND ($value neq ' ')"}C{elseif condition="($k eq 4 )AND ($value neq ' ')"/}D{/if}.</span>
+                    <span class="option">{if condition="($k eq 1) AND ($value neq ' ')"}A{elseif condition="($k eq 2) AND ($value neq ' ')"}B{elseif condition="($k eq 3 )AND ($value neq ' ')"}C{elseif condition="($k eq 4 )AND ($value neq ' ')"/}D{/if}.</span>
                     <span class="opt">{$value|substr=###,'2'}</span>
                 </span>
                 {/volist}

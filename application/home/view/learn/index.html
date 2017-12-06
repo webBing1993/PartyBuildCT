@@ -107,7 +107,7 @@
     // 首页加载是否需要上拉加载
     window.onload = function() {
         if(c == 0){
-            if ($(".lists .lesson").length < 7) {
+            if ($(".lists1 a").length < 8) {
                 mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
             } else {
                 mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
@@ -115,7 +115,11 @@
         }else if(c == 1) {
             mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
         }else if(c == 2){
-            mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
+            if ($(".lists3 a").length < 8) {
+                mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
+            } else {
+                mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
+            }
         }
     };
 
@@ -129,7 +133,7 @@
         $("#tab a").eq(c).addClass("mui-active").siblings("#tab a").removeClass("mui-active");
         $("#tab1 a").eq(c).addClass("mui-active").siblings("#tab1 a").removeClass("mui-active");
         if(c == 0){
-            if($(".lists1 a").length < 6){
+            if($(".lists1 a").length < 8){
                 mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
             }else{
                 mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
@@ -137,7 +141,11 @@
         }else if(c == 1){
             mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
         }else {
-            mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
+            if($(".lists3 a").length < 8){
+                mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
+            }else{
+                mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
+            }
         }
         setCookie("c",c)
     });
@@ -150,7 +158,7 @@
         $("#tab a").eq(c).addClass("mui-active").siblings("#tab a").removeClass("mui-active");
         $("#tab1 a").eq(c).addClass("mui-active").siblings("#tab1 a").removeClass("mui-active");
         if(c == 0){
-            if($(".lists1 a").length < 6){
+            if($(".lists1 a").length < 8){
                 mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
             }else{
                 mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
@@ -158,7 +166,11 @@
         }else if(c == 1){
             mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
         }else {
-            mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
+            if($(".lists3 a").length < 8){
+                mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
+            }else{
+                mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
+            }
         }
         setCookie("c",c)
     });
@@ -188,21 +200,29 @@
     });
 
     function loadScroll(){
-        var len = $(".lists1 .list").length;
+        var len,type;
+        if (c == 0) {
+            len = $(".lists1 .list").length;
+            type = 1;
+        }
+        if (c == 2) {
+            len = $(".lists3 .list").length;
+            type = 3;
+        }
         $.ajax({
             type:"post",
-            url:"{:Url('Learn/more')}",
+            url:"{:Url('Learn/listmore')}",
             data:{
                 length:len,
-                type:1
+                type:type
             },
             beforeSend: function(XMLHttpRequest){
             },
             success:function(data){
-                addCourse(data);
+                addCourse(data,type);
                 if(data.code == 1){
                     var dataLen =data.data.length;
-                    if(data.data.length == 7){
+                    if(data.data.length == 8){
                         mui('#refreshContainer').pullRefresh().endPullupToRefresh(false);
                     }else{
                         mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
@@ -214,21 +234,56 @@
         })
     }
 
-    function addCourse(data){
+    function addCourse(data,a){
         var html = '';
         var lists = data.data;
         var len = lists.length;
         for(var i = 0; i< len;i++){
             var list = lists[i];
-            html+=
-                    '<a href="/home/learn/detail/id/'+list.id+'.html" class="list">'+
-                    '<div class="tab">图文</div>'+
-                    '<img src="'+list.front_cover+'" alt="图片" class="img">'+
-                    '<div class="title limit">'+ list.title+'</div>'+
-                    '<span class="study">'+ list.views+'人阅读过</span>'+
-                    '</a>';
+            var tab = null;
+            if (a == 1) {
+                console.log(list.type);
+                if (list.type == 2) {
+                   tab = "图文";
+                }else if (list.type == 1) {
+                    tab = "视频";
+                }
+                html+=
+                        '<a href="/home/learn/detail/id/'+list.id+'.html" class="list">'+
+                        '<div class="tab">' +
+                        tab +
+                        '</div>'+
+                        '<img src="'+list.front_cover+'" alt="图片" class="img">'+
+                        '<div class="title limit">'+ list.title+'</div>'+
+                        '<span class="study">'+ list.views+'人阅读过</span>'+
+                        '</a>';
+            }
+            else {
+                html += '<a href="/home/learn/pioneer/id/' +
+                        list.id +
+                        '/.html" class="list clearfix">' +
+                        '<div class="fl img"><img src="' +
+                        list.path+
+                        '" alt=""></div>' +
+                        '<div class="fl content">'+
+                        '<div class="name">'+
+                        list.name +
+                        '</div>'+
+                        '<div class="professional">'+
+                        '<span class="fl">' +
+                        list.summary +
+                        '</span>'+
+                        '<span class="fr"><i class="fa fa-angle-right" aria-hidden="true"></i></span>'+
+                        '</div>'+
+                        '</div>'+
+                        '</a>';
+            }
         }
-        $(".lists1" ).append(html);
+        if (a == 1) {
+            $(".lists1" ).append(html);
+        }else {
+            $(".lists3").append(html);
+        }
     }
 
     mui("#refreshContainer").on("touchstart","a",function(){
@@ -245,78 +300,64 @@
     // 答题选中
     $(".lists2 .list").on("tap",".option_", function () {
         $(this).addClass("active").siblings(".option_").removeClass("active");
-//        $(this).children("input").attr("checked",true).parent(".option_").siblings(".option_").children("input").removeAttr("checked");
+        $(this).children("input").attr("checked",true).parent(".option_").siblings(".option_").children("input").removeAttr("checked");
     });
-    // 答案获取
-    function getAn() {
-        var arr = [];
-        for (var i = 0; i < $(".lists2 .list").length; i++) {
-            var t = $(".lists2 .list").eq(i).find(".option_.active");
-            var len_t = t.length;
-            if (len_t == 0) {
-                arr.push(0);
-            }else if (len_t == 1) {
-                arr.push(t.children("input").val());
-            }
-        }
-        return arr;
-    }
-    // 答题序号获取
-    function anId() {
-        var anId = [];
-        for (var i = 0; i < $(".lists2 .list").length; i++) {
-            anId.push($(".lists2 .list").eq(i).attr("data-id"));
-        }
-        return anId;
-    }
     // 答案提交
     $(".lists2 .btn").on("tap", function () {
-        var arr1 = getAn();
-        var suc = $(".suc");
-        for (var i = 0; i < arr1.length; i++) {
-            if (arr1[i] == 0) {
-                swal({
-                    title: "",
-                    text: "答题未完成！",
-                    showCancelButton: true,
-                    confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "确定",
-                    cancelButtonText: "取消"
-                },function(isConfirm){
-                    $.ajax({
-                        type: "post",
-                        url: '',
-                        data: {arr: arr1,id: anId()},
-                        success: function (data) {
-                            suc.show();
-                            setTimeout(function () {
-                                window.location.href = "/home/learn/answer.html";
-                            },1500)
-                        }
-                    })
-                })
-            }else {
-                swal({
-                    title: "",
-                    text: "答题完成！",
-                    showCancelButton: true,
-                    confirmButtonColor: "#DD6B55",
-                    cancelButtonText: "取消"
-                },function()
-                {
-                    $.ajax({
-                        type: "post",
-                        url: '',
-                        data: {arr: arr1,id: anId()},
-                        success: function (data) {
-                            suc.show();
-                            setTimeout(function () {
-                                window.location.href = "/home/learn/answer.html";
-                            },1500)
-                        }
-                    })
-                })
+        var arr1 = [];
+        var isAll = true;
+        $('.lists2 .list').each(function(){
+            var id = $(this ).attr('data-id');
+            var answer = $(this ).find("input[checked]").val();
+            if (answer == undefined) {
+                answer = -1;
+                isAll = false;
             }
+            arr1.push([id,answer]);
+        });
+        var suc = $(".suc");
+        if (!isAll) {
+            swal({
+                title: "",
+                text: "答题未完成！",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "确定",
+                cancelButtonText: "取消"
+            },function(isConfirm){
+                $.ajax({
+                    type: "post",
+                    url: "{:Url('Learn/commit')}",
+                    data: {data: arr1},
+                    success: function (data) {
+                        suc.show();
+                        setTimeout(function () {
+                            window.location.href = "/home/learn/answer/id/"+data.url.id+".html";
+                        },1500)
+                    }
+                })
+            })
+        }else {
+            swal({
+                title: "",
+                text: "答题完成！",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                cancelButtonText: "取消"
+            },function()
+            {
+                $.ajax({
+                    type: "post",
+                    url: "{:Url('Learn/commit')}",
+                    data: {data: arr1},
+                    success: function (data) {
+                        suc.show();
+                        setTimeout(function () {
+                            window.location.href = "/home/learn/answer/id/"+data.url.id+".html";
+                        },1500)
+                    }
+                })
+            })
         }
     })
 </script>

@@ -29,16 +29,16 @@ class Question extends Model {
 
     //获取正确答案
     public function Right(){
-        $lists=array(
+        $lists = array(
             1 => "A",
             2 => "B",
             3 => "C",
             4 => "D"
         );
-        $rights=$this->getData('value');
-        $arr=explode(":",$rights);
+        $rights = $this->getData('value');
+        $arr = explode(":",$rights);
         foreach($arr as $value){
-            $right[]=$lists[$value];
+            $right[] = $lists[$value];
         }
         return $right;
     }

@@ -78,6 +78,33 @@
         $("title").text("手机党校");
     });
 
+
+    /**
+     * 点赞
+     *
+     */
+    var isGood = function(e,type,id){
+        console.log(12);
+        //样式变化，移到suc
+        var n = $(e ).text();
+        $(e).toggleClass('good' ).toggleClass('good_');
+        $(e ).hasClass('good')?n--:n++;
+        $(e ).text(n);
+        //type：1文章，2评论
+//	var type = $(e ).hasClass('fr')?2:1;
+        $.ajax({
+            type:"post",
+            url:"{:Url('Learn/detail')}",
+            data:{
+                type:type,
+                id:id
+            },
+            success:function(data){
+
+            }
+        })
+    };
+
     window.onload = function () {
         if ($(".lists .list").length < 6) {
             mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
@@ -97,7 +124,7 @@
         var len = $(".lists .list").length;
         $.ajax({
             type: "post",
-            url: "",
+            url: "{:Url('Learn/detail')}",
             data: {
                 length: len
             },
@@ -143,7 +170,7 @@
     mui("#refreshContainer").on("touchstart","a",function(){
         $(this).css("backgroundColor","rgba(0,0,0,.1)");
     }).on("touchend","a", function () {
-        $(this).css("backgroundColor","#fff");
+        $(this).css("backgroundColor","transparent");
     });
     mui("#refreshContainer").on("tap","a",function(){
         var url = this.getAttribute("href");
@@ -153,30 +180,7 @@
 
     var scrollNow = true;//判断下拉请求是否执行中.false为正在请求
 
-    /**
-     * 点赞
-     *
-     */
-    var isGood = function(e,type,id){
-        //样式变化，移到suc
-        var n = $(e ).text();
-        $(e).toggleClass('good' ).toggleClass('good_');
-        $(e ).hasClass('good')?n--:n++;
-        $(e ).text(n);
-        //type：1文章，2评论
-//	var type = $(e ).hasClass('fr')?2:1;
-        $.ajax({
-            type:"post",
-            url:"{:Url('Base/like')}",
-            data:{
-                type:type,
-                aid:id,
-            },
-            success:function(data){
 
-            }
-        })
-    };
     /**
      * 发送评论
      *
