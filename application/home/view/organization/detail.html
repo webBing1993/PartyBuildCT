@@ -202,12 +202,15 @@
         }
     });
     function loadScroll() {
+        var aid = {$detail['id']};
         var len = $(".lists .list").length;
         $.ajax({
             type: "post",
             url: "{:Url('Base/morecomment')}",
             data: {
-                length: len
+                length: len,
+                type: 6,
+                aid: aid
             },
             beforeSend: function(XMLHttpRequest){
             },
@@ -232,11 +235,9 @@
         var html = '';
         var lists = data.data;
         var len = lists.length;
-        console.log(len);
         for(var i = 0; i< len;i++){
             var list = lists[i];
-            html +=
-                    html += '<div class="list clear">'+
+            html += '<div class="list clear">'+
                             '<div class="fl">'+
                             '<img src="'+list.header+'" alt="用户" class="user">'+
                             '</div>'+

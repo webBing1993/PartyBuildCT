@@ -97,11 +97,15 @@
     });
     function loadScroll() {
         var len = $(".lists .list").length;
+        var aid = {$detail['id']};
+        console.log(aid);
         $.ajax({
             type: "post",
             url: "{:Url('Base/morecomment')}",
             data: {
-                length: len
+                length: len,
+                type: 6,
+                aid: aid
             },
             beforeSend: function(XMLHttpRequest){
             },
@@ -127,16 +131,15 @@
         console.log(len);
         for(var i = 0; i< len;i++){
             var list = lists[i];
-            html +=
-                    html += '<div class="list clear">'+
-                            '<div class="fl">'+
-                            '<img src="'+list.header+'" alt="用户" class="user">'+
-                            '</div>'+
-                            '<div class="fl mid">'+
-                            '<div class="name limit">'+ list.nickname+'</div>'+
-                            '<div class="content" >'+ list.content+'</div>'+
-                            '<div class="time">'+ list.time+'</div>'+
-                            '</div>';
+            html += '<div class="list clear">'+
+                    '<div class="fl">'+
+                    '<img src="'+list.header+'" alt="用户" class="user">'+
+                    '</div>'+
+                    '<div class="fl mid">'+
+                    '<div class="name limit">'+ list.nickname+'</div>'+
+                    '<div class="content" >'+ list.content+'</div>'+
+                    '<div class="time">'+ list.time+'</div>'+
+                    '</div>';
             if ("{$visit}" == 0){
                 if(list.is_like == 0){
                     html+='<div class="fr isgood good notvisitor" data-type="0" data-id=' + list.id + '>'+list.likes+'</div>'
@@ -149,7 +152,7 @@
             html+=
                     '</div>'
         }
-        $('.lists' ).prepend(html);
+        $('.lists' ).append(html);
     }
     mui("#refreshContainer").on("touchstart","a",function(){
         $(this).css("backgroundColor","rgba(0,0,0,.1)");
