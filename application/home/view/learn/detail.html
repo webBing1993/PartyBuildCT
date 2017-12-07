@@ -22,11 +22,11 @@
                 <div class="video">
                     <!--本地视频-->
                     {neq name="$detail.video_path" value=""}
-                    <video class="videocon" src="{$video.video_path}"></video>
+                    <video class="videocon" src="{$video.video_path}" x5-video-player-type="h5" x5-video-player-fullscreen="true"></video>
                     <img src="/home/images/learn/video.png" class="play" alt="播放">
                     {else/}
                     <!--链接视频-->
-                    <iframe  class="videocon" src="http://player.youku.com/embed/XODY3NDMzNjY4" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                    <iframe  class="videocon" src="http://player.youku.com/embed/XODY3NDMzNjY4?wmode=opaque" frameborder="0" scrolling="no" allowfullscreen ></iframe>
                     {/neq}
                 </div>
                 <div class="content">
@@ -227,8 +227,9 @@
 
             },
             function(inputValue){
-                if (inputValue === false) return false;
-
+                if (inputValue === false) {
+                    return false;
+                }
                 if (inputValue.length < 1) {
                     swal.showInputError("评论字数不能少于1个字！");
                     return false

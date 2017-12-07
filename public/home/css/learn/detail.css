@@ -59,9 +59,15 @@
 }
 .article .video {
     text-align: center;
+    position: relative;
 }
-.article .video iframe {
-    /*width: 100%;*/
+.article .video img {
+    position: absolute;
+    width: 10.8vw;
+    height: 10.8vw;
+    left: 50%;
+    top: 50%;
+    margin: -5.4vw 0 0 -5.4vw;
 }
 .article .content {
     width: 100%;
