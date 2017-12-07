@@ -43,7 +43,7 @@
 								<div class="content" >评论区内容</div>
 								<div class="time">2017-11-21</div>
 							</div>
-							<div class="fr isgood good_" onclick="isGood()">11</div>
+							<div class="fr isgood good_ notvsitor" data-type="" data-id="">11</div>
 							<!--<div class="fr isgood good" onclick="isGood()">12</div>-->
 						</div>
 						<!-- 评论循环体-->
@@ -56,7 +56,7 @@
 								<div class="content" >评论区内容</div>
 								<div class="time">2017-11-21</div>
 							</div>
-							<div class="fr isgood good_" onclick="isGood()">11</div>
+							<div class="fr isgood good_ notvsitor" data-type="0" data-id="">11</div>
 							<!--<div class="fr isgood good" onclick="isGood()">12</div>-->
 						</div>
 						<!-- 评论循环体-->
@@ -69,7 +69,7 @@
 								<div class="content" >评论区内容</div>
 								<div class="time">2017-11-21</div>
 							</div>
-							<div class="fr isgood good_" onclick="isGood()">11</div>
+							<div class="fr isgood good_ notvsitor" data-type="0" data-id="">11</div>
 							<!--<div class="fr isgood good" onclick="isGood()">12</div>-->
 						</div>
 						<!-- 评论循环体-->
@@ -82,7 +82,7 @@
 								<div class="content" >评论区内容</div>
 								<div class="time">2017-11-21</div>
 							</div>
-							<div class="fr isgood good_" onclick="isGood()">11</div>
+							<div class="fr isgood good_ notvsitor" data-type="0" data-id="">11</div>
 							<!--<div class="fr isgood good" onclick="isGood()">12</div>-->
 						</div>
 						<!-- 评论循环体-->
@@ -95,7 +95,7 @@
 								<div class="content" >评论区内容</div>
 								<div class="time">2017-11-21</div>
 							</div>
-							<div class="fr isgood good_" onclick="isGood()">11</div>
+							<div class="fr isgood good_ notvsitor" data-type="0" data-id="">11</div>
 							<!--<div class="fr isgood good" onclick="isGood()">12</div>-->
 						</div>
 						<!-- 评论循环体-->
@@ -108,7 +108,7 @@
 								<div class="content" >评论区内容</div>
 								<div class="time">2017-11-21</div>
 							</div>
-							<div class="fr isgood good_" onclick="isGood()">11</div>
+							<div class="fr isgood good_ notvsitor" data-type="0" data-id="">11</div>
 							<!--<div class="fr isgood good" onclick="isGood()">12</div>-->
 						</div>
 
@@ -132,6 +132,12 @@
 
 	$(function () {
 		$("title").text("通知详情");
+	});
+
+	mui("#refreshContainer").on("tap",".notvsitor", function () {
+		var type = this.getAttribute("data-type");
+		var id = this.getAttribute("data-id");
+		isGood(this, type,id);
 	});
 
 function isGood(e,type,id){
@@ -205,7 +211,7 @@ var send = function(e,type,id){
 						'<div class="content" >' + inputValue + '</div>' +
 						'<div class="time">' + data.time + '</div>' +
 						'</div>' +
-						'<div class="fr isgood good" onclick="isGood(this,0,' + data.id + ')">' + data.likes + '</div>' +
+						'<div class="fr isgood good notvsitor" data-type="0" data-id='+ data.id +'>' + data.likes + '</div>' +
 						'</div>';
 				$('.lists').prepend(html);
 				inputValue = "";
@@ -239,12 +245,15 @@ mui.init({
 	}
 });
 function loadScroll() {
+	var aid = {$detail.id};
 	var len = $(".lists .list").length;
 	$.ajax({
 		type: "post",
-		url: "",
+		url: "{:Url('Base/morecomment')}",
 		data: {
-			length: len
+			length: len,
+			aid: aid,
+			type: 5
 		},
 		beforeSend: function(XMLHttpRequest){
 		},
@@ -281,10 +290,17 @@ function addCourse(data) {
 						'<div class="content" >'+ list.content+'</div>'+
 						'<div class="time">'+ list.time+'</div>'+
 						'</div>';
-		if(list.is_like == 0){
-			html+='<div class="fr isgood good" onclick="isGood(this,0,'+list.id+')">'+list.likes+'</div>'
-		}else{
-			html+='<div class="fr isgood good_" onclick="isGood(this,0,'+list.id+')">'+list.likes+'</div>'
+		if ('{$visit}' == 0) {
+			if(list.is_like == 0){
+				html+='<div class="fr isgood good notvsitor" data-type="0" data-id='+ list.id +'>'+list.likes+'</div>'
+			}else{
+				html+='<div class="fr isgood good_ notvsitor" data-type="0" data-id='+ list.id +'>'+list.likes+'</div>'
+			}
+		}else {
+			html +=
+					'<div class="fr isgood good">' +
+					list.likes +
+					'</div>'
 		}
 		html+=
 				'</div>'

@@ -24,7 +24,7 @@
 					<div>内容区域所在地</div>
 					<div class="note">
 						<span class="read">10</span>
-						<span class="isgood good_" onclick="isGood()">10</span>
+						<div class="fr isgood good notvsitor" data-type="" data-id="">1</div>
 						<!--<span class="isgood good" onclick="isGood()">11</span>-->
 					</div>
 				</div>
@@ -43,7 +43,7 @@
 							<div class="time">2017-11-21</div>
 						</div>
 						<!--<div class="fr isgood good_" onclick="isGood()">2</div>-->
-						<div class="fr isgood good" onclick="isGood()">1</div>
+						<div class="fr isgood good notvsitor" data-type="0" data-id="">1</div>
 					</div>
 					<!-- 评论循环体-->
 					<div class="list clear">
@@ -56,7 +56,7 @@
 							<div class="time">2017-11-21</div>
 						</div>
 						<!--<div class="fr isgood good_" onclick="isGood()">2</div>-->
-						<div class="fr isgood good" onclick="isGood()">1</div>
+						<div class="fr isgood good notvsitor" data-type="0" data-id="">1</div>
 					</div>
 					<!-- 评论循环体-->
 					<div class="list clear">
@@ -69,7 +69,7 @@
 							<div class="time">2017-11-21</div>
 						</div>
 						<!--<div class="fr isgood good_" onclick="isGood()">2</div>-->
-						<div class="fr isgood good" onclick="isGood()">1</div>
+						<div class="fr isgood good notvsitor" data-type="0" data-id="">1</div>
 					</div>
 					<!-- 评论循环体-->
 					<div class="list clear">
@@ -82,7 +82,7 @@
 							<div class="time">2017-11-21</div>
 						</div>
 						<!--<div class="fr isgood good_" onclick="isGood()">2</div>-->
-						<div class="fr isgood good" onclick="isGood()">1</div>
+						<div class="fr isgood good notvsitor" data-type="0" data-id="">1</div>
 					</div>
 					<!-- 评论循环体-->
 					<div class="list clear">
@@ -95,7 +95,7 @@
 							<div class="time">2017-11-21</div>
 						</div>
 						<!--<div class="fr isgood good_" onclick="isGood()">2</div>-->
-						<div class="fr isgood good" onclick="isGood()">1</div>
+						<div class="fr isgood good notvsitor" data-type="0" data-id="">1</div>
 					</div>
 					<!-- 评论循环体-->
 					<div class="list clear">
@@ -108,7 +108,7 @@
 							<div class="time">2017-11-21</div>
 						</div>
 						<!--<div class="fr isgood good_" onclick="isGood()">2</div>-->
-						<div class="fr isgood good" onclick="isGood()">1</div>
+						<div class="fr isgood good notvsitor" data-type="0" data-id="">1</div>
 					</div>
 				</div>
 			</div>
@@ -132,6 +132,12 @@
 		$("title").text("会议情况详情");
 	});
 
+
+	mui("#refreshContainer").on("tap",".notvsitor", function (e) {
+		var type = this.getAttribute("data-type");
+		var id = this.getAttribute("data-id");
+		isGood(this,type,id);
+	});
 	/**
 	 * 点赞
 	 * @param e
@@ -211,7 +217,7 @@
 							'<div class="content" >' + inputValue + '</div>' +
 							'<div class="time">' + data.time + '</div>' +
 							'</div>' +
-							'<div class="fr isgood good" onclick="isGood(this,0,' + data.id + ')">' + data.likes + '</div>' +
+							'<div class="fr isgood good notvsitor" data-type="0" data-id='+ data.id +'>' + data.likes + '</div>' +
 							'</div>';
 					$('.lists').prepend(html);
 					inputValue = "";
@@ -246,11 +252,14 @@
 	});
 	function loadScroll() {
 		var len = $(".lists .list").length;
+		var aid = {$detail.id}
 		$.ajax({
 			type: "post",
-			url: "",
+			url: "{:Url('Base/morecomment')}",
 			data: {
-				length: len
+				length: len,
+				type: 5,
+				aid: aid
 			},
 			beforeSend: function(XMLHttpRequest){
 			},
@@ -286,10 +295,17 @@
 					'<div class="content" >'+ list.content+'</div>'+
 					'<div class="time">'+ list.time+'</div>'+
 					'</div>';
-			if(list.is_like == 0){
-				html+='<div class="fr isgood good" onclick="isGood(this,0,'+list.id+')">'+list.likes+'</div>'
-			}else{
-				html+='<div class="fr isgood good_" onclick="isGood(this,0,'+list.id+')">'+list.likes+'</div>'
+			if ("{$visit}" == 0) {
+				if(list.is_like == 0){
+					html+='<div class="fr isgood good notvsitor" data-type="0" data-id='+ list.id +'>'+list.likes+'</div>'
+				}else{
+					html+='<div class="fr isgood good_ notvsitor" data-type="0" data-id='+ list.id +'>'+list.likes+'</div>'
+				}
+			}else {
+				html +=
+						'<div class="fr isgood good>"' +
+						list.likes +
+						'</div>'
 			}
 			html+=
 					'</div>';
