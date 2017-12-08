@@ -10,7 +10,6 @@ namespace app\admin\controller;
 
 use app\admin\model\WechatLog;
 use com\wechat\QYWechat;
-use com\wechat\TPQYWechat;
 use com\wechat\TPWechat;
 use think\Config;
 use think\Controller;
@@ -21,7 +20,7 @@ class Service extends Controller
 
     // 服务号接收的应用
     public function event() {
-        $Wechat = new TPQYWechat(Config::get('work'));
+        $Wechat = new TPWechat(Config::get('party'));
         $res = $Wechat->valid();
 //        Log::record("回调：".$res);
 
@@ -34,7 +33,7 @@ class Service extends Controller
                 $event = $Wechat->getRev()->getRevEvent();
                 switch ($event['event']) {
                     case 'subscribe':
-                        $replyText = "您好！欢迎关注新市大脚掌！";
+                        $replyText = "您好！欢迎关注建德城投智慧党建！";
                         $Wechat->text($replyText)->reply();
 //                        $newsData = array(
 //                            '0'=> array(
@@ -77,35 +76,24 @@ class Service extends Controller
 //        $weObj->valid();
 //    }
 //
-//    // 创建订阅号菜单
-//    public function menu() {
-//        $menu["button"] = array(
-//            array(
-//                "type"=>"view",
-//                "name"=>"第一聚焦",
-//                "url"=>"http://party.0571ztnet.com/home/focus/index"
-//            ),
-//            array(
-//                "type"=>"view",
-//                "name"=>"活动通知",
-//                "url"=>"http://party.0571ztnet.com/home/activity/index"
-//            ),
-//            array(
-//                "type"=>"view",
-//                "name"=>"品牌特色",
-//                "url"=>"http://party.0571ztnet.com/home/special/index"
-//            ),
-//        );
-//
-//        $Wechat = new TPWechat(Config::get('policy'));
-//        $result = $Wechat->createMenu($menu);
-//
-//        if($result) {
-//            return $this->success('提交成功');
-//        } else {
-//            return $this->error('错误代码：'.$result['errcode'].'，消息：'.$result['errmsg']);
-//        }
-//    }
+    // 创建订阅号菜单
+    public function menu() {
+        $menu["button"] = array(
+            array(
+                "type"=>"view",
+                "name"=>"进入主页",
+                "url"=>"http://ctpb.0571ztnet.com/home/index/index"
+            ),
+        );
+        $Wechat = new TPWechat(Config::get('party'));
+        $result = $Wechat->createMenu($menu);
+
+        if($result) {
+            return $this->success('提交成功');
+        } else {
+            return $this->error('错误代码：'.$Wechat->errCode.'，消息：'.$Wechat->errMsg);
+        }
+    }
 //
 //    public function media() {
 //        $Wechat = new TPWechat(Config::get('policy'));
