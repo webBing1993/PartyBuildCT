@@ -100,7 +100,7 @@
     background-size: 5.3333vw 5.3333vw ;
 }
 .content .message div:nth-child(1) {
-    background: url("/home/images/detail/people.png") 3.2vw center no-repeat;
+    background: url("/home/images/detail/title.png") 3.2vw center no-repeat;
     background-size: 5.3333vw 5.3333vw ;
 }
 .content .article {
