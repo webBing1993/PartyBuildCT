@@ -44,7 +44,11 @@ class Course extends Admin {
                 unset($data['id']);
             }
             if($data['type'] == 1) {
-                $data['time'] = strtotime($data['time']);
+                if(empty($data['time'])) {
+                    return $this->error("时间不能为空!");
+                }else {
+                    $data['time'] = strtotime($data['time']);
+                }
                 $info = $Model->validate('Course.one')->save($data);
             }else {
                 $info = $Model->validate('Course.two')->save($data);
@@ -70,7 +74,11 @@ class Course extends Admin {
         if(IS_POST) {
             $data = input('post.');
             if($data['type'] == 1) {
-                $data['time'] = strtotime($data['time']);
+                if(empty($data['time'])) {
+                    return $this->error("时间不能为空!");
+                }else {
+                    $data['time'] = strtotime($data['time']);
+                }
                 $info = $Model->validate('Course.one')->save($data,['id'=>input('id')]);
             }else {
                 $info = $Model->validate('Course.two')->save($data,['id'=>input('id')]);

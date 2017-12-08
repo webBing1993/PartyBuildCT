@@ -38,7 +38,7 @@ class Base extends Controller {
         //如果是游客的话默认userid为visitors
         if($userId == 'visitor'){
             session('nickname','游客');
-            session('header','/home/images/vistor.jpg');
+            session('header','/home/images/common/vistor.jpg');
         }else{
             //微信认证
             $Wechat = new TPQYWechat(Config::get('party'));

@@ -21,13 +21,13 @@
                 <!-- 视频-->
                 <div class="video">
                     <!--本地视频-->
-                    {neq name="$detail.video_path" value=""}
-                    <video class="videocon" src="{$video.video_path}" x5-video-player-type="h5" x5-video-player-fullscreen="true"></video>
+                    {notempty name="$detail.video_path"}
+                    <video class="videocon" src="{$detail.video_path}" x5-video-player-type="h5" x5-video-player-fullscreen="true"></video>
                     <img src="/home/images/learn/video.png" class="play" alt="播放">
                     {else/}
                     <!--链接视频-->
-                    <iframe  class="videocon" src="http://player.youku.com/embed/XODY3NDMzNjY4?wmode=opaque" frameborder="0" scrolling="no" allowfullscreen ></iframe>
-                    {/neq}
+                    <iframe  class="videocon" src="{$detail.net_path}" frameborder="0" scrolling="no" allowfullscreen ></iframe>
+                    {/notempty}
                 </div>
                 <div class="content">
                     {$detail.content}

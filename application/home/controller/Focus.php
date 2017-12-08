@@ -37,13 +37,13 @@ class Focus extends Base {
         $Model = new FocusModel();
         $id = input('id');
         $userId = session('userId');
-        $detail = $Model->get($id);
-
+        
         $Model->where('id',$id)->setInc("views");
         if($userId != "visitor"){
             //浏览不存在则存入pb_browse表
             $this->browser(3,$userId,$id);
         }
+        $detail = $Model->get($id);
         //获取点赞
         $likeModel = new Like();
         $like = $likeModel->getLike(3,$id,$userId);

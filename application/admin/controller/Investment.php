@@ -42,7 +42,11 @@ class Investment extends Admin {
             if(empty($data['id'])) {
                 unset($data['id']);
             }
-            $data['boarding_time'] = strtotime($data['boarding_time']);
+            if(empty($data['boarding_time'])) {
+                return $this->error("登记时间不能为空");
+            }else {
+                $data['boarding_time'] = strtotime($data['boarding_time']);
+            }
             $info = $Model->validate('notice.investment')->save($data);
             if($info) {
                 return $this->success("新增成功",Url('Investment/index'));
@@ -64,7 +68,11 @@ class Investment extends Admin {
         $Model = new InvestmentModel();
         if(IS_POST) {
             $data = input('post.');
-            $data['boarding_time'] = strtotime($data['boarding_time']);
+            if(empty($data['boarding_time'])) {
+                return $this->error("登记时间不能为空");
+            }else {
+                $data['boarding_time'] = strtotime($data['boarding_time']);
+            }
             $info = $Model->validate('notice.investment')->save($data,['id'=>input('id')]);
             if($info){
                 return $this->success("修改成功",Url("Investment/index"));

@@ -15,6 +15,7 @@ class Notice extends Validate {
     protected $rule = [
         'front_cover' => 'require',
         'title' => 'require',
+        'summary' => 'require',
         'content' => 'require',
         'conclusion' => 'require',
         'theme' => 'require',
@@ -32,6 +33,7 @@ class Notice extends Validate {
     protected $message = [
         'front_cover' => '封面图片不能为空',
         'title' => '标题不能为空',
+        'summary' => '简介不能为空',
         'content' => '内容不能为空',
         'conclusion' => '结论不能为空',
         'theme' => '主题不能为空',
@@ -48,7 +50,7 @@ class Notice extends Validate {
 
     protected $scene = [
         'notice' => ['front_cover','title','theme','time','address','content','publisher'],
-        'water' => ['title','content','conclusion','publisher'],
+        'water' => ['title','summary','content','conclusion','publisher'],
         'investment' => ['front_cover','name','type','content','address','contacts','telephone','intentional','boarding_time'],
     ];
 }

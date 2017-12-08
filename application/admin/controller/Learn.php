@@ -36,7 +36,6 @@ class Learn extends Admin {
      * 添加
      */
     public function add(){
-
         if(IS_POST){
             $data = input('post.');
             if(empty($data['id'])) {

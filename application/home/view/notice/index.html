@@ -49,7 +49,7 @@
                 {volist name="list.two" id="two"}
                 <a href="{:Url('Notice/qualitydetail?id='.$two['id'])}" class="list">
                     <div class="title">{$two.title}</div>
-                    <div class="content">{$two.content}</div>
+                    <div class="content">{$two.summary}</div>
                     <div class="note clearfix">
                         <span class="fl">{$two.create_time|time_format='Y-m-d'}</span>
                         <span class="fr"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
@@ -269,7 +269,7 @@
                         list.title +
                         '</div>'+
                         '<div class="content">' +
-                        list.content +
+                        list.summary +
                         '</div>'+
                         '<div class="note clearfix">'+
                         '<span class="fl">' +

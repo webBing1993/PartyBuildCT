@@ -34,13 +34,14 @@ class Course extends Base {
         $Model = new CourseModel();
         $id = input('id');
         $userId = session('userId');
-        $detail = $Model->get($id);
 
         $Model->where('id',$id)->setInc("views");
         if($userId != "visitor"){
             //浏览不存在则存入pb_browse表
             $this->browser(5,$userId,$id);
         }
+        $detail = $Model->get($id);
+
         //获取点赞
         $likeModel = new Like();
         $like = $likeModel->getLike(5,$id,$userId);
@@ -71,13 +72,14 @@ class Course extends Base {
         $Model = new CourseModel();
         $id = input('id');
         $userId = session('userId');
-        $detail = $Model->get($id);
 
         $Model->where('id',$id)->setInc("views");
         if($userId != "visitor"){
             //浏览不存在则存入pb_browse表
             $this->browser(5,$userId,$id);
         }
+        $detail = $Model->get($id);
+
         //获取点赞
         $likeModel = new Like();
         $like = $likeModel->getLike(5,$id,$userId);
@@ -109,13 +111,14 @@ class Course extends Base {
         $Model = new CourseModel();
         $id = input('id');
         $userId = session('userId');
-        $detail = $Model->get($id);
 
         $Model->where('id',$id)->setInc("views");
         if($userId != "visitor"){
             //浏览不存在则存入pb_browse表
             $this->browser(5,$userId,$id);
         }
+        $detail = $Model->get($id);
+
         //获取点赞
         $likeModel = new Like();
         $like = $likeModel->getLike(5,$id,$userId);

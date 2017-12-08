@@ -43,13 +43,14 @@ class Organization extends Base {
         $Model = new OrganizationModel();
         $id = input('id');
         $userId = session('userId');
-        $detail = $Model->get($id);
 
         $Model->where('id',$id)->setInc("views");
         if($userId != "visitor"){
             //浏览不存在则存入pb_browse表
             $this->browser(6,$userId,$id);
-        }
+        }        
+        $detail = $Model->get($id);
+
         //获取点赞
         $likeModel = new Like();
         $like = $likeModel->getLike(6,$id,$userId);
@@ -70,13 +71,14 @@ class Organization extends Base {
         $Model = new OrganizationModel();
         $id = input('id');
         $userId = session('userId');
-        $detail = $Model->get($id);
 
         $Model->where('id',$id)->setInc("views");
         if($userId != "visitor"){
             //浏览不存在则存入pb_browse表
             $this->browser(6,$userId,$id);
         }
+        $detail = $Model->get($id);
+
         //获取点赞
         $likeModel = new Like();
         $like = $likeModel->getLike(6,$id,$userId);
