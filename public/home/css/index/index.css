@@ -1,9 +1,12 @@
 html,body{
     width: 100%;
     overflow-x: hidden;
-}
-.mui-content {
     background-color: transparent !important;
+}
+#refreshContainer {
+    background-color: transparent !important;
+    position: inherit;
+    min-height: 100vh;
 }
 /*banner*/
 .banner {
