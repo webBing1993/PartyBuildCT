@@ -27,6 +27,10 @@
     width: 94vw;
     margin: 0 auto;
 }
+.tableList p {
+    text-indent: 2em;
+    color: #333;
+}
 .tableList table {
     border: 1px solid #d7d7d7;
 }

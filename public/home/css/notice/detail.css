@@ -93,6 +93,9 @@
 .article .content>div:first-of-type {
   text-indent:2em;
 }
+.article .content p {
+  color: #333;
+}
 .article .content .video {
   position: relative;
   width: 100%;

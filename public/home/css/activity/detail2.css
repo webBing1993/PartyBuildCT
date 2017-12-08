@@ -63,6 +63,7 @@
     overflow: hidden;
 }
 .article .content p {
+    text-indent: 2em;
     color: #333;
 }
 .article .content * {
