@@ -42,7 +42,7 @@
 	});
 
 window.onload = function () {
-	if ($(".lists .list").length < 9) {
+	if ($(".lists .list").length < 6) {
 		mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
 	} else {
 		mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
@@ -60,9 +60,10 @@ function loadScroll() {
 	var len = $(".lists .list").length;
 	$.ajax({
 		type: "post",
-		url: "",
+		url: "{:Url('Course/more')}",
 		data: {
-			length: len
+			length: len,
+			type: 2
 		},
 		beforeSend: function(XMLHttpRequest){
 		},
@@ -70,7 +71,7 @@ function loadScroll() {
 			addCourse(data);
 			if(data.code == 1){
 				var dataLen =data.data.length;
-				if(data.data.length == 9){
+				if(data.data.length == 6){
 					mui('#refreshContainer').pullRefresh().endPullupToRefresh(false);
 				}else{
 					mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
@@ -97,7 +98,7 @@ function addCourse(data) {
 				'<div class="fr right">'+
 				'<div class="title limit_">'+list.title+'</div>'+
 				'<div class="clear time">'+
-				'<span class="fl">'+list.time+'</span>'+
+				'<span class="fl">'+list.create_time_text+'</span>'+
 				'<span class="fr fa fa-angle-right"></span>'+
 				'</div>'+
 				'</div>'+

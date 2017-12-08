@@ -61,9 +61,10 @@ function loadScroll() {
 	var len = $(".lists .list").length;
 	$.ajax({
 		type: "post",
-		url: "",
+		url: "{:Url('Course/more')}",
 		data: {
-			length: len
+			length: len,
+			type:1
 		},
 		beforeSend: function(XMLHttpRequest){
 		},
@@ -93,7 +94,7 @@ function addCourse(data) {
 		html +=
 				'<a href="/home/course/relevant/id/'+ list.id+'.html" class="list">'+
 				'<div class="title limit">'+list.title+'</div>'+
-				'<div class="content limit_">'+list.description+'</div>'+
+				'<div class="content limit_">'+list.content+'</div>'+
 				'<div class="note clear">';
 		if(list.state == 0){
 			html +=	'<span class="fl ing">进行中</span>'
@@ -101,7 +102,7 @@ function addCourse(data) {
 			html +=	'<span class="fl over">已结束</span>'
 		}
 		html +=
-				'<span class="time fr">'+list.time+'</span>'+
+				'<span class="time fr">'+list.create_time_text+'</span>'+
 				'</div>'+
 				'</a>'
 	}
