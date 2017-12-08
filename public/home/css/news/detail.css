@@ -45,6 +45,7 @@
   width: auto;
   display: inline-block;
   text-align: left;
+  font-size: .43rem;
 }
 .article .note {
   color: #999999;
