@@ -8,31 +8,36 @@
 <div>
     <div class="top">
         <div class="top_top">
-            <!--<img src="/home/images/vistor.jpg">
-            <p>游客</p>-->
-            <img id="pic" src="/home/images/banner/2.png">
+            {eq name="visit" value="1"}
+            <img src="/home/images/common/vistor.jpg">
+            <p>游客</p>
+            {else/}
+            <img id="pic" src="{$personal.header}">
             <div id="score">
                 <img src="/home/images/common/score.png" alt="规则" data-toggle="modal" data-target="#myModal">
                 <span data-toggle="modal" data-target="#myModal">积分规则</span>
             </div>
-
-            <p>名字</p>
-            <p>职称位置</p>
-
+            <p>{$personal.name}</p>
+            {/eq}
         </div>
         <div class="top_body">
             <ul>
                 <li>
                     <p>个人所有积分</p>
-                    <!--<p>无</p>-->
-                    <p>200</p>
+                    {eq name="visit" value="1"}
+                    <p>无</p>
+                    {else/}
+                    <p>{$personal.score}</p>
+                    {/eq}
                 </li>
                 <span></span>
                 <li>
                     <p>个人积分排名</p>
-                    <!--<p>无</p>-->
-                    <!--<p>无</p>-->
-                    <p>300</p>
+                    {eq name="visit" value="1"}
+                    <p>无</p>
+                    {else/}
+                    <p>{$personal.rank}</p>
+                    {/eq}
                 </li>
             </ul>
         </div>
@@ -51,17 +56,11 @@
                 </div>
                 <div class="modal-body">
                     您可以通过浏览文章，点赞，评论等互动行为获取积分。具体如下：
-                    <h5>关注企业号：<b>10分</b></h5>
                     <h5>浏览文章：<b>1分</b></h5>
                     <h5>点赞他人评论：<b>1分</b></h5>
                     <h5>评论文章：<b>1分</b></h5>
                     <h5>每日一课答题正确：<b>1分</b></h5>
-                    <h5>提出合理化意见建议：<b>5分</b></h5>
-                    <h5>撰写学习心得或体会文章：<b>10分</b></h5>
-                    <!--<h5>参加党群服务中心举办集中培训或活动：<b>20分</b></h5>-->
-                    <!--<h5>参加中心组织的志愿服务：<b>20分</b></h5>-->
-                    备注:<br/> &emsp;&emsp; 同一篇文章重复浏览、点赞不累积得分，且积分对象仅限于地信小镇内部员工或党员；
-                    所得积分可以去积分商城兑换物品，大家加油哦！
+                    备注:<br/> &emsp;&emsp; 同一篇文章重复浏览、点赞不累积得分。
                 </div>
             </div>
         </div>
@@ -90,55 +89,42 @@
         <div class="rank" age="1">
             <ul>
                 <!-- 循环体-->
+                {volist name="week" id="fi" key="k"}
                 <li class="clear">
-                    <span class="ranking">1</span>
-                    <img src="/home/images/banner/3.jpg">
-                    <span class="department">张三</span>
-                    <span class="int">积分20分</span>
+                    <span class="ranking">{$k}</span>
+                    <img src="{$fi.userid|get_header}">
+                    <span class="department">{$fi.name}</span>
+                    <span class="int">积分{$fi.score}分</span>
                 </li>
+                {/volist}
                 <!-- 循环体-->
-                <li class="clear">
-                    <span class="ranking">2</span>
-                    <img src="/home/images/banner/3.jpg">
-                    <span class="department">李四</span>
-                    <span class="int">积分50分</span>
-                </li>
             </ul>
         </div>
         <div class="rank" age="2" style="display: none;">
             <ul>
                 <!-- 循环体-->
+                {volist name="month" id="mo" key="k"}
                 <li class="clear">
-                    <span class="ranking">1</span>
-                    <img src="/home/images/banner/2.png">
-                    <span class="department">王五</span>
-                    <span class="int">积分60分</span>
+                    <span class="ranking">{$k}</span>
+                    <img src="{$mo.userid|get_header}">
+                    <span class="department">{$mo.name}</span>
+                    <span class="int">积分{$mo.score}分</span>
                 </li>
+                {/volist}
                 <!-- 循环体-->
-                <li class="clear">
-                    <span class="ranking">2</span>
-                    <img src="/home/images/banner/2.png">
-                    <span class="department">王一</span>
-                    <span class="int">积分50分</span>
-                </li>
-                <!-- 循环体-->
-                <li class="clear">
-                    <span class="ranking">3</span>
-                    <img src="/home/images/banner/2.png">
-                    <span class="department">王二</span>
-                    <span class="int">积分40分</span>
-                </li>
             </ul>
         </div>
         <div class="rank" age="3" style="display: none;">
             <ul>
                 <!-- 循环体-->
+                {volist name="all" id="vo" key="k"}
                 <li class="clear">
-                    <span class="ranking">1</span>
-                    <img src="/home/images/banner/1.png">
-                    <span class="department">姓名区</span>
-                    <span class="int">积分200分</span>
+                    <span class="ranking">{$k}</span>
+                    <img src="{$vo.userid|get_header}">
+                    <span class="department">{$vo.name}</span>
+                    <span class="int">积分{$vo.score}分</span>
                 </li>
+                {/volist}
             </ul>
         </div>
     </div>

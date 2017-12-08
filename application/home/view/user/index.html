@@ -6,18 +6,24 @@
 
 {block name="body"}
 <div class="main">
-	<!--<div class="banner">
-		<img src="/home/images/common/party.png" alt="个人头像" class="up">
-		<div class="name">游客</div>
-	</div>-->
+	{eq name="visit" value="1"}
 	<div class="banner">
+		<img src="/home/images/common/vistor.jpg" alt="个人头像" class="up">
+		<div class="name">游客</div>
+	</div>
+	{else/}
+	<div class="banner">
+		{empty name="$user.header"}
 		<div class="up" data-tab="/home/images/common/party.png"></div>
-		<div class="name">姓名</div>
+		{else/}
+		<div class="up" data-tab="{$user.header}"></div>
+		{/empty}
+		<div class="name">{$user.name}</div>
 		<input type="file" class="hide" id="upload" accept="image/jpg, image/png, image/gif, image/jpeg">
 		<input type="hidden" name="header"  value="" required="">
 	</div>
 	<div class="lists">
-		<a href="{:Url('User/personal')}" class="list clear">
+		<a href="{:Url('User/personal?id='.$user['id'])}" class="list clear">
 			<span>个人信息</span>
 			<i class="fa fa-angle-right fr"></i>
 		</a>
@@ -26,6 +32,7 @@
 			<i class="fa fa-angle-right fr"></i>
 		</a>
 	</div>
+	{/eq}
 </div>
 {/block}
 

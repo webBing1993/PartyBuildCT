@@ -10,10 +10,8 @@ namespace app\home\controller;
 use app\home\model\WechatDepartment;
 use app\home\model\Picture;
 use app\home\model\WechatUser;
-use app\home\model\WechatUserTag;
 use think\Controller;
 use think\Db;
-use think\Request;
 
 /**
  * Class User
@@ -24,7 +22,11 @@ class User extends Base {
      * 个人中心主页
      */
     public function index(){
-
+        //游客判断
+        $this->anonymous();
+        $userId = session('userId');
+        $user = WechatUser::where('userid',$userId)->find();
+        $this->assign('user',$user);
         return $this->fetch();
     }
 
@@ -32,7 +34,10 @@ class User extends Base {
      * 个人信息页
      */
     public function personal(){
-
+        $Model = new  WechatUser();
+        $id = input('id');
+        $detail = $Model->get($id);
+        $this->assign('detail',$detail);
         return $this->fetch();
     }
 
@@ -40,7 +45,15 @@ class User extends Base {
      * 设置头像
      */
     public function setHeader(){
-        return $this->fetch();
+        $userId = session('userId');
+        $header = input('header');
+        $map['header'] = $header;
+        $info = WechatUser::where('userid',$userId)->update($map);
+        if($info){
+            return $this->success("修改成功");
+        }else{
+            return $this->error("修改失败");
+        }
     }
 
 }
