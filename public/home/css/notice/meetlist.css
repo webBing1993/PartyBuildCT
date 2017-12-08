@@ -45,10 +45,11 @@ a:active {
 .lists .list .title {
   color: #333333;
   font-size: .37rem;
-  line-height: 10.3333vw;
-  height: 10.1333vw;
+  /*height: 10.1333vw;*/
   margin-top: 1.3333vw;
-  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   overflow: hidden;
 }
 .lists .list .content {
