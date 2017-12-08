@@ -41,7 +41,7 @@
                 <div class="lists">
                     <!-- 评论区循环-->
                     {volist name="comment" id="co"}
-                    <div class="list clear">
+                    <div class="list clearfix">
                         <div class="fl">
                             <img src="{$co.header}" alt="用户" class="user">
                         </div>
@@ -132,7 +132,7 @@
         for(var i = 0; i< len;i++){
             var list = lists[i];
             html +=
-                    '<div class="list clear">'+
+                    '<div class="list clearfix">'+
                     '<div class="fl">'+
                     '<img src="'+list.header+'" alt="用户头像" class="user">'+
                     '</div>'+
@@ -244,7 +244,7 @@
                             var data = data.data;
                             var userid = "'"+data.create_user+"'";
                             var html = '';
-                            html += '<div class="list clear">'+
+                            html += '<div class="list clearfix">'+
                                     '<div class="fl">'+
                                     '<img src="'+data.header+'" alt="用户头像" class="user">'+
                                     '</div>'+

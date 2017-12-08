@@ -15,6 +15,7 @@
     width: auto;
     text-align: left;
     color: #333;
+    font-size: .43rem;
 }
 .article .note span {
     font-size: .32rem;
@@ -72,18 +73,18 @@
     margin-right: 0;
 }
 .conclusion .note .read {
-    background: url('/home/images/detail/scan_.png') 0 center no-repeat;
+    background: url('/home/images/detail/scan_.png') 0 3vw no-repeat;
     background-size: 4vw 4vw;
     padding-left: 4.8vw;
 }
 .conclusion .note .good {
-    background: url('/home/images/detail/good.png') 0 center no-repeat;
+    background: url('/home/images/detail/good.png') 0 3vw no-repeat;
     background-size: 4vw 4vw;
 }
 .conclusion .note .good_ {
     animation: shake 300ms ease;
     -webkit-animation: shake 300ms ease;
-    background: url('/home/images/detail/good_.png') 0 center no-repeat;
+    background: url('/home/images/detail/good_.png') 0 3vw no-repeat;
     background-size: 4vw 4vw;
 }
 .conclusion .note .isgood {

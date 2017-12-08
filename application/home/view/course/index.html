@@ -126,9 +126,10 @@ function loadScroll() {
 	var len = $(".party a").length;
 	$.ajax({
 		type: "post",
-		url: "{:Url('Index/more')}",
+		url: "{:Url('Course/more')}",
 		data: {
-			length: len
+			length: len,
+			type:3
 		},
 		beforeSend: function(XMLHttpRequest){
 		},
@@ -162,10 +163,10 @@ function addCourse(data) {
 				'<div class="title limit_">'+list.title+'</div>'+
 				'<div class="clear time">'+
 				'<span class="fl person">'+
-				list.className+
+				list.publisher+
 				'</span> '+
 				'<span class="fr fa fa-angle-right"></span>'+
-				'<span class="fr">'+list.time+'</span>'+
+				'<span class="fr">'+list.create_time_text+'</span>'+
 				'</div>'+
 				'</div>'+
 				'</a>';
