@@ -186,7 +186,7 @@ var send = function(e,type,id){
 };
 
 window.onload = function () {
-	if ($(".lists .list").length < 6) {
+	if ($(".lists .list").length < 7) {
 		mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
 	} else {
 		mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
@@ -217,7 +217,7 @@ function loadScroll() {
 			addCourse(data);
 			if(data.code == 1){
 				var dataLen =data.data.length;
-				if(data.data.length == 6){
+				if(data.data.length == 7){
 					mui('#refreshContainer').pullRefresh().endPullupToRefresh(false);
 				}else{
 					mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
@@ -233,19 +233,17 @@ function addCourse(data) {
 	var html = '';
 	var lists = data.data;
 	var len = lists.length;
-	console.log(len);
 	for(var i = 0; i< len;i++){
 		var list = lists[i];
-		html +=
-				html += '<div class="list clearfix">'+
-						'<div class="fl">'+
-						'<img src="'+list.header+'" alt="用户" class="user">'+
-						'</div>'+
-						'<div class="fl mid">'+
-						'<div class="name limit">'+ list.nickname+'</div>'+
-						'<div class="content" >'+ list.content+'</div>'+
-						'<div class="time">'+ list.time+'</div>'+
-						'</div>';
+		html += '<div class="list clearfix">'+
+				'<div class="fl">'+
+				'<img src="'+list.header+'" alt="用户" class="user">'+
+				'</div>'+
+				'<div class="fl mid">'+
+				'<div class="name limit">'+ list.nickname+'</div>'+
+				'<div class="content" >'+ list.content+'</div>'+
+				'<div class="time">'+ list.time+'</div>'+
+				'</div>';
 		if ('{$visit}' == 0) {
 			if(list.is_like == 0){
 				html+='<div class="fr isgood good notvsitor" data-type="0" data-id='+ list.id +'>'+list.likes+'</div>'
