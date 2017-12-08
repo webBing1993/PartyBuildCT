@@ -38,8 +38,16 @@
 <script>
     $(function () {
         // 标题
-        $("title").text("两学一做")
-    })
+        $("title").text("两学一做");
+        isOut();
+    });
+    function isOut(){
+        setTimeout(function(){
+            window.addEventListener("popstate", function(e) {
+                window.history.go(-1);
+            }, false);
+        },200)
+    }
 </script>
 
 {/block}
