@@ -38,11 +38,11 @@ class Index extends Base {
             'status' => 1,
             'recommend' => 1
         );
-        $res = Db::field('title,create_time,publisher,id,front_cover,list_type')
+        $res = Db::field('title,create_time,publisher,id,front_cover,list_type,0 as type')
             ->table('pb_notice')
             ->where($map)
-            ->union("SELECT title,create_time,publisher,id,front_cover,list_type FROM pb_focus where status=1 AND recommend=1")
-            ->union("SELECT title,create_time,publisher,id,front_cover,list_type FROM pb_course where status=1 AND recommend=1 order by create_time desc limit $len,8")
+            ->union("SELECT title,create_time,publisher,id,front_cover,list_type,0 as type FROM pb_focus where status=1 AND recommend=1")
+            ->union("SELECT title,create_time,publisher,id,front_cover,list_type,type FROM pb_course where status=1 AND recommend=1 order by create_time desc limit $len,8")
             ->select();
 
         foreach ($res as $k=>$v) {
@@ -59,8 +59,16 @@ class Index extends Base {
                     $res[$k]['url'] = Url('Focus/detail?id='.$v['id']);
                     break;
                 case 3:
-                    $res[$k]['type_text'] = "三会一课";
-                    $res[$k]['url'] = Url('Course/detail?id='.$v['id']);
+                    if($v['type'] == 1) {
+                        $res[$k]['type_text'] = "相关通知";
+                        $res[$k]['url'] = Url('Course/relevant?id='.$v['id']);
+                    }elseif($v['type'] == 2) {
+                        $res[$k]['type_text'] = "会议情况";
+                        $res[$k]['url'] = Url('Course/meet?id='.$v['id']);
+                    }else {
+                        $res[$k]['type_text'] = "党课情况";
+                        $res[$k]['url'] = Url('Course/party?id='.$v['id']);
+                    }
                     break;
                 default:
                     break;
