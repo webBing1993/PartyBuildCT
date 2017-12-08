@@ -327,36 +327,4 @@ class Base extends Controller {
             WechatUser::where('userid',$uid)->update($s);
         }
     }
-
-    /*
-     * 判断当天积分是否达到上限
-     */
-    public function score_up(){
-        $con = strtotime(date("Y-m-d",time()));  //  获取当天年月日时间戳
-        $userid = session('userId');
-        $map = array(
-            'create_time' => ['egt',$con],
-            'user_id' => $userid,
-        );
-        $map1 = array(
-            'create_time' => ['egt',$con],
-            'uid' => $userid,
-            'score' => 1
-        );
-//        $map2 = array(
-//            'create_time' => ['egt',$con],
-//            'userid' => $userid
-//        );
-        $browse = Browse::where($map)->count(); //  浏览得分
-        $like = Like::where($map1)->count();  // 点赞得分
-        $comment = Comment::where($map1)->count();  // 评论得分
-//        $Answer = Answers::where($map2)->find();
-//        $answer = $Answer['score'];  // 答题得分
-        $num = $browse + $like + $comment;
-        if ($num < 15){
-            return true;
-        }else{
-            return false;
-        }
-    }
 }

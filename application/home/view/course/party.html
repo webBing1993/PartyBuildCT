@@ -12,111 +12,62 @@
 		<div class="mui-slider-group">
 			<!--新增-->
 			<div class="title limit_">
-				<span>标题所在</span>
+				<span>{$detail.title}</span>
 			</div>
 			<div class="note clear">
-				<span class="fl">发布人</span>
-				<span class="fr">2017-11-21</span>
+				<span class="fl">{$detail.publisher}</span>
+				<span class="fr">{$detail.create_time|time_format='Y-m-d'}</span>
 			</div>
 			<!--新增-->
 			<div class="article">
 				<div class="content">
-					<div>内容区域所在地</div>
+					<div>{$detail.content}</div>
 					<div class="note">
-						<span class="read">10</span>
-						<span class="isgood good_ notvsitor" data-type="" data-id="">10</span>
-						<!--<span class="isgood good" onclick="isGood()">11</span>-->
+						<span class="read">{$detail.views}</span>
+						{eq name="visit" value="0"}
+						{eq name="detail.is_like" value="1"}
+						<span class="isgood good_ notvisitor"  data-type="5" data-id="{$detail.id}">{$detail.likes}</span>
+						{else/}
+						<span class="isgood good notvisitor"  data-type="5" data-id="{$detail.id}">{$detail.likes}</span>
+						{/eq}
+						{else/}
+						<span class="isgood good">{$detail.likes}</span>
+						{/eq}
 					</div>
 				</div>
 			</div>
 			<div class="comment">
-				<div class="sum">共<span>5</span>条评论</div>
+				<div class="sum">共<span>{$detail.comments}</span>条评论</div>
 				<div class="lists">
-					<!-- 评论循环体-->
+					<!-- 评论区循环-->
+					{volist name="comment" id="co"}
 					<div class="list clear">
 						<div class="fl">
-							<img src="/home/images/common/party.png" alt="用户" class="user">
+							<img src="{$co.header}" alt="用户" class="user">
 						</div>
 						<div class="fl mid">
-							<div class="name limit">评论人姓名</div>
-							<div class="content" >评论的内容</div>
-							<div class="time">2017-11-21</div>
+							<div class="name limit">{$co.nickname}</div>
+							<div class="content" >{$co.content}</div>
+							<div class="time">{$co.create_time|time_format="Y-m-d"}</div>
 						</div>
-						<!--<div class="fr isgood good_" onclick="isGood()">2</div>-->
-						<div class="fr isgood good notvsitor" data-type="0" data-id="">1</div>
+						{eq name="visit" value="0"}
+						{eq name="co.is_like" value="1"}
+						<div class="fr isgood good_ notvisitor"  data-type="0" data-id="{$co.id}">{$co.likes}</div>
+						{else/}
+						<div class="fr isgood good notvisitor"  data-type="0" data-id="{$co.id}">{$co.likes}</div>
+						{/eq}
+						{else/}
+						<div class="fr isgood good">{$co.likes}</div>
+						{/eq}
 					</div>
-					<!-- 评论循环体-->
-					<div class="list clear">
-						<div class="fl">
-							<img src="/home/images/common/party.png" alt="用户" class="user">
-						</div>
-						<div class="fl mid">
-							<div class="name limit">评论人姓名</div>
-							<div class="content" >评论的内容</div>
-							<div class="time">2017-11-21</div>
-						</div>
-						<!--<div class="fr isgood good_" onclick="isGood()">2</div>-->
-						<div class="fr isgood good notvsitor" data-type="0" data-id="">1</div>
-					</div>
-					<!-- 评论循环体-->
-					<div class="list clear">
-						<div class="fl">
-							<img src="/home/images/common/party.png" alt="用户" class="user">
-						</div>
-						<div class="fl mid">
-							<div class="name limit">评论人姓名</div>
-							<div class="content" >评论的内容</div>
-							<div class="time">2017-11-21</div>
-						</div>
-						<!--<div class="fr isgood good_" onclick="isGood()">2</div>-->
-						<div class="fr isgood good notvsitor" data-type="0" data-id="">1</div>
-					</div>
-					<!-- 评论循环体-->
-					<div class="list clear">
-						<div class="fl">
-							<img src="/home/images/common/party.png" alt="用户" class="user">
-						</div>
-						<div class="fl mid">
-							<div class="name limit">评论人姓名</div>
-							<div class="content" >评论的内容</div>
-							<div class="time">2017-11-21</div>
-						</div>
-						<!--<div class="fr isgood good_" onclick="isGood()">2</div>-->
-						<div class="fr isgood good notvsitor" data-type="0" data-id="">1</div>
-					</div>
-					<!-- 评论循环体-->
-					<div class="list clear">
-						<div class="fl">
-							<img src="/home/images/common/party.png" alt="用户" class="user">
-						</div>
-						<div class="fl mid">
-							<div class="name limit">评论人姓名</div>
-							<div class="content" >评论的内容</div>
-							<div class="time">2017-11-21</div>
-						</div>
-						<!--<div class="fr isgood good_" onclick="isGood()">2</div>-->
-						<div class="fr isgood good notvsitor" data-type="0" data-id="">1</div>
-					</div>
-					<!-- 评论循环体-->
-					<div class="list clear">
-						<div class="fl">
-							<img src="/home/images/common/party.png" alt="用户" class="user">
-						</div>
-						<div class="fl mid">
-							<div class="name limit">评论人姓名</div>
-							<div class="content" >评论的内容</div>
-							<div class="time">2017-11-21</div>
-						</div>
-						<!--<div class="fr isgood good_" onclick="isGood()">2</div>-->
-						<div class="fr isgood good notvsitor" data-type="0" data-id="">1</div>
-					</div>
+					{/volist}
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div class="bottom clear" onclick="send()">
+<div class="bottom clear" onclick="send(this,5,{$detail.id})">
 	<div class="myword fl">
 		<input type="text" placeholder="说说你的感想！" disabled>
 	</div>
