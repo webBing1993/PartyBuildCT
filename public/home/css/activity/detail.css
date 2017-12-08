@@ -107,6 +107,9 @@
     padding-left: 3.4666vw;
     padding-right: 3.4666vw;
 }
+.content .article p {
+    color: #333;
+}
 .article .note {
     color: #999999;
     font-size: .37rem;
