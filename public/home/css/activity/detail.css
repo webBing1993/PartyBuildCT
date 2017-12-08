@@ -126,11 +126,11 @@
     line-height: 10.7vw;
 }
 .content .article .good {
-    background: url('/home/images/detail/good.png') 0 center no-repeat;
+    background: url('/home/images/detail/good.png') 0 3vw no-repeat;
     background-size: 4vw 4vw;
 }
 .content .article .good_ {
-    background: url('/home/images/detail/good_.png') 0 center no-repeat;
+    background: url('/home/images/detail/good_.png') 0 3vw no-repeat;
     background-size: 4vw 4vw;
 }
 .content .article .isgood {
