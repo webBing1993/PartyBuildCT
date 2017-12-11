@@ -360,5 +360,14 @@
             })
         }
     })
+
+    // 监听上一页面返回时更新页面
+    window.onpageshow = function(e){
+        var a = e||window.event;
+        if(a.persisted){
+            window.location.reload();
+        }
+    }
+
 </script>
 {/block}
