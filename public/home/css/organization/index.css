@@ -82,6 +82,8 @@
     overflow: hidden;
     height: 4.8vw;
     line-height: 4.8vw;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
 /*lists2 lists3*/
 .lists2 a,.lists3 a {
