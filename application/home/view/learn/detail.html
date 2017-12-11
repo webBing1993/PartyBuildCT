@@ -26,7 +26,9 @@
                     <img src="/home/images/learn/video.png" class="play" alt="播放">
                     {else/}
                     <!--链接视频-->
+                    {notempty name="$detail.net_path"}
                     <iframe  class="videocon" src="{$detail.net_path}" frameborder="0" scrolling="no" allowfullscreen ></iframe>
+                    {/notempty}
                     {/notempty}
                 </div>
                 <div class="content">
