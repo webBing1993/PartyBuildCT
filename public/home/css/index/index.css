@@ -188,6 +188,8 @@ html,body{
     overflow: hidden;
     height: 4.8vw;
     line-height: 4.8vw;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
 .content .notices .notice.activity .list .right {
     width: 100%;

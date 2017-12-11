@@ -58,6 +58,8 @@
     height: 8vw;
     line-height: 8vw;
     text-align: left;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
 .article .note_ span {
     margin-right: 0;

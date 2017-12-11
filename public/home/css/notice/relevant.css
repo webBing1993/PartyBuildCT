@@ -60,6 +60,8 @@
 .content .top .note span.address {
   width: 60%;
   overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .content .top .read {
   background: url('/home/images/detail/scan_.png') 0 3.2vw no-repeat;
