@@ -13,6 +13,7 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   word-break: break-all;
+  font-size: .35rem;
 }
 @-webkit-keyframes typing {
   0% {
