@@ -89,7 +89,7 @@
     margin-top: 1.6vw;
     color: #333333;
     font-size: 0.36rem;
-    line-height: 4vw;
+    /*line-height: 4vw;*/
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;

@@ -52,8 +52,12 @@
     font-size: .32rem;
     line-height: 8vw;
 }
-.article .note span {
-    /*margin-right: 10px;*/
+.article .note span.fl {
+    width: 60%;
+    overflow: hidden;
+    height: 8vw;
+    line-height: 8vw;
+    text-align: left;
 }
 .article .note_ span {
     margin-right: 0;

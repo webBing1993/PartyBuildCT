@@ -74,6 +74,14 @@
     font-size: .32rem;
     color: #999;
     width: 93.6vw;
+    height: 4.8vw;
+    line-height: 4.8vw;
+}
+.lists1 a .note .fl {
+    width: 66%;
+    overflow: hidden;
+    height: 4.8vw;
+    line-height: 4.8vw;
 }
 /*lists2 lists3*/
 .lists2 a,.lists3 a {

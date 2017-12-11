@@ -6,6 +6,10 @@
     font-size: .32rem;
     color: #999999;
 }
+.note .address {
+    width: 60%;
+    overflow: hidden;
+}
 .article p {
     width: 100%;
     word-break: break-all;

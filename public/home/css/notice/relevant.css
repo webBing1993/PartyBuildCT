@@ -57,6 +57,10 @@
   margin-right: 2.6666vw;
   line-height: 10.6666vw;
 }
+.content .top .note span.address {
+  width: 60%;
+  overflow: hidden;
+}
 .content .top .read {
   background: url('/home/images/detail/scan_.png') 0 3.2vw no-repeat;
   background-size: 4vw 4vw;
