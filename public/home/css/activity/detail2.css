@@ -71,6 +71,8 @@
 .article .content p {
     text-indent: 2em;
     color: #333;
+    font-size: .37rem;
+    line-height: 1.6;
 }
 .article .content * {
     max-width: 100%!important;
@@ -108,7 +110,7 @@
 }
 .article .content .note {
     color: #999999;
-    font-size: .37rem;
+    font-size: .32rem;
 }
 .article .content .note span {
     height: 10.7vw;

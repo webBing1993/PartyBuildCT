@@ -68,6 +68,10 @@
     text-align: center;
     position: relative;
     margin: 4vw auto;
+    width: 100%;
+}
+.article .video iframe {
+    /*width: 100%;*/
 }
 .article .video img {
     position: absolute;
@@ -84,6 +88,8 @@
 .article .content p {
     color: #333;
     text-indent: 2em;
+    font-size: .37rem;
+    line-height: 1.6;
 }
 .article .content * {
     max-width: 100%!important;
@@ -121,7 +127,7 @@
 }
 .article .content .note {
     color: #999999;
-    font-size: .37rem;
+    font-size: .32rem;
 }
 .article .content .note span {
     height: 10.7vw;

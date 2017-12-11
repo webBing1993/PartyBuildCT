@@ -10,8 +10,9 @@
   width: 100%;
   word-break: break-all;
   text-indent: 2em;
-  line-height: 1.4;
   color: #333;
+  font-size: .37rem;
+  line-height: 1.6;
 }
 .banner {
   width: 100vw;
@@ -90,6 +91,7 @@
   display: inline-block;
   width: 100%;
   padding-right: 4vw;
+  font-size: .32rem;
 }
 .content .message div span:nth-child(5) {
   border-bottom: none;
@@ -123,6 +125,7 @@
   display: inline-block;
   margin-right: 2.7vw;
   line-height: 10.7vw;
+  font-size: .32rem;
 }
 .article .note_ span{
   margin-right: 0;

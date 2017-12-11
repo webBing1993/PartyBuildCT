@@ -30,6 +30,8 @@
 .tableList p {
     text-indent: 2em;
     color: #333;
+    font-size: .37rem;
+    line-height: 1.6;
 }
 .tableList table {
     border: 1px solid #d7d7d7;
@@ -62,6 +64,8 @@
     text-indent: 2em;
     color: #333;
     margin-top: 1.2vw;
+    font-size: .35rem;
+    line-height: 1.6;
 }
 .conclusion .note {
     color: #999999;
@@ -72,6 +76,7 @@
     display: inline-block;
     margin-right: 2.7vw;
     line-height: 10.7vw;
+    font-size: .32rem;
 }
 .conclusion .note_ span{
     margin-right: 0;

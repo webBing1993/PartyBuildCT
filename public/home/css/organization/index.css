@@ -103,13 +103,17 @@
     color: #333;
 }
 .lists2 a .content,.lists3 a .content {
+    margin-top: 1.2vw;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    font-size: .37rem;
+    font-size: .35rem;
     color: #999;
+}
+.lists2 a .content p,.lists3 a .content p {
+    font-size: .35rem;
 }
 .lists2 a .note,.lists3 a .note {
     position: absolute;

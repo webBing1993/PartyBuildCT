@@ -107,6 +107,8 @@
 }
 .article .content p {
   color: #333;
+  font-size: .37rem;
+  line-height: 1.6;
 }
 .article .content .video {
   position: relative;
@@ -139,8 +141,9 @@
 }
 .article .content .note span {
   display: inline-block;
-  margin-right: 2.68vw;
+  /*margin-right: 2.68vw;*/
   line-height: 10.68vw;
+  font-size: .32rem;
 }
 .article .content .note_ span{
   margin-right: 0;
