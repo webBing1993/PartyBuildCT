@@ -36,9 +36,12 @@ class User extends Base {
     public function personal(){
         $Model = new  WechatUser();
         $id = input('id');
-        $detail = $Model->get($id);
-        $this->assign('detail',$detail);
-        return $this->fetch();
+        //生成二维码
+        $url = $_SERVER['REQUEST_SCHEME']."://".$_SERVER['SERVER_NAME'].$_SERVER['REDIRECT_URL'];
+        $res = $Model->scerweima($url);
+//        $detail = $Model->get($id);
+//        $this->assign('detail',$detail);
+//        return $this->fetch();
     }
 
     /**
