@@ -111,11 +111,17 @@
                                     <label>视频:</label>
                                 </div>
                                 <div class="col-lg-3">
+                                    {empty name="msg"}
                                     <select name="videoway" id="videoway"  class="form-control" >
                                         <option value="0"> — 上传视频本地文件（小于20M，MP4格式）— </option>
                                         <option value="1"> —— 输入视频链接地址 —— </option>
-                                        <!--<option value="2"> —— 上传音频本地文件（.mp3格式） —— </option>-->
                                     </select>
+                                    {else/}
+                                    <select name="videoway" id="videoway"  class="form-control" >
+                                        <option value="0" {notempty name="msg.video_path"}selected{/notempty}> — 上传视频本地文件（小于20M，MP4格式）— </option>
+                                        <option value="1" {notempty name="msg.net_path"}selected{/notempty}> —— 输入视频链接地址 —— </option>
+                                    </select>
+                                    {/empty}
                                 </div>
                                 <div class="col-lg-1 text-right control-label">
                                     <label for="video">视频链接地址:</label>

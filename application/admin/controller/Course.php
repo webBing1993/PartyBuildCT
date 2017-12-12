@@ -25,6 +25,7 @@ class Course extends Admin {
         $list = $this->lists('Course',$map);
         int_to_string($list,array(
             'type' => array(1=>"相关通知",2=>"会议情况",3=>"党课情况"),
+            'recommend' => array(0=>"否",1=>"是"),
             'status' => array(1=>'已发布'),
         ));
         $this->assign('list',$list);
