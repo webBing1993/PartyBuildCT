@@ -55,7 +55,6 @@ class WechatUser extends Base
                 $this ->data($data) ->allowField([
                     'mobile','name','department','gender','position','birthday','education','nation','partytime','address','review'
                 ]) ->save();
-                echo $this->getLastSql();
                 return['code' => 1,'msg'=> '新增成功'];
             }
         }

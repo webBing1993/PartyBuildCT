@@ -67,11 +67,13 @@
     </div>
 </div>
 <!-- 评论弹框-->
+{eq name="visit" value="0"}
 <div class="bottom clear" onclick="send(this,2,{$detail.id})">
     <div class="myword fl">
         <input type="text" placeholder="说说你的感想！" disabled>
     </div>
 </div>
+{/eq}
 {/block}
 {block name="script"}
 <script src="/home/js/reset.js"></script>

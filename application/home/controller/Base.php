@@ -20,12 +20,11 @@ use think\Db;
 
 class Base extends Controller {
     public function _initialize(){
-        session('userId','18768112486');
+//        session('userId','fa01047e6ea1e356cacc67eb75af40a7');
 //        session('header','/home/images/vistor.jpg');
 //        session('nickname','游客');
         session('requestUri', 'http://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]);
         $userId = session('userId');
-
         if(empty($userId)){
             Cookie::init(Config::get('cookie'));
             session('userId',Cookie::get('dypb')['user']);
