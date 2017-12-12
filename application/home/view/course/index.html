@@ -137,7 +137,7 @@ function loadScroll() {
 			addCourse(data);
 			if(data.code == 1){
 				var dataLen =data.data.length;
-				if(dataLen == 3){
+				if(dataLen == 8){
 					mui('#refreshContainer').pullRefresh().endPullupToRefresh(false);
 				}else{
 					mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);

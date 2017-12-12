@@ -9,6 +9,7 @@
     background: #ffffff;
     font-family: "Microsoft YaHei", sans-serif;
     z-index: 105;
+    text-align: center;
 }
 .bottom .star {
     background: url('/home/images/detail/star-border.png') 5.3333vw 3.1999vw no-repeat;
@@ -25,17 +26,20 @@
     text-align: center;
     background-size: 5.3vw 5.3vw;
 }
+.bottom .myword {
+    width: 100%;
+}
 .bottom .myword input {
     vertical-align: middle;
     height: 8vw;
     width: 94vw;
-    margin: 2vw 0;
+    margin: 2vw auto;
     padding-left: 2.68vw;
     background: #fafafa;
     border: 0.27vw solid #d8d8d8;
     -webkit-border-radius: 2vw;
     border-radius: 2vw;
-    margin-left: 2.5vw;
+    font-size: .32rem;
 }
 .bottom .myword input::-webkit-input-placeholder {
     color: #000;
@@ -96,10 +100,12 @@
     width: 100%;
     line-height: 14.935vw;
     color: #999999;
+    font-size: .37rem;
 }
 .comment .lists .list .mid .content {
     width: 100%;
     word-break: break-all;
+    font-size: .37rem;
 }
 .comment .lists .list .mid .time {
     font-size: .32rem;
@@ -122,6 +128,7 @@
     background-size: 4vw 4vw;
     padding-left: 4.7999vw;
     line-height: 5vw;
+    font-size: .32rem;
 }
 .comment .tip {
     text-align: center;

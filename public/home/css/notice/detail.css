@@ -20,7 +20,8 @@
   font-size: .4rem;
   font-weight: 600;
   margin:2.7vw auto;
-  width:90%;
+  /*width:90%;*/
+  padding: 0 3.2vw;
   min-height:8vw;
   line-height: 6.8vw;
 }
@@ -31,11 +32,22 @@
   color:#333;
   font-size:.43rem;
 }
-.note{
+.note {
+  padding: 0 4vw;
+}
+.note span{
   color: #999999;
   font-size: .32rem;
-  padding: 0 4vw;
-  text-align: right;
+  padding: 0 3.2vw;
+  /*text-align: right;*/
+  height: 10.7vw;
+  line-height: 10.7vw;
+}
+.note .fl {
+  width: 60%;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .note_{
   padding: 0;
@@ -95,6 +107,8 @@
 }
 .article .content p {
   color: #333;
+  font-size: .37rem;
+  line-height: 1.6;
 }
 .article .content .video {
   position: relative;
@@ -123,11 +137,13 @@
 .article .content .note {
   color: #999999;
   font-size: 1.46rem;
+  text-align: right;
 }
 .article .content .note span {
   display: inline-block;
-  margin-right: 2.68vw;
+  /*margin-right: 2.68vw;*/
   line-height: 10.68vw;
+  font-size: .32rem;
 }
 .article .content .note_ span{
   margin-right: 0;

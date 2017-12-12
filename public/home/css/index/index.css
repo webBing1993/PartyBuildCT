@@ -181,6 +181,15 @@ html,body{
     color: #999;
     position: absolute;
     bottom: 0;
+    line-height: 4.8vw;
+}
+.content .notices .notice .list .time .fl {
+    width: 60%;
+    overflow: hidden;
+    height: 4.8vw;
+    line-height: 4.8vw;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
 .content .notices .notice.activity .list .right {
     width: 100%;

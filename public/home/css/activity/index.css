@@ -81,6 +81,9 @@
     -webkit-box-orient: vertical;
     word-break: break-all;
 }
+.summary .list .content p {
+    font-size: .35rem;
+}
 .summary .list .note {
     font-size: .32rem;
     position: absolute;

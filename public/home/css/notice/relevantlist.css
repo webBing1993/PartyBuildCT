@@ -13,6 +13,7 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   word-break: break-all;
+  font-size: .35rem;
 }
 @-webkit-keyframes typing {
   0% {
@@ -46,11 +47,9 @@
 .list {
   display: block;
   width: 100%;
-  padding-left: 3.4666vw;
-  padding-right: 3.4666vw;
-  padding-top: 1.3333vw;
-  height: 26.6666vw;
-  border-bottom: 0.2666vw solid #f1f1f1;
+  padding: 1.6vw 3.2vw;
+  height: 27.7vw;
+  border-bottom: 1px solid #f1f1f1;
   position: relative;
 }
 .list .title {

@@ -85,6 +85,7 @@
 }
 .lists .list .content p {
     color: #333;
+    font-size: .35rem;
 }
 .lists .list:first-of-type .name::before {
     background: url("/home/images/organization/name.png") 0 center no-repeat;

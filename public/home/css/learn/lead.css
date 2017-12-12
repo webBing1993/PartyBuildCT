@@ -41,6 +41,7 @@
 .info p:last-of-type {
     font-size: .35rem;
     color: #333;
+    padding: 0 3.2vw;
 }
 /*content*/
 .content {
@@ -52,4 +53,6 @@
 .content p {
     color: #333;
     text-indent: 2em;
+    font-size: .37rem;
+    line-height: 1.6;
 }

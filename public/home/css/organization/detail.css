@@ -6,12 +6,19 @@
     font-size: .32rem;
     color: #999999;
 }
+.note .address {
+    width: 60%;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
 .article p {
     width: 100%;
     word-break: break-all;
     text-indent: 2em;
-    line-height: 1.4;
+    line-height: 1.6;
     color: #333;
+    font-size: .37rem;
 }
 .banner {
     width: 100vw;
@@ -84,6 +91,7 @@
     display: inline-block;
     width: 100%;
     padding-right: 3.2vw;
+    font-size: .32rem;
 }
 .content .message div span:nth-child(5) {
     border-bottom: none;
@@ -118,23 +126,24 @@
     display: inline-block;
     margin-right: 2.7vw;
     line-height: 10.7vw;
+    font-size: .32rem;
 }
 .article .note_ span{
     margin-right: 0;
 }
 .article .note .read {
-    background: url('/home/images/detail/scan_.png') 0 3vw no-repeat;
+    background: url('/home/images/detail/scan_.png') 0 3.2vw no-repeat;
     background-size: 4vw 4vw;
     padding-left: 4.8vw;
 }
 .article .note .good {
-    background: url('/home/images/detail/good.png') 0 3vw no-repeat;
+    background: url('/home/images/detail/good.png') 0 3.2vw no-repeat;
     background-size: 4vw 4vw;
 }
 .article .note .good_ {
     animation: shake 300ms ease;
     -webkit-animation: shake 300ms ease;
-    background: url('/home/images/detail/good_.png') 0 3vw no-repeat;
+    background: url('/home/images/detail/good_.png') 0 3.2vw no-repeat;
     background-size: 4vw 4vw;
 }
 .article .note .isgood {

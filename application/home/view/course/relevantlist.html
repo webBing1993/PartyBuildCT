@@ -18,7 +18,7 @@
 				<a href="{:Url('Course/relevant?id='.$vo['id'])}" class="list">
 					<div class="title limit">{$vo.title}</div>
 					<div class="content limit_">{$vo.content}</div>
-					<div class="note clear">
+					<div class="note clearfix">
 						{eq name="$vo.is_conduct" value="0"}
 						<span class="fl over">已结束</span>
 						{else/}
@@ -95,7 +95,7 @@ function addCourse(data) {
 				'<a href="/home/course/relevant/id/'+ list.id+'.html" class="list">'+
 				'<div class="title limit">'+list.title+'</div>'+
 				'<div class="content limit_">'+list.content+'</div>'+
-				'<div class="note clear">';
+				'<div class="note clearfix">';
 		if(list.state == 0){
 			html +=	'<span class="fl ing">进行中</span>'
 		}else{

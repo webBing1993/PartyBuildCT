@@ -52,8 +52,14 @@
     font-size: .32rem;
     line-height: 8vw;
 }
-.article .note span {
-    /*margin-right: 10px;*/
+.article .note span.fl {
+    width: 60%;
+    overflow: hidden;
+    height: 8vw;
+    line-height: 8vw;
+    text-align: left;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
 .article .note_ span {
     margin-right: 0;
@@ -61,6 +67,11 @@
 .article .video {
     text-align: center;
     position: relative;
+    margin: 4vw auto;
+    width: 100%;
+}
+.article .video iframe {
+    /*width: 100%;*/
 }
 .article .video img {
     position: absolute;
@@ -77,6 +88,8 @@
 .article .content p {
     color: #333;
     text-indent: 2em;
+    font-size: .37rem;
+    line-height: 1.6;
 }
 .article .content * {
     max-width: 100%!important;
@@ -114,7 +127,7 @@
 }
 .article .content .note {
     color: #999999;
-    font-size: .37rem;
+    font-size: .32rem;
 }
 .article .content .note span {
     height: 10.7vw;
