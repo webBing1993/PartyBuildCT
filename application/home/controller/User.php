@@ -35,8 +35,10 @@ class User extends Base {
      */
     public function personal(){
         $Model = new  WechatUser();
+        $userId = session('userId');
         $id = input('id');
-        $detail = $Model->get($id);
+        $detail = $Model->getDetail($id,$userId);
+        $detail['url'] = $_SERVER['REQUEST_SCHEME']."://".$_SERVER['SERVER_NAME'].$_SERVER['REDIRECT_URL'];
         $this->assign('detail',$detail);
         return $this->fetch();
     }
