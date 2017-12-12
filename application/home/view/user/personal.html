@@ -23,8 +23,8 @@
 			<span class="fr">{$detail.name}</span>
 		</div>
 		<div class="list clear toshow"  data-toggle="modal" data-target="#modal">
-		<span class="fl">二维码</span>
-		<span class="fr"><img src="/home/images/user/code.png" alt="" class="er"><i class="fa fa-angle-right"></i></span>
+			<span class="fl">二维码</span>
+			<span class="fr"><img src="/home/images/user/code.png" alt="" class="er"><i class="fa fa-angle-right"></i></span>
 		</div>
 		<div class="list clear">
 			<span class="fl">性别</span>
@@ -101,7 +101,7 @@ $(function(){
 //		text: id
 	});
 	//隐藏手机号中间四位
-	var tel = $('.list').eq(4).find('.fr');
+	var tel = $('.list').eq(5).find('.fr');
 	var t = tel.text().split('');
 	t.splice(3,4,'****' );
 	t=t.join("");
