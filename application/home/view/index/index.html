@@ -81,30 +81,30 @@
         $(function(){
             // 清缓存
             isOut();
+        });
 
-            $(".banner>.exit").on("tap",function(e){
-                swal({
+        $(".banner>.exit").on("tap",function(e){
+            swal({
                     title:"",
                     text: "是否确认退出",
                     type: "warning",
                     showCancelButton: true,
                     confirmButtonText: "确认",
-                    closeOnConfirm: false,
+//                    closeOnConfirm: false,
                     cancelButtonText:"取消"
-                },
-                function(){
-                    swal({
-                        title: ' ',
-                        text: '退出成功！',
-                        type: 'success',
-                        confirmButtonText:'确定'
+                    },
+                    function(){
+                        swal({
+                            title: ' ',
+                            text: '退出成功！',
+                            type: 'success',
+                            confirmButtonText:'确定'
+                        });
+                        setTimeout(function(){
+                            window.location.replace("{:Url('Verify/logout')}");
+                        },1000)
                     });
-                    setTimeout(function(){
-                        window.location.replace("{:Url('Verify/logout')}");
-                    },1000)
-                });
-                return false;
-            })
+            return false;
         });
         window.onload = function () {
             if ($(".notice a").length < 8) {
@@ -187,7 +187,6 @@
 
         //退出清理tab缓存
         function isOut(){
-            pushHistory();
             setTimeout(function(){
                 window.addEventListener("popstate", function(e) {
                     delCookie("type");
@@ -195,36 +194,6 @@
                     return false;
                 }, false);
             },200)
-        }
-        //防止恶意刷新
-        function pushHistory(){
-            var sta = {
-                title: "title"
-            };
-            if( window.history.state === null )
-            {
-                window.history.pushState( sta, "title" );
-            }
-        }
-        function setCookie(name,value){
-            var Days = 30;
-            var exp = new Date();
-            exp.setTime(exp.getTime() + Days*24*60*60*1000);
-            document.cookie = name + "="+ value + ";expires=" + exp.toGMTString();
-        }
-        function getCookie(name){
-            var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
-            if(arr=document.cookie.match(reg))
-                return arr[2];
-            else
-                return null;
-        }
-        function delCookie(name){
-            var exp = new Date();
-            exp.setTime(exp.getTime() - 1);
-            var cval=getCookie(name);
-            if(cval!=null)
-                document.cookie= name + "="+cval+";expires="+exp.toGMTString();
         }
 
 

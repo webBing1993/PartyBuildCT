@@ -1,6 +1,7 @@
 body{
     position: relative;
     min-height: 100vh;
+    margin: 0;
 }
 .banner{
     width:100vw;
@@ -19,7 +20,7 @@ body{
     width:80vw;
     z-index:999;
     margin: 0 auto;
-    height: 50vw;
+    height: 18vw;
     padding-top: 35vw;
 }
 /*.login-box>.form{*/
@@ -81,6 +82,7 @@ body{
     font-size: .86rem;
     color: #ccc;
     padding-top: 4vw;
+    text-decoration:none
 }
 .login img{
     height: 3.3vw;
