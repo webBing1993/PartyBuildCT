@@ -13,7 +13,7 @@
             <!--banner-->
             <div class="banner">
                 <img src="/home/images/banner/indexBanner.png" alt="首页banner图">
-                <a  class="exit">
+                <a  class="exit" href="javascript:;">
                     <img src="/home/images/index/exit.png" alt="">
                 </a>
                 <a href="{:Url('User/index')}" class="rank">
@@ -83,7 +83,7 @@
             isOut();
         });
 
-        $(".banner>.exit").on("tap",function(e){
+        $(".banner>.exit").on("touchstart",function(e){
             e.preventDefault();
             swal({
                     title:"",
@@ -91,20 +91,20 @@
                     type: "warning",
                     showCancelButton: true,
                     confirmButtonText: "确认",
-//                    closeOnConfirm: false,
+                    closeOnConfirm: false,
                     cancelButtonText:"取消"
-                    },
-                    function(){
-                        swal({
-                            title: ' ',
-                            text: '退出成功！',
-                            type: 'success',
-                            confirmButtonText:'确定'
-                        });
-                        setTimeout(function(){
-                            window.location.replace("{:Url('Verify/logout')}");
-                        },1000)
-                    });
+            },function(){
+                swal({
+                    title: ' ',
+                    text: '退出成功！',
+                    type: 'success',
+                    confirmButtonText:'确定'
+                }, function () {
+                    setTimeout(function(){
+                        window.location.replace("{:Url('Verify/logout')}");
+                    },1000)
+                });
+            });
             return false;
         });
         window.onload = function () {
