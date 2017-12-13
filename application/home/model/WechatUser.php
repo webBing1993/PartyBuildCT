@@ -13,6 +13,14 @@ use think\Model;
 
 class WechatUser extends Model {
     /**
+     * @return \think\model\Relation
+     * 获取部门名称
+     */
+    public function getDepartment() {
+        return $this->hasOne('Wechat_department','id','department');
+    }
+
+    /**
      * 获取详情及数据统计
      */
     public function getDetail($id,$userId) {
