@@ -113,13 +113,13 @@
                                 <div class="col-lg-3">
                                     {empty name="msg"}
                                     <select name="videoway" id="videoway"  class="form-control" >
-                                        <option value="0"> — 上传视频本地文件（小于20M，MP4格式）— </option>
-                                        <option value="1"> —— 输入视频链接地址 —— </option>
+                                        <option value="0"> —— 输入视频链接地址 — </option>
+                                        <option value="1">—— 上传视频本地文件（小于20M，MP4格式）— </option>
                                     </select>
                                     {else/}
                                     <select name="videoway" id="videoway"  class="form-control" >
-                                        <option value="0" {notempty name="msg.video_path"}selected{/notempty}> — 上传视频本地文件（小于20M，MP4格式）— </option>
-                                        <option value="1" {notempty name="msg.net_path"}selected{/notempty}> —— 输入视频链接地址 —— </option>
+                                        <option value="0" {notempty name="msg.video_path"}selected{/notempty}> —— 输入视频链接地址 —— </option>
+                                        <option value="1" {notempty name="msg.net_path"}selected{/notempty}>  — 上传视频本地文件（小于20M，MP4格式）— </option>
                                     </select>
                                     {/empty}
                                 </div>
@@ -320,13 +320,13 @@
             var it =video.children('option:selected');
             var label = video.parent().next().find('label');
             video.parent().find("iframe").remove();
-            if(it.attr("value") == 0){
+            if(it.attr("value") == 1){
                 //视频本地
                 label.text('视频本地文件:');
                 file.show();
                 file.siblings().hide();
 
-            }else if(it.attr("value") == 1){
+            }else if(it.attr("value") == 0){
                 //视频网址
                 label.text('视频链接地址:');
                 addr.show();

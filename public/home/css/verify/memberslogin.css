@@ -34,27 +34,27 @@ body{
     padding:0;
     line-height: 8vw;
     border-radius: 0;
-    font-size: .4rem;
+    font-size: .86rem;
     padding-left: 5.66vw;
 }
 .login-box>.form input::-webkit-input-placeholder{
     color: #ccc;
-    font-size: .4rem;
+    font-size: .86rem;
 }
 .login-box>.form input:-moz-placeholder{
     color: #ccc;
-    font-size: .4rem;
+    font-size: .86rem;
 }
 .login-box>.form input:-ms-input-placeholder{
     color: #ccc;
-    font-size: .4rem;
+    font-size: .86rem;
 }
 .login-box>.form>.uid>span{
     float: left;
     background:url('/home/images/verify/user.png') no-repeat;
     background-size: 3.46vw 4vw;
     position: relative;
-    top: 1.5vw;
+    top: 1.8vw;
     left:10vw;
 }
 .login-box>.form>div>span{
@@ -78,7 +78,7 @@ body{
 .login{
     display: block;
     text-align: center;
-    font-size: .37rem;
+    font-size: .86rem;
     color: #ccc;
     padding-top: 4vw;
 }
