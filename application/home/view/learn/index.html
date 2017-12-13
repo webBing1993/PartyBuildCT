@@ -43,6 +43,11 @@
                 {/volist}
                 <!-- 手机党校循环体-->
             </div>
+            {eq name="visit" value="1"}
+            <div class="mui-slider-item mui-control-content lists2">
+                <p>游客无答题权限</p>
+            </div>
+            {else/}
             <div class="mui-slider-item mui-control-content lists2">
                 <!--选择题循环-->
                 {volist name="list.question" id="vo" key="n"}
@@ -63,6 +68,7 @@
                 {/volist}
                 <div class="btn">提交</div>
             </div>
+            {/eq}
             <div class="mui-slider-item mui-control-content lists3">
                 <!-- 党员先锋列表-->
                 {volist name="list.pioneer" id="pioneer"}

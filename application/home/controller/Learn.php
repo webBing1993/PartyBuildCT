@@ -23,6 +23,7 @@ class Learn extends Base {
      * 主页
      */
     public function index(){
+        $this->anonymous();
         $Model = new LearnModel();
         $list = $Model->getIndexList();
         $this->assign('list',$list);

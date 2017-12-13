@@ -223,14 +223,14 @@ class Base extends Controller {
                 if($model) {
                     $user = WechatUser::where('userid',$uid)->find();    //获取用户头像和昵称
                     $nickname = ($user['nickname']) ? $user['nickname'] : $user['name'];
-                    $header =  ($user['header']) ? $user['header'] : $user['avatar'];
+//                    $header =  ($user['header']) ? $user['header'] : $user['avatar'];
                     //返回用户数据
                     $jsonData = array(
                         'id' => $res['id'],
                         'time' => date("Y-m-d",time()),
                         'content' => input('content'),
                         'nickname' => $nickname,
-                        'header' => $header,
+                        'header' => $user['header'],
                         'type' => $type,
                         'create_time' => time(),
                         'likes' => 0,
@@ -266,7 +266,7 @@ class Base extends Controller {
             foreach ($comment as $value) {
                 $user = WechatUser::where('userid',$value['uid'])->find();
                 $value['nickname'] = $user['name'];
-                $value['header'] = $user['avatar'];
+                $value['header'] = $user['header'];
                 $value['time'] = date('Y-m-d',$value['create_time']);
                 $value['content'] = strtr($value['content'], $badword1);
                 $map1 = array(
