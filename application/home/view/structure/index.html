@@ -32,19 +32,29 @@
 				<!--第一层-->
 				<div class="list clear">
 					<div class="party1">
-						<!--<div class="tri-left structure1"></div>-->
-						<!--{:Url('Structure/detail')}-->
-						<a href="javascript:;"><div class="name1"></div></a>
+						<div class="tri-left structure2"></div>
+						<a href="javascript:;"><div class="name1"> 建德城投智慧党建</div></a>
 					</div>
-					<!--<div class="party1">
-						&lt;!&ndash;<div class="tri-left structure1"></div>&ndash;&gt;
-						<a href="{:Url('Structure/detail')}"><div class="name1"></div></a>
-					</div>-->
 					<!--第二层-->
-					<!--<div class="down detail1">
-						<a class="name2 limit" href="{:Url('Structure/detail')}">镇西村党总支部<span class="rt sj"></span></a>
-					</div>-->
+					<div class="down detail1">
+						<a class="name2 limit" href="{:Url('Structure/detail')}">综合管理支部<span class="rt sj"></span></a>
+					</div>
 					<!--/第二层-->
+					<div class="down detail1">
+						<a class="name2 limit" href="{:Url('Structure/detail')}">城兴城防联合<span class="rt sj"></span></a>
+					</div>
+					<!--/第二层-->
+					<div class="down detail1">
+						<a class="name2 limit" href="{:Url('Structure/detail')}">水务部<span class="rt sj"></span></a>
+					</div>
+					<!--/第二层-->
+					<div class="down detail1">
+						<a class="name2 limit" href="{:Url('Structure/detail')}">建德供给排水<span class="rt sj"></span></a>
+					</div>
+					<!--/第二层-->
+					<div class="down detail1">
+						<a class="name2 limit" href="{:Url('Structure/detail')}">临时支部<span class="rt sj"></span></a>
+					</div>
 				</div>
 				<!--/第一层-->
 			</div>
@@ -66,11 +76,11 @@
 
 $(function(){
 	$("title").text("组织架构");
-	/*$('.name2' ).each(function(){
+	$('.name2' ).each(function(){
 		var t = $(this ).text();
 		var href = '/home/structure/detail?party='+t+'';
 		$(this ).attr('href', href);
-	})*/
+	});
 	$(function(){
 //		//tab值记录
 		tabRecord('.tab' ,'.box');

@@ -43,7 +43,7 @@ input:-ms-input-placeholder{
     zoom: 1;
 }
 .default img {
-    width: 50vw;
+    width: 30vw;
     margin: 50vw auto;
     display: inherit;
 }

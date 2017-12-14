@@ -252,10 +252,20 @@ body {
   background: url('/home/images/structure/structure3.png') 0 0 no-repeat;
   background-size: 5.4vw 5.4vw;
 }
-  .listbox .box .box_ .lists .party1 .tri-left.structure4{
-    background: url('/home/images/structure/structure4.png') 0 0 no-repeat;
-    background-size: 5.4vw 5.4vw;
-  }
+.listbox .box .box_ .lists .party1 .tri-left.structure4{
+  background: url('/home/images/structure/structure4.png') 0 0 no-repeat;
+  background-size: 5.4vw 5.4vw;
+}
+.listbox .box .box_ .lists .party1 .tri-left {
+  width: 5.4vw;
+  height: 5.4vw;
+  float: left;
+  display: inline;
+  position: absolute;
+  left: 2vw;
+  top: 50%;
+  margin-top: -2.7vw;
+}
 .listbox .box .box_ .lists .detail1 {
   width: 100%;
 }
