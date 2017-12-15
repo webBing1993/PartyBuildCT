@@ -22,7 +22,7 @@ class Preview extends Controller {
     public function index() {
         $Model = new  WechatUser();
         $id = input('id');
-        $userId = input('userId');
+        $userId = input('userid');
         $detail = $Model->getDetail($id,$userId);
         $this->assign('detail',$detail);
         return $this->fetch();

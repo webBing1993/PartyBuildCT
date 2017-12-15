@@ -38,7 +38,7 @@ class User extends Base {
         $userId = session('userId');
         $id = input('id');
         $detail = $Model->getDetail($id,$userId);
-        $url = Url('Preview/index?id='.$id.'&userId='.$userId);
+        $url = Url('Preview/index?id='.$id.'&userid='.$userId);
         $detail['url'] = $_SERVER['REQUEST_SCHEME']."://".$_SERVER['SERVER_NAME'].$url;
         $this->assign('detail',$detail);
         return $this->fetch();
