@@ -163,6 +163,7 @@ class Wechat extends Admin
             $obj_PHPExcel = $objReader ->load($exclePath, $encode = 'utf-8');  //加载文件内容,编码utf-8
             $excel_array = $obj_PHPExcel ->getsheet(0) ->toArray();   //转换为数组格式
             array_shift($excel_array);  //删除第一个数组(标题);
+            array_pop($excel_array);
             $result = $this ->add_excel($excel_array);
             unlink($exclePath);//完成后删除该文件
             return $result;

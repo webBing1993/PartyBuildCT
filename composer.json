@@ -17,14 +17,8 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "topthink/framework": "*",
-        "topthink/think-helper": "*",
-        "topthink/think-image": "*",
-        "topthink/think-captcha": "*",
-        "toplan/phpsms": "~1.6.0",
-        "qiniu/php-sdk": "^7.0",
-        "phpmailer/phpmailer": "~5.2",
-        "endroid/qrcode": "*"
+        "topthink/framework": "5.0.0RC4",
+        "phpoffice/phpexcel": "dev-master"
     },
     "extra": {
         "think-path": "thinkphp"
