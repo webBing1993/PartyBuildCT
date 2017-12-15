@@ -58,5 +58,4 @@ class User extends Base {
             return $this->error("修改失败");
         }
     }
-
 }

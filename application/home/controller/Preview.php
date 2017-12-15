@@ -18,7 +18,7 @@ use think\Controller;
  * 二维码预览
  */
 class Preview extends Controller {
-    //主页
+    // 主页
     public function index() {
         $Model = new  WechatUser();
         $id = input('id');
