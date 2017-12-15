@@ -154,7 +154,7 @@ class Wechat extends Admin
         vendor('PHPExcel.Classes.PHPExcel');
         vendor('PHPExcel.Classes.PHPExcel.Reader.Excel5');
         //获取表单上传文件
-        $file = request() ->file('excel');
+        $file = request()->file('excel');
         $result = $file ->getInfo()['name'];
         $info = $file ->move(ROOT_PATH . 'public' . DS . 'uploads');//上传之后移动地址
         if ($info) {
@@ -197,9 +197,14 @@ class Wechat extends Admin
             if ($v[5]) {
                 $v[5] = strtotime($v[5]);
             }
+            if($v[9] == "是") {
+                $v[9] = 3;
+            }else {
+                $v[9] = 1;
+            }
             //入党时间
-            if ($v[8]) {
-                $v[8] = strtotime($v[8]);
+            if ($v[10]) {
+                $v[10] = strtotime($v[10]);
             }
             //整理数据
             $info = array(
@@ -211,8 +216,10 @@ class Wechat extends Admin
                 'birthday' => $v[5],   //出生年月
                 'education' => $v[6],  //学历
                 'nation' => $v[7], //民族
-                'partytime' => $v[8],  //入党时间
-                'address' => $v[9] //籍贯
+                'address' => $v[8], //籍贯
+                'politics_status' => $v[9],    //是否党员
+                'partytime' => $v[10],  //入党时间
+
             );
             array_push($all, $info);
         }
