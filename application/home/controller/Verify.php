@@ -66,9 +66,11 @@ class Verify extends Controller{
                 if(empty($result['userid']))
                 {
                     $id = md5(uniqid());//不重复随机id
-                    Cookie::set('dypb',['user' =>$id]);
+                    $data = ['user' =>$id];
+                    Cookie::set('dypb',$data);
                     $user ->save( ['userid' => $id,'status' => 1] , ['mobile' => $vali['user'],'state' => 1]);
                 }else{
+                    $data = ['user' =>$result['userid']];
                     Cookie::set('dypb',['user' =>$result['userid']]);
                 }
                 //登陆后跳转判断
@@ -79,7 +81,7 @@ class Verify extends Controller{
                 }else{
                     $url = '';
                 }
-                return $this ->success('登录成功!',$url);
+                return $this ->success('登录成功!',$url,$data);
             }else{
                 return $this ->error('账号错误!');
             }

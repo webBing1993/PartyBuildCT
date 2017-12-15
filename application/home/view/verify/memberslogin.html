@@ -34,12 +34,20 @@
 
 {/block}
 {block name="script"}
+<script src="/home/js/reset.js"></script>
 <script src="/admin/js/plugins/sweetalert/sweetalert.min.js"></script>
 <script>
     $(function(){
-        $('.btn').on("click",function(){
-            login()
-        });
+        var uid = null;
+        uid = getCookie("user")?getCookie("user"):"";
+        var topHref = document.referrer.split("/home/")[1].split("/index")[0];
+        if (topHref == 'index') {
+            uid = "";
+        }else {
+            var re = true;
+            login(uid,re);
+        }
+        
         //绝对定位bug
         var vh =$(window).height() - $('footer').height() - $('.banner').height() - $('.box').height();
         if(vh < 0){
@@ -53,10 +61,18 @@
 
 
     });
-    /**登陆**/
-    function login(){
+
+    $('.btn').on("click",function(){
+        uid = $('.uid>input').val();
         var re = reg();
-        var uid = $('.uid>input').val();
+        login(uid,re)
+    });
+
+    /**登陆**/
+    function login(uid,re){
+//        var re = reg();
+//        var uid = $('.uid>input').val();
+        console.log(uid);
         if(re == true){
             $.ajax({
                 url: "{:Url('Verify/login')}",
@@ -67,11 +83,13 @@
                 success:function(data){
                     //data.code  1为成功 0为失败
                     if(data.code == 1){
+                        var user = uid;
                         swal({
                             title: ' ',
                             text: data.msg,
                             type: 'success',
-                            confirmButtonText:'确定'
+                            confirmButtonText:'确定',
+                            timer: 1000
                         });
                         var url = data.url;
                         //如果没有session的Url就默认跳首页
@@ -79,6 +97,7 @@
                             url = '/home/index/index';
                         }
                         setTimeout(function(){
+                            setCookie("user",user);
                             window.location.replace(url);
                         },1000);
                     }else{
