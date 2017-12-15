@@ -1,6 +1,6 @@
 body{
     position: relative;
-    min-height: 100vh;
+    /*min-height: 100vh;*/
     margin: 0;
 }
 .banner{
@@ -67,9 +67,10 @@ body{
 .btn{
     width:61.6vw;
     height:10.67vw;
-    background: url("/home/images/verify/loginbtn.png") no-repeat;
+    background: url("/home/images/verify/loginbtn.png") center center no-repeat;
     background-size: 100% 100%;
-    margin:0 auto;
+    border-radius: 2.7vw;
+    margin:16vw auto 0;
     text-align: center;
     line-height: 10.67vw;
     font-size: 1rem;
@@ -96,9 +97,7 @@ footer{
     height:26.5vw;
     position: absolute;
     bottom: 0;
-    overflow-y: hidden;
-    /*max-height: 120px;*/
-    /*z-index: -1;*/
+    /*overflow-y: hidden;*/
 }
 footer img{
     width:100%;
@@ -161,5 +160,8 @@ footer img{
         opacity:0;
         -webkit-transform:scale(4);
     }
+}
+.mui-content {
+    min-height: 100vh;
 }
 

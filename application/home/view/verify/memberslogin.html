@@ -1,66 +1,79 @@
 {extend name="public/pure"}
 {block name="style"}
-<link rel="stylesheet" href="/static/sweetalert/sweetalert.css">
 <link rel="stylesheet" href="/home/css/verify/memberslogin.css">
+<link rel="stylesheet" href="/static/sweetalert/sweetalert.css">
+<script src="/admin/js/plugins/sweetalert/sweetalert.min.js"></script>
 {/block}
 {block name="body"}
-<div class="banner">
-    <img src="/home/images/verify/loginbanner.png">
-    <p>城投公司党建</p>
-</div>
-<!-- 旋转-->
-<div class='circle'>
-    <div class='circle1'>&nbsp;</div>
-    <div class='circle2'>&nbsp;</div>
-    <div class='circle3'>&nbsp;</div>
-    <div class='center'></div>
-</div>
+<div class="mui-slider-group">
+    <div id="refreshContainer" class="mui-content mui-scroll-wrapper">
+        <div class="mui-scroll">
+            <div class="banner">
+                <img src="/home/images/verify/loginbanner.png">
+                <p>城投公司党建</p>
+            </div>
+            <!-- 旋转-->
+            <div class='circle'>
+                <div class='circle1'>&nbsp;</div>
+                <div class='circle2'>&nbsp;</div>
+                <div class='circle3'>&nbsp;</div>
+                <div class='center'></div>
+            </div>
 
-<div class="box">
-<div class="login-box">
-    <div class="form">
-        <div class="uid">
-            <span></span><input type="text" maxlength="11" placeholder="请输入手机号" id="phone" >
+            <div class="box">
+                <div class="login-box">
+                    <div class="form">
+                        <div class="uid">
+                            <span></span><input type="text" maxlength="11" placeholder="请输入手机号" id="phone" >
+                        </div>
+                    </div>
+                </div>
+                <div class="btn">登&emsp;录</div>
+                <a class="login" href="{:Url('Verify/tourist')}">游客模式入口<img src="/home/images/verify/loginentrance.png"></a>
+                <!--<a class="login" href="tel:400-900-9710">红色热线 400-900-9710</a>-->
+            </div>
+            <footer>
+                <img src="/home/images/verify/footer.png">
+            </footer>
         </div>
     </div>
 </div>
-<div class="btn">登&emsp;录</div>
-    <a class="login" href="{:Url('Verify/tourist')}">游客模式入口<img src="/home/images/verify/loginentrance.png"></a>
-    <!--<a class="login" href="tel:400-900-9710">红色热线 400-900-9710</a>-->
-</div>
-<footer>
-    <img src="/home/images/verify/footer.png">
-</footer>
+
 
 {/block}
 {block name="script"}
 <script src="/home/js/reset.js"></script>
-<script src="/admin/js/plugins/sweetalert/sweetalert.min.js"></script>
+
 <script>
 
-    //绝对定位bug
-    var vh =$(window).height() - $('footer').height() - $('.banner').height() - $('.box').height();
-    if(vh < 0){
-        vh = '10vw';
-    }
-
-    $('footer').css({
-     'position': 'relative',
-     'margin-top': vh
-     });
-
-    var oHeight = $(document).height(); //浏览器当前的高度
-
-    $(window).on("resize",function(){
-        if($(document).height() < oHeight){
-            $("footer").css("display","none");
-        }else{
-            $("footer").css("display","block");
+    $(function () {
+        //绝对定位bug
+        var vh =$(window).height() - $('footer').height() - $('.banner').height() - $('.box').height();
+        if(vh < 0){
+            vh = '10vw';
         }
 
+        $('footer').css({
+            'position': 'relative',
+            'margin-top': vh
+        });
+
+    });
+    var originalHeight = document.documentElement.clientHeight || document.body.clientHeight;
+    $(document).ready(function () {
+        $('body').height(originalHeight);
     });
 
-    $(function(){
+    window.onresize = function(){
+        /*var resizeHeight = document.documentElement.clientHeight || document.body.clientHeight;
+        //软键盘弹起与隐藏 都会引起窗口的高度发生变化
+        if(resizeHeight*1<originalHeight*1){
+            //resizeHeight<originalHeight证明窗口被挤压了 　　
+            $("body").css({"zIndex":"-1","height":originalHeight});
+        }*/
+    };
+
+    /*$(function(){
         var uid;
         uid = getCookie("user")?getCookie("user"):"";
         if (document.referrer) {
@@ -75,8 +88,8 @@
                 login(uid,re);
             }
         }
-        
-    });
+
+    });*/
 
 
     $('.btn').on("click",function(){

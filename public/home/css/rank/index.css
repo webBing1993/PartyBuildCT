@@ -15,7 +15,7 @@
 .body .body_top span{font-size: .32rem;color: #666;position: relative}
 .body .body_body{width: 100%;height: 9.7vw;margin-bottom: 0.5vw}
 .body .body_body ul li{width: 33.33%;float: left;font-size: .42rem;color: #231815;font-weight: 600;text-align: center;}
-.body .body_body ul li p{position: relative;padding-bottom: 3.2vw;margin: 0;}
+.body .body_body ul li p{position: relative;padding-bottom: 3.2vw;margin: 0;font-size: .42rem}
 .body .body_body ul li:first-child{padding-left: 10.7vw;}
 .body .body_body ul li:nth-child(2){padding: 0 5.3vw;}
 .body .body_body ul li:last-child{padding-right: 10.7vw;}
