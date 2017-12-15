@@ -98,6 +98,7 @@ footer{
     bottom: 0;
     overflow-y: hidden;
     max-height: 120px;
+    z-index: -1;
 }
 footer img{
     width:100%;

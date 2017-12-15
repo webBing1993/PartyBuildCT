@@ -20,7 +20,7 @@
 <div class="login-box">
     <div class="form">
         <div class="uid">
-            <span></span><input type="text" maxlength="11" placeholder="请输入手机号" id="phone">
+            <span></span><input type="text" maxlength="11" placeholder="请输入手机号" id="phone" >
         </div>
     </div>
 </div>
@@ -37,6 +37,29 @@
 <script src="/home/js/reset.js"></script>
 <script src="/admin/js/plugins/sweetalert/sweetalert.min.js"></script>
 <script>
+
+    //绝对定位bug
+    var vh =$(window).height() - $('footer').height() - $('.banner').height() - $('.box').height();
+    if(vh < 0){
+        vh = '10vw';
+    }
+
+    /*$('footer').css({
+     'position': 'relative',
+     'margin-top': vh
+     });*/
+
+    var oHeight = $(document).height(); //浏览器当前的高度
+
+    $(window).on("resize",function(){
+        if($(document).height() < oHeight){
+            $("footer").css("display","none");
+        }else{
+            $("footer").css("display","block");
+        }
+
+    });
+
     $(function(){
         var uid;
         uid = getCookie("user")?getCookie("user"):"";
@@ -53,19 +76,8 @@
             }
         }
         
-        //绝对定位bug
-        var vh =$(window).height() - $('footer').height() - $('.banner').height() - $('.box').height();
-        if(vh < 0){
-            vh = '10vw';
-        }
-
-        $('footer').css({
-            'position': 'relative',
-            'margin-top': vh
-        });
-
-
     });
+
 
     $('.btn').on("click",function(){
         uid = $('.uid>input').val();
@@ -73,11 +85,13 @@
         login(uid,re)
     });
 
+
+
+
     /**登陆**/
     function login(uid,re){
 //        var re = reg();
 //        var uid = $('.uid>input').val();
-        console.log(uid);
         if(re == true){
             $.ajax({
                 url: "{:Url('Verify/login')}",
