@@ -38,14 +38,19 @@
 <script src="/admin/js/plugins/sweetalert/sweetalert.min.js"></script>
 <script>
     $(function(){
-        var uid = null;
+        var uid;
         uid = getCookie("user")?getCookie("user"):"";
-        var topHref = document.referrer.split("/home/")[1].split("/index")[0];
-        if (topHref == 'index') {
-            uid = "";
+        if (document.referrer) {
+            var topHref = document.referrer.split("/home/")[1].split("/index")[0];
+            if (topHref == 'index') {
+                uid = "";
+                setCookie("user",uid);
+            }
         }else {
-            var re = true;
-            login(uid,re);
+            if (uid != "") {
+                var re = true;
+                login(uid,re);
+            }
         }
         
         //绝对定位bug
@@ -99,7 +104,7 @@
                         setTimeout(function(){
                             setCookie("user",user);
                             window.location.replace(url);
-                        },1000);
+                        },1200);
                     }else{
                         swal({
                             title: ' ',
