@@ -98,12 +98,12 @@
                     title: ' ',
                     text: '退出成功！',
                     type: 'success',
-                    confirmButtonText:'确定'
-                }, function () {
-                    setTimeout(function(){
-                        window.location.replace("{:Url('Verify/logout')}");
-                    },1000)
+                    confirmButtonText:'确定',
+                    timer: 1000
                 });
+                setTimeout(function(){
+                    window.location.href = "{:Url('Verify/logout')}";
+                },1200)
             });
             return false;
         });
