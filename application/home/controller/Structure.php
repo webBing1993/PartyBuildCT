@@ -14,8 +14,8 @@ class Structure extends Base{
      * 组织架构主页
      */
     public function index(){
+        $this ->anonymous();
         $this->assign('title',config('title'));
-
         return $this->fetch();
     }
     /*
