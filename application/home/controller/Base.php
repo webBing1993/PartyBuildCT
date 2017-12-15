@@ -24,12 +24,8 @@ class Base extends Controller {
 //        session('header','/home/images/vistor.jpg');
 //        session('nickname','游客');
         session('requestUri', 'http://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]);
+        $cookie = Cookie::get('dypb')['user'];
         $userId = session('userId');
-        if(empty($userId)){
-            Cookie::init(Config::get('cookie'));
-            session('userId',Cookie::get('dypb')['user']);
-            $userId = session('userId');
-        }
         if(Config::get('WEB_SITE_CLOSE')){
             return $this->error('站点维护中，请稍后访问~');
         }
@@ -42,11 +38,11 @@ class Base extends Controller {
             //微信认证
             $Wechat = new TPQYWechat(Config::get('party'));
             // 1用户认证是否登陆
-            if(empty($userId)) {
-//                $redirect_uri = Config::get("work.login");
-//                $url = $Wechat->getOauthRedirect($redirect_uri);
-//                $this->redirect($url);
+            if(empty($cookie)) {
                 $this->redirect('Verify/memberslogin');//跳转登录页
+            }else {
+                Cookie::init(Config::get('cookie'));
+                session('userId',Cookie::get('dypb')['user']);
             }
 
             // 2获取jsapi_ticket
