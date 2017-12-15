@@ -19,7 +19,7 @@
 <div class="mui-slider-group">
     <div id="refreshContainer" class="mui-content mui-scroll-wrapper">
         <div class="mui-scroll">
-            <div class="banner"><img src="/home/images/banner/1.png" alt=""></div>
+            <div class="banner"><img src="/home/images/banner/4.jpg" alt=""></div>
             <div id="tab" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
                 <a class="mui-control-item" href="javascript:;" data-index="0">
                     <span>手机党校</span>
@@ -197,6 +197,7 @@
 
     // 初始化下拉加载
     mui.init({
+        swipeBack: false, // 右滑关闭功能
         pullRefresh: {
             container: '#refreshContainer',
             up: {
@@ -373,7 +374,7 @@
         if(a.persisted){
             window.location.reload();
         }
-    }
+    };
 
 </script>
 {/block}

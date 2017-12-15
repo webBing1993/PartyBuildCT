@@ -11,7 +11,7 @@ body{
     width: 100%;
 }
 .banner p{
-    font-size: 1.61rem;
+    font-size: 1.6rem;
     color: #f2531f;
     text-align: center;
     margin-top: -36%;
@@ -35,20 +35,20 @@ body{
     padding:0;
     line-height: 8vw;
     border-radius: 0;
-    font-size: .86rem;
+    font-size: 1rem;
     padding-left: 5.66vw;
 }
 .login-box>.form input::-webkit-input-placeholder{
     color: #ccc;
-    font-size: .86rem;
+    font-size: 1rem;
 }
 .login-box>.form input:-moz-placeholder{
     color: #ccc;
-    font-size: .86rem;
+    font-size: 1rem;
 }
 .login-box>.form input:-ms-input-placeholder{
     color: #ccc;
-    font-size: .86rem;
+    font-size: 1rem;
 }
 .login-box>.form>.uid>span{
     float: left;
@@ -72,14 +72,14 @@ body{
     margin:0 auto;
     text-align: center;
     line-height: 10.67vw;
-    /*font-size: .53rem;*/
+    font-size: 1rem;
     color: #ffffff;
 
 }
 .login{
     display: block;
     text-align: center;
-    font-size: .86rem;
+    font-size: 1rem;
     color: #ccc;
     padding-top: 4vw;
     text-decoration:none
@@ -97,8 +97,8 @@ footer{
     position: absolute;
     bottom: 0;
     overflow-y: hidden;
-    max-height: 120px;
-    z-index: -1;
+    /*max-height: 120px;*/
+    /*z-index: -1;*/
 }
 footer img{
     width:100%;
