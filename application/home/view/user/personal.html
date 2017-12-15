@@ -37,9 +37,9 @@
 		<div class="list clear">
 			<span class="fl">出生日期</span>
 			{empty name="$detail.birthday"}
-			<span class="fr">{$detail.birthday|time_format='Y-m-d'}</span>
-			{else/}
 			<span class="fr">无</span>
+			{else/}
+			<span class="fr">{$detail.birthday|time_format='Y-m-d'}</span>
 			{/empty}
 		</div>
 		<div class="list clear">
@@ -53,9 +53,9 @@
 		<div class="list clear">
 			<span class="fl">入党时间</span>
 			{empty name="$detail.partytime"}
-			<span class="fr">{$detail.partytime|time_format='Y-m-d'}</span>
-			{else/}
 			<span class="fr">无</span>
+			{else/}
+			<span class="fr">{$detail.partytime|time_format='Y-m-d'}</span>
 			{/empty}
 		</div>
 		<div class="list clear">
