@@ -13,18 +13,18 @@
                 <p>城投公司党建</p>
             </div>
             <!-- 旋转-->
-            <div class='circle'>
+            <!--<div class='circle'>
                 <div class='circle1'>&nbsp;</div>
                 <div class='circle2'>&nbsp;</div>
                 <div class='circle3'>&nbsp;</div>
                 <div class='center'></div>
-            </div>
+            </div>-->
 
             <div class="box">
                 <div class="login-box">
                     <div class="form">
                         <div class="uid">
-                            <span></span><input type="text" maxlength="11" placeholder="请输入手机号" id="phone" >
+                            <span></span><input type="text" maxlength="11" placeholder="请输入手机号" id="phone">
                         </div>
                     </div>
                 </div>
@@ -59,38 +59,6 @@
         });
 
     });
-    var originalHeight = document.documentElement.clientHeight || document.body.clientHeight;
-    $(document).ready(function () {
-        $('body').height(originalHeight);
-    });
-
-    window.onresize = function(){
-        /*var resizeHeight = document.documentElement.clientHeight || document.body.clientHeight;
-        //软键盘弹起与隐藏 都会引起窗口的高度发生变化
-        if(resizeHeight*1<originalHeight*1){
-            //resizeHeight<originalHeight证明窗口被挤压了 　　
-            $("body").css({"zIndex":"-1","height":originalHeight});
-        }*/
-    };
-
-    /*$(function(){
-        var uid;
-        uid = getCookie("user")?getCookie("user"):"";
-        if (document.referrer) {
-            var topHref = document.referrer.split("/home/")[1].split("/index")[0];
-            if (topHref == 'index') {
-                uid = "";
-                setCookie("user",uid);
-            }
-        }else {
-            if (uid != "") {
-                var re = true;
-                login(uid,re);
-            }
-        }
-
-    });*/
-
 
     $('.btn').on("click",function(){
         uid = $('.uid>input').val();
