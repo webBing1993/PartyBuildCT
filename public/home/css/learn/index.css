@@ -24,6 +24,9 @@
 #tab1.mui-slider-indicator.mui-segmented-control {
     padding: 0;
 }
+.mui-segmented-control {
+    font-size: .4rem;
+}
 #tab1.mui-slider-indicator.mui-segmented-control a:first-of-type {
     padding-left: 3.2vw;
 }

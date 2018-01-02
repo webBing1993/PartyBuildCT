@@ -1,7 +1,8 @@
 {extend name="public/pure"}
 {block name="style"}
-<link rel="stylesheet" href="/static/sweetalert/sweetalert.css">
 <link rel="stylesheet" href="/home/css/verify/memberslogin.css">
+<link rel="stylesheet" href="/static/sweetalert/sweetalert.css">
+<script src="/admin/js/plugins/sweetalert/sweetalert.min.js"></script>
 {/block}
 {block name="body"}
 <div class="banner">
@@ -9,22 +10,22 @@
     <p>城投公司党建</p>
 </div>
 <!-- 旋转-->
-<div class='circle'>
+<!--<div class='circle'>
     <div class='circle1'>&nbsp;</div>
     <div class='circle2'>&nbsp;</div>
     <div class='circle3'>&nbsp;</div>
     <div class='center'></div>
-</div>
+</div>-->
 
 <div class="box">
-<div class="login-box">
-    <div class="form">
-        <div class="uid">
-            <span></span><input type="text" maxlength="11" placeholder="请输入手机号" id="phone" >
+    <div class="login-box">
+        <div class="form">
+            <div class="uid">
+                <span></span><input type="text" maxlength="11" placeholder="请输入手机号" id="phone">
+            </div>
         </div>
     </div>
-</div>
-<div class="btn">登&emsp;录</div>
+    <div class="btn">登&emsp;录</div>
     <a class="login" href="{:Url('Verify/tourist')}">游客模式入口<img src="/home/images/verify/loginentrance.png"></a>
     <!--<a class="login" href="tel:400-900-9710">红色热线 400-900-9710</a>-->
 </div>
@@ -35,49 +36,22 @@
 {/block}
 {block name="script"}
 <script src="/home/js/reset.js"></script>
-<script src="/admin/js/plugins/sweetalert/sweetalert.min.js"></script>
+
 <script>
 
-    //绝对定位bug
-    var vh =$(window).height() - $('footer').height() - $('.banner').height() - $('.box').height();
-    if(vh < 0){
-        vh = '10vw';
-    }
-
-    /*$('footer').css({
-     'position': 'relative',
-     'margin-top': vh
-     });*/
-
-    var oHeight = $(document).height(); //浏览器当前的高度
-
-    $(window).on("resize",function(){
-        if($(document).height() < oHeight){
-            $("footer").css("display","none");
-        }else{
-            $("footer").css("display","block");
+    $(function () {
+        //绝对定位bug
+        var vh =$(window).height() - $('footer').height() - $('.banner').height() - $('.box').height();
+        if(vh < 0){
+            vh = '10vw';
         }
 
-    });
+        $('footer').css({
+            'position': 'relative',
+            'margin-top': vh
+        });
 
-    $(function(){
-        var uid;
-        uid = getCookie("user")?getCookie("user"):"";
-        if (document.referrer) {
-            var topHref = document.referrer.split("/home/")[1].split("/index")[0];
-            if (topHref == 'index') {
-                uid = "";
-                setCookie("user",uid);
-            }
-        }else {
-            if (uid != "") {
-                var re = true;
-                login(uid,re);
-            }
-        }
-        
     });
-
 
     $('.btn').on("click",function(){
         uid = $('.uid>input').val();
@@ -86,7 +60,23 @@
     });
 
 
+    $(function(){
+         var uid;
+         uid = getCookie("user")?getCookie("user"):"";
+         if (document.referrer) {
+             var topHref = document.referrer.split("/home/")[1].split("/index")[0];
+             if (topHref == 'index') {
+             uid = "";
+             setCookie("user",uid);
+             }
+         }else {
+             if (uid != "") {
+             var re = true;
+             login(uid,re);
+             }
+         }
 
+     });
 
     /**登陆**/
     function login(uid,re){
