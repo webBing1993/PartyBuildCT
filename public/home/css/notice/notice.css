@@ -141,7 +141,7 @@
 }
 .content .notices .notice .list .content {
   font-size: .35rem;
-  height: 10vw;
+  height: .98rem;
   overflow : hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

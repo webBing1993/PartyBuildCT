@@ -80,7 +80,7 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     word-break: break-all;
-    height: 10vw;
+    height: .98rem;
 }
 .summary .list .content p {
     font-size: .35rem;
