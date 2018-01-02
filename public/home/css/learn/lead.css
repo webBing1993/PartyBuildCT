@@ -40,13 +40,19 @@
 }
 .info p:last-of-type {
     font-size: .35rem;
-    color: #333;
     padding: 0 3.2vw;
+    color: #e82a2a;
 }
 /*content*/
+.line {
+    width: 100%;
+    height: 1px;
+    background: #e82a2a;
+    margin-bottom: 1.6vw;
+}
 .content {
     color: #333;
-    font-size: .35rem;
+    font-size: .4rem;
     padding: 0 3.2vw;
     line-height: 1.5;
 }

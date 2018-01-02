@@ -119,10 +119,6 @@
     font-size: .37rem;
     line-height: 1.6;
 }
-.content .article p span {
-    font-size: .37rem !important;
-    font-family: "Microsoft YaHei", sans-serif;
-}
 .article .note {
     color: #999999;
     font-size: .32rem;
