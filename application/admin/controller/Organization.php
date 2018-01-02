@@ -51,6 +51,7 @@ class Organization extends Admin {
                 }
                 $info = $Model->validate('Organization.one')->save($data);
             }else {
+                unset($data['time']);
                 $info = $Model->validate('Organization.two')->save($data);
             }
             if($info) {
@@ -81,6 +82,7 @@ class Organization extends Admin {
                 }
                 $info = $Model->validate('Organization.one')->save($data,['id'=>input('id')]);
             }else {
+                unset($data['time']);
                 $info = $Model->validate('Organization.two')->save($data,['id'=>input('id')]);
             }
             if($info){

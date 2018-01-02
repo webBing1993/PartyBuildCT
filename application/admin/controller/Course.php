@@ -52,6 +52,7 @@ class Course extends Admin {
                 }
                 $info = $Model->validate('Course.one')->save($data);
             }else {
+                unset($data['time']);
                 $info = $Model->validate('Course.two')->save($data);
             }
             if($info) {
@@ -82,6 +83,7 @@ class Course extends Admin {
                 }
                 $info = $Model->validate('Course.one')->save($data,['id'=>input('id')]);
             }else {
+                unset($data['time']);
                 $info = $Model->validate('Course.two')->save($data,['id'=>input('id')]);
             }
             if($info){
