@@ -141,7 +141,7 @@
 }
 .content .notices .notice .list .content {
   font-size: .35rem;
-  /*height: 9.1vw;*/
+  height: 10vw;
   overflow : hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -150,6 +150,11 @@
 }
 .content .notices .notice .list .content p {
   font-size: .35rem;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 .content .notices .notice .list .time {
   font-size: .32rem;
