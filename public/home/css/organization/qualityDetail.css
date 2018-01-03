@@ -28,7 +28,7 @@
     margin: 0 auto;
 }
 .tableList p {
-    text-indent: 2em;
+    /*text-indent: 2em;*/
     color: #333;
     font-size: .37rem;
     line-height: 1.6;
@@ -61,7 +61,7 @@
     margin: 8vw auto 9.6vw;
 }
 .conclusion p {
-    text-indent: 2em;
+    /*text-indent: 2em;*/
     color: #333;
     margin-top: 1.2vw;
     font-size: .35rem;

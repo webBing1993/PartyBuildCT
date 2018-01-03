@@ -69,7 +69,7 @@
     overflow: hidden;
 }
 .article .content p {
-    text-indent: 2em;
+    /*text-indent: 2em;*/
     color: #333;
     font-size: .37rem;
     line-height: 1.6;
