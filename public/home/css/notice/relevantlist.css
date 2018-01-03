@@ -62,6 +62,7 @@
   white-space: nowrap;
 }
 .list .content {
+  height: .98rem;
   font-size: .35rem;
   color: #666666;
   display: -webkit-box;

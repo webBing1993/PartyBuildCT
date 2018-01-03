@@ -97,6 +97,9 @@
         //播放视频
         hideplay();
         videoPlay();
+        if ($(".content p").find("img")) {
+            $(".content p img").parents("p").css("textIndent","0");
+        }
     });
 
     mui('#refreshContainer').on('tap', '.notvisitor', function(e) {

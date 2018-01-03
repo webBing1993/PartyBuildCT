@@ -70,7 +70,7 @@
 }
 .article .content p {
   color: #333;
-  text-indent: 2em;
+  /*text-indent: 2em;*/
   font-size: .37rem;
   line-height: 1.6;
 }
