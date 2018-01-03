@@ -19,6 +19,7 @@ class Notice extends Admin {
         );
         $list = $this->lists('Notice',$map);
         int_to_string($list,array(
+            'type' => array(1=>"通知",2=>"公告"),
             'recommend' => array(0=>"否",1=>"是"),
             'status' => array(1=>'已发布'),
         ));
@@ -38,12 +39,17 @@ class Notice extends Admin {
             if(empty($data['id'])) {
                 unset($data['id']);
             }
-            if(empty($data['time'])) {
-                return $this->error("时间不能为空!");
+            if($data['type'] == 1) {
+                if(empty($data['time'])) {
+                    return $this->error("时间不能为空!");
+                }else {
+                    $data['time'] = strtotime($data['time']);
+                }
+                $info = $Model->validate('notice.one')->save($data);
             }else {
-                $data['time'] = strtotime($data['time']);
+                unset($data['time']);
+                $info = $Model->validate('notice.two')->save($data);
             }
-            $info = $Model->validate('notice.notice')->save($data);
             if($info) {
                 return $this->success("新增成功",Url('Notice/index'));
             }else{

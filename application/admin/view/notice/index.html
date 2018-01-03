@@ -42,6 +42,7 @@
                             <tr>
                                 <th><input class="i-checks check-all" type="checkbox"></th>
                                 <th>标题</th>
+                                <th>类型</th>
                                 <th>时间</th>
                                 <th>地址</th>
                                 <th>发布人 </th>
@@ -57,8 +58,9 @@
                             <tr>
                                 <td><input type="checkbox" class="i-checks" name="input[]"></td>
                                 <td>{$vo.title|msubstr=0,30}</td>
-                                <td>{$vo.time|time_format="Y-m-d H:i"}</td>
-                                <td>{$vo.address}</td>
+                                <td>{$vo.type_text}</td>
+                                <td>{empty name="vo.time"}无{else/}{$vo.time|time_format="Y-m-d H:i"}{/empty}</td>
+                                <td>{$vo.address||default='无'}</td>
                                 <td>{$vo.publisher}</td>
                                 <td>{$vo.recommend_text}</td>
                                 <td>{$vo->cuser->nickname}</td>
