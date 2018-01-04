@@ -40,25 +40,11 @@
 						<a href="javascript:;"><div class="name1"> 建德城投智慧党建</div></a>
 					</div>
 					<!--第二层-->
+					{volist name="list" id="vo"}
 					<div class="down detail1">
-						<a class="name2 limit" href="{:Url('Structure/detail')}">综合管理支部<span class="rt sj"></span></a>
+						<a class="name2 limit" href="{:Url('Structure/intro?id='.$vo['id'])}">{$vo.name}<span class="rt sj"></span></a>
 					</div>
-					<!--/第二层-->
-					<div class="down detail1">
-						<a class="name2 limit" href="{:Url('Structure/detail')}">城兴城防和万居联合支部<span class="rt sj"></span></a>
-					</div>
-					<!--/第二层-->
-					<div class="down detail1">
-						<a class="name2 limit" href="{:Url('Structure/detail')}">水务支部<span class="rt sj"></span></a>
-					</div>
-					<!--/第二层-->
-					<div class="down detail1">
-						<a class="name2 limit" href="{:Url('Structure/detail')}">杭州建德供排水联合支部<span class="rt sj"></span></a>
-					</div>
-					<!--/第二层-->
-					<div class="down detail1">
-						<a class="name2 limit" href="{:Url('Structure/detail')}">临时支部<span class="rt sj"></span></a>
-					</div>
+					{/volist}
 				</div>
 				<!--/第一层-->
 			</div>
@@ -80,12 +66,6 @@
 
 $(function(){
 	$("title").text("组织架构");
-	$('.name2' ).each(function(){
-		var t = $(this ).text();
-//		var href = '/home/structure/detail?party='+t+'';
-		var href = '/home/structure/intro';
-		$(this ).attr('href', href);
-	});
 	$(function(){
 //		//tab值记录
 		tabRecord('.tab' ,'.box');

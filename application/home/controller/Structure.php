@@ -6,9 +6,8 @@
  * Time: 13:21
  */
 namespace app\home\controller;
-use app\home\model\WechatTest;
-use app\home\model\WechatUser;
 
+use app\home\model\Structure as StructureModel;
 class Structure extends Base{
     /*
      * 组织架构主页
@@ -16,6 +15,9 @@ class Structure extends Base{
     public function index(){
         $this ->anonymous();
         $this->assign('title',config('title'));
+        $Model = new StructureModel();
+        $list = $Model->getList();
+        $this->assign('list',$list);
         return $this->fetch();
     }
     /*
@@ -33,7 +35,10 @@ class Structure extends Base{
      * 组织架构介绍页
      * */
     public function intro(){
-
+        $Model = new StructureModel();
+        $id = input('id');
+        $detail = $Model->getDetail($id);
+        $this->assign('detail',$detail);
         return $this->fetch();
     }
 
