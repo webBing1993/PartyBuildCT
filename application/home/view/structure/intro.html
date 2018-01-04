@@ -8,7 +8,7 @@
 <div class="intro">
     <div class="title">支部介绍</div>
     <div class="content">
-        {$detail.content}
+        {$detail.content || default=''}
     </div>
 </div>
 <div class="lead">
@@ -65,7 +65,7 @@
 {block name="script"}
 <script>
     $(function () {
-        $("title").text("{$detail.name}");
+        $("title").text("{$detail.name || default='组织架构'}");
         $(".rank").height($(".list_ li").height());
     })
 </script>
