@@ -76,6 +76,30 @@
                                 {/empty}
                             </div>
                         </div>
+                        <div class="form-group" id="two">
+                            <div class="col-lg-1 text-right control-label">
+                                <label>类别:</label>
+                            </div>
+                            {empty name="msg"}
+                            <div class="col-lg-11">
+                                <label class="i-checks">
+                                    <input type="radio" value="1" name="class"  checked="" >通知
+                                </label>
+                                <label class="i-checks">
+                                    <input type="radio" value="2" name="class">公告
+                                </label>
+                            </div>
+                            {else/}
+                            <div class="col-lg-11">
+                                <label class="i-checks">
+                                    <input type="radio" value="1" name="class" {eq name="$msg.class" value="1"} checked="" {/eq}>通知
+                                </label>
+                                <label class="i-checks">
+                                    <input type="radio" value="2" name="class" {eq name="$msg.class" value="2"} checked="" {/eq}>公告
+                                </label>
+                            </div>
+                            {/empty}
+                        </div>
                         <div class="form-group">
                             <div class="col-lg-1 text-right control-label">
                                 <label>封面图片:</label>
@@ -202,20 +226,26 @@
         });
 
         var type = $("select[name='type']").val();
-        if(type == 1){
-            $("#one").show();
-        }else {
-            $("#one").hide();
-        }
+        var cla = $("input[name='class']:checked").val();
+        changePage(type,cla);
+        $(".i-checks,.iCheck-helper").on("click",function(){
+            cla = $("input[name='class']:checked").val();
+            changePage(type,cla);
+        });
         //选择类别
         $("select[name='type']").on("change",function(){
             var val = $(this).val();
             if(val == 1){
-                $("#one").show();
+                $("#one,#two").show();
+                $(".i-checks,.iCheck-helper").on("click",function(){
+                    var cla = $("input[name='class']:checked").val();
+                    changePage(val,cla);
+                })
             }else {
-                $("#one").hide();
+                $("#one,#two").hide();
             }
         });
+
         $(".imgfile").on("change",function(){
             var size = ($(this)[0].files[0].size / 1024).toFixed(2);
             var imgBox = $(this);
@@ -260,6 +290,7 @@
                 id:$("input[name='id']").val(),
                 front_cover:$("input[name='front_cover']").val(),
                 type:$("select[name='type']").val(),
+                class:$("input[name='class']:checked").val(),
                 title:$("input[name='title']").val(),
                 time:$("input[name='time']").val(),
                 address:$("input[name='address']").val(),
@@ -302,6 +333,24 @@
             });
             return false;
         });
+
+        /**
+         * 切换按钮显示隐藏
+         * @param type
+         * @param cla
+         */
+        function changePage(type,cla) {
+            if(type == 1){
+                $("#two").show();
+                if(cla == 1) {
+                    $("#one").show();
+                }else {
+                    $("#one").hide();
+                }
+            }else {
+                $("#one,#two").hide();
+            }
+        }
     })
 
 </script>

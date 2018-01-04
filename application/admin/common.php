@@ -1254,6 +1254,7 @@ function wechat_status_to_string(&$data) {
     }
     $data = (array)$data;
     $map=array(
+        'position' => array(0=>'无',1=>'书记',2=>'副书记',3=>'支委',4=>'党员'),
         'status'=>array(1=>'已关注',-1=>'删除', 2=>'已禁用',4=>'未关注'),
         'gender'=>array(0=>'未定义',1=>'男',2=>'女')
     );

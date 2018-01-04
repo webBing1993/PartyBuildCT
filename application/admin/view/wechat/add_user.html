@@ -95,7 +95,13 @@
                                 <label>职位:</label>
                             </div>
                             <div class="col-lg-11">
-                                <input type="text" placeholder="职位" class="form-control form_title" name="position" value="{$info.position|default=''}">
+                                <select class="form-control" name="position">
+                                    <option value="0" {eq name="$info.gender|default='0'" value="0"}selected{/eq}>无</option>
+                                    <option value="1" {eq name="$info.gender|default='0'" value="1"}selected{/eq}>书记</option>
+                                    <option value="2" {eq name="$info.gender|default='0'" value="2"}selected{/eq}>副书记</option>
+                                    <option value="2" {eq name="$info.gender|default='0'" value="3"}selected{/eq}>支委</option>
+                                    <option value="2" {eq name="$info.gender|default='0'" value="4"}selected{/eq}>党员</option>
+                                </select>
                             </div>
                         </div>
                         <!--出生年月-->
@@ -196,7 +202,7 @@
         data.gender = $("select[name='gender']").val(); //性别
         data.mobile = $("input[name='mobile']").val().trim(); //手机号码 跟 id
         data.department = $("select[name='department']").val(); //部门
-        data.position = $("input[name='position']").val().trim(); //职位
+        data.position = $("select[name='position']").val(); //职位
         data.birthday = $("input[name='birthday']").val(); //出生年月
         data.education = $("input[name='education']").val().trim(); //学历
         data.nation = $("input[name='nation']").val().trim(); //学历

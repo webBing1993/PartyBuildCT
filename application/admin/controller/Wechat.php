@@ -194,6 +194,26 @@ class Wechat extends Admin
             } else {
                 $v[1] = 2;
             }
+            switch ($v[4]) {
+                case "无":
+                    $v[4] = 0;
+                    break;
+                case "书记":
+                    $v[4] = 1;
+                    break;
+                case "副书记":
+                    $v[4] = 2;
+                    break;
+                case "支委":
+                    $v[4] = 3;
+                    break;
+                case "党员":
+                    $v[4] = 4;
+                    break;
+                default:
+                    $v[4] = 0;
+                    break;
+            }
             //出生年月
             if ($v[5]) {
                 $v[5] = strtotime($v[5]);

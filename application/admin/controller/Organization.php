@@ -44,12 +44,17 @@ class Organization extends Admin {
                 unset($data['id']);
             }
             if($data['type'] == 1) {
-                if(empty($data['time'])) {
-                    return $this->error("时间不能为空!");
+                if($data['class'] == 1) {
+                    if(empty($data['time'])) {
+                        return $this->error("时间不能为空!");
+                    }else {
+                        $data['time'] = strtotime($data['time']);
+                    }
+                    $info = $Model->validate('Organization.one')->save($data); 
                 }else {
-                    $data['time'] = strtotime($data['time']);
+                    unset($data['time']);
+                    $info = $Model->validate('Organization.two')->save($data); 
                 }
-                $info = $Model->validate('Organization.one')->save($data);
             }else {
                 unset($data['time']);
                 $info = $Model->validate('Organization.two')->save($data);
@@ -75,12 +80,17 @@ class Organization extends Admin {
         if(IS_POST) {
             $data = input('post.');
             if($data['type'] == 1) {
-                if(empty($data['time'])) {
-                    return $this->error("时间不能为空!");
+                if($data['class'] == 1) {
+                    if(empty($data['time'])) {
+                        return $this->error("时间不能为空!");
+                    }else {
+                        $data['time'] = strtotime($data['time']);
+                    }
+                    $info = $Model->validate('Organization.one')->save($data,['id'=>input('id')]);
                 }else {
-                    $data['time'] = strtotime($data['time']);
+                    unset($data['time']);
+                    $info = $Model->validate('Organization.two')->save($data,['id'=>input('id')]);
                 }
-                $info = $Model->validate('Organization.one')->save($data,['id'=>input('id')]);
             }else {
                 unset($data['time']);
                 $info = $Model->validate('Organization.two')->save($data,['id'=>input('id')]);
