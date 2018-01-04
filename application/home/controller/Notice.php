@@ -20,6 +20,7 @@ class Notice extends Base {
      * 通知公告
      */
     public function index(){
+        $this->anonymous();
         $Model = new NoticeModel;
         if(IS_POST) {
             $data = input('post.');

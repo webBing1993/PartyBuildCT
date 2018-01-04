@@ -32,6 +32,11 @@
                     <span>招商信息</span>
                 </a>
             </div>
+            {eq name="visit" value="1"}
+            <div class="mui-slider-item mui-control-content lists1">
+                <img src="/home/images/common/404.png" alt="" style="width: 100%">
+            </div>
+            {else/}
             <div class="mui-slider-item mui-control-content lists1">
                 <!-- 通知公告循环体-->
                 {volist name="list.one" id="one"}
@@ -44,6 +49,7 @@
                 </a>
                 {/volist}
             </div>
+            {/eq}
             <div class="mui-slider-item mui-control-content lists2">
                 <!--水质报表循环体-->
                 {volist name="list.two" id="two"}
