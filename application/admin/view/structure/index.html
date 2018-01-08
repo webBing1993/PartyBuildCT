@@ -42,7 +42,6 @@
                             <tr>
                                 <th><input class="i-checks check-all" type="checkbox"></th>
                                 <th>支部名称</th>
-                                <th>简介</th>
                                 <th>创建人</th>
                                 <th>创建时间</th>
                                 <th>状态</th>
@@ -54,7 +53,6 @@
                             <tr>
                                 <td><input type="checkbox" class="i-checks" name="input[]"></td>
                                 <td>{$vo.name}</td>
-                                <td>{$vo.content|msubstr=0,30}</td>
                                 <td>{$vo->cuser->nickname}</td>
                                 <td>{$vo.create_time|time_format='Y-m-d'}</td>
                                 <td>{$vo.status_text}</td>
