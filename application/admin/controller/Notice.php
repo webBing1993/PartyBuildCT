@@ -70,12 +70,17 @@ class Notice extends Admin {
         $Model = new NoticeModel();
         if(IS_POST) {
             $data = input('post.');
-            if(empty($data['time'])) {
-                return $this->error("时间不能为空!");
+            if($data['type'] == 1) {
+                if(empty($data['time'])) {
+                    return $this->error("时间不能为空!");
+                }else {
+                    $data['time'] = strtotime($data['time']);
+                }
+                $info = $Model->validate('notice.one')->save($data,['id'=>input('id')]);
             }else {
-                $data['time'] = strtotime($data['time']);
+                unset($data['time']);
+                $info = $Model->validate('notice.two')->save($data,['id'=>input('id')]);
             }
-            $info = $Model->validate('notice.notice')->save($data,['id'=>input('id')]);
             if($info){
                 return $this->success("修改成功",Url("Notice/index"));
             }else{

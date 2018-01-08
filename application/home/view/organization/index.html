@@ -34,10 +34,12 @@
                     <div class="title limit">{$one.title}</div>
                     <div class="content limit_">{$one.content}</div>
                     <div class="note clear">
+                        {eq name="one.class" value="1"}
                         {eq name="one.is_conduct" value="0"}
                         <span class="fl over">已结束</span>
                         {else/}
                         <span class="fl ing">进行中</span>
+                        {/eq}
                         {/eq}
                         <span class="time fr">{$one.create_time|time_format='Y-m-d'}</span>
                     </div>
@@ -217,10 +219,12 @@
                         '<div class="title limit">'+list.title+'</div>'+
                         '<div class="content limit_">'+list.content+'</div>'+
                         '<div class="note clear">';
-                if(list.state == 0){
-                    html +=	'<span class="fl ing">进行中</span>'
-                }else{
-                    html +=	'<span class="fl over">已结束</span>'
+                if(list.class == 1) {
+                    if(list.state == 0){
+                        html +=	'<span class="fl ing">进行中</span>'
+                    }else{
+                        html +=	'<span class="fl over">已结束</span>'
+                    }
                 }
                 html +=
                         '<span class="time fr">'+list.create_time+'</span>'+

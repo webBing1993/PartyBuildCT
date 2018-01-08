@@ -22,11 +22,13 @@
                         <span class="time fr">{$detail.create_time|time_format="Y-m-d"}</span>
                     </div>
                 </div>
+                {eq name="detail.type" value="1"}
                 <div class="message">
                     <div><span class="limit">{$detail.theme}</span></div>
                     <div><span class="limit">{$detail.time|time_format="Y-m-d H:i"}</span></div>
                     <div><span class="limit">{$detail.address}</span></div>
                 </div>
+                {/eq}
                 <div class="article">
                     <div class="clearfix">{$detail.content}</div>
                     <div class="note clearfix">
