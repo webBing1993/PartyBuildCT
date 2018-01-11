@@ -21,8 +21,12 @@ body {
 .intro .content {
     font-size: .37rem;
     color: #333;
-    text-indent: 2em;
-    line-height: 1.5;
+    /*text-indent: 2em;*/
+    /*line-height: 1.5;*/
+}
+.intro .content p img {
+    width: 100% !important;
+    margin: 1.6vw auto;
 }
 /* lead*/
 .list {
