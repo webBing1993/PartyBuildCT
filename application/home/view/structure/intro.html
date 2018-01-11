@@ -5,14 +5,16 @@
 <link rel="stylesheet" href="/home/css/structure/intro.css">
 {/block}
 {block name="body"}
+{notempty name="$detail.content"}
 <div class="intro">
     <div class="title">支部介绍</div>
     <div class="content">
         {$detail.content || default=''}
     </div>
 </div>
+{/notempty}
 <div class="lead">
-    <div class="title">支部领导</div>
+    <div class="title">组织领导</div>
     <div class="lists">
         {notempty name="$detail.one"}
         <div class="list clearfix">
@@ -46,7 +48,7 @@
         {/notempty}
         {notempty name="$detail.three"}
         <div class="list clearfix">
-            <div class="fl rank"><span>支委：</span></div>
+            <div class="fl rank"><span>委员：</span></div>
             <div class="fl list_">
                 <ul>
                     {volist name="detail.three" id="three"}
